@@ -1,3 +1,4 @@
+'use strict';
 import {IBuilder} from "../interfaces/IBuilder.interface";
 /**
  * Created by becari on 17/08/2016.
