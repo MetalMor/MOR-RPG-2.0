@@ -3,13 +3,13 @@
  * Created by Mor on 15/08/2016.
  */
 
-import { Roll } from 'IRoll.interface';
+import { IRoll } from 'IRoll.interface';
 
-export interface RollSet extends Roll {
-    init(): RollSet;
-    validate(): RollSet;
-    resolve(): RollSet;
-    add(roll: Roll): boolean;
-    get(roll: number): Roll;
-    remove(roll: Roll | number): boolean;
+export interface IRollSet extends IRoll {
+    init(): IRollSet;
+    validate(): IRollSet;
+    resolve(): IRollSet;
+    add(roll: IRoll): boolean;
+    get(roll: number): IRoll;
+    remove(roll: IRoll | number): boolean;
 }

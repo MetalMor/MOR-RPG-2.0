@@ -4,7 +4,7 @@
  */
 
 export interface IRoll {
-    throw(): IRoll;
+    throwDice(): IRoll;
     isWin(): boolean;
     isBlunder(): boolean;
 }
