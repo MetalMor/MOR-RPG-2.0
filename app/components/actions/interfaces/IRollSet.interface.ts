@@ -3,7 +3,7 @@
  * Created by Mor on 15/08/2016.
  */
 
-import { IRoll } from 'IRoll.interface';
+import { IRoll } from './IRoll.interface';
 
 export interface IRollSet extends IRoll {
     init(): IRollSet;

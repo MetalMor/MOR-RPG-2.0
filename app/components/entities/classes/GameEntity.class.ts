@@ -11,14 +11,19 @@ export abstract class GameEntity implements IGameEntity {
         this.name = cast && cast.name || "unnamed";
     }
 
-    public get name(): string {
+    get name(): string {
         return this._name;
     }
-    public set name(_name: string) {
+    set name(_name: string) {
         this._name = _name;
     }
 
-    public toString(): string {
+    toString(): string {
         return this.name;
+    }
+    equals(obj: IGameEntity): boolean {
+        if(!other) return false;
+        var other = <GameEntity> obj;
+        return other.name === this.name;
     }
 }

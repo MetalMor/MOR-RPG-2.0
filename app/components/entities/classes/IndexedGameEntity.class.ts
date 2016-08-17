@@ -1,7 +1,7 @@
 'use strict';
 import {GameEntity} from './GameEntity.class';
 import {IIndexedGameEntity} from "../interfaces/IIndexedGameEntity.interface";
-import {Util} from "../../../classes/Util.class";
+import {Util} from "../../util/classes/Util.class";
 /**
  * Created by Mor on 15/08/2016.
  */
@@ -11,13 +11,22 @@ export abstract class IndexedGameEntity extends GameEntity implements IIndexedGa
     constructor(obj?: IIndexedGameEntity) {
         super(obj);
         var cast = <IndexedGameEntity> obj;
-        this.id = cast && cast.id || Util.randomNumber(0, 10000);
+        this.id = cast && cast.id || Util.autoId();
     }
 
-    public get id(): number {
+    get id(): number {
         return this._id;
     }
-    public set id(_id: number) {
+    set id(_id: number) {
         this._id = _id;
+    }
+
+    toString(): string {
+        return super.toString();
+    }
+    equals(obj: IIndexedGameEntity): boolean {
+        if(!obj) return false;
+        var other = <IndexedGameEntity> obj;
+        return this.id === other.id;
     }
 }

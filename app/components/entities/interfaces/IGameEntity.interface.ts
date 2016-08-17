@@ -5,4 +5,5 @@
 export interface IGameEntity {
     _name: string;
     toString(): string;
+    equals(obj: IGameEntity): boolean;
 }

@@ -1,19 +1,35 @@
 import {IStat} from "../interfaces/IStat.interface";
 import {AbstractField} from "./AbstractField.class";
 import {IStatModificator} from "../interfaces/IStatModificator.interface";
+import {Arrays} from "../../util/classes/Arrays.class";
 /**
  * Created by becari on 17/08/2016.
  */
 export class StatField extends AbstractField implements IStat {
-    mods: IStatModificator[];
+    _mods: IStatModificator[];
 
-    addMod(mod: IStatModificator): void {
+    constructor(obj?: IStat) {
+        super(obj);
+        var cast = <StatField> obj;
+        this.mods = cast && cast.mods || new Array<IStatModificator>();
     }
 
-    removeMod(mod: IStatModificator|number) {
+    get mods(): IStatModificator[] {
+        return this._mods;
+    }
+    set mods(_mods: IStatModificator[]) {
+        this._mods = _mods;
     }
 
-    getMod(id: number) {
+    addMod(_mod: IStatModificator): boolean {
+        return Arrays.add(this.mods, _mod);
     }
 
+    removeMod(_mod: IStatModificator) {
+        return Arrays.remove(this.mods, _mod);
+    }
+
+    getMod(_mod: IStatModificator) {
+        return Arrays.get(this.mods, _mod);
+    }
 }

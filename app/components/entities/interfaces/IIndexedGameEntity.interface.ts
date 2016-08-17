@@ -6,4 +6,5 @@ import {IGameEntity} from "./IGameEntity.interface";
 export interface IIndexedGameEntity extends IGameEntity {
     _id: number;
     toString(): string;
+    equals(obj: IIndexedGameEntity): boolean;
 }

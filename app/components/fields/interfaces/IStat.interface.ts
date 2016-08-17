@@ -1,11 +1,12 @@
 'use strict';
-import {IStatModificator} from "IStatModificator.interface";
+import {IStatModificator} from "./IStatModificator.interface";
+import {IField} from "./IField";
+import {IStatModificatorSource} from "./IStatModificatorSource.interface";
 /**
  * Created by Mor on 15/08/2016.
  */
-export interface IStat {
-    mods: IStatModificator[];
-    addMod(mod: IStatModificator): void
-    removeMod(mod: IStatModificator | number);
-    getMod(id: number);
+export interface IStat extends IField {
+    addMod(_mod: IStatModificator): void
+    removeMod(_mod: IStatModificator);
+    getMod(_mod: IStatModificator);
 }
