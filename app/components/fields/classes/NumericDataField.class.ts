@@ -1,16 +1,14 @@
 'use strict';
-import {DataField} from "./DataField.class";
-import {IDataField} from "../interfaces/IDataField.interface";
+import {AbstractDataField} from "./AbstractDataField.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export class NumericDataField extends DataField {
+export class NumericDataField extends AbstractDataField {
     _value: number;
 
-    constructor(obj?: IDataField) {
+    constructor(obj?: NumericDataField) {
         super(obj);
-        var cast = <NumericDataField> obj;
-        this.value = cast && cast.value || 0;
+        this.value = obj && obj.value || 0;
     }
 
     get value(): number {

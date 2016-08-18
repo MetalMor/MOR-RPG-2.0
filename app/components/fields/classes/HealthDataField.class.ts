@@ -19,6 +19,10 @@ export class HealthDataField extends NumericDataField {
             ];
     }
 
+    set value(_value: number) {
+        this._value = _value;
+    }
+
     get labels(): Array<string> {
         return this._labels;
     }

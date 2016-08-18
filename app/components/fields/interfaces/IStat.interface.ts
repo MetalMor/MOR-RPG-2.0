@@ -1,7 +1,6 @@
 'use strict';
 import {IStatModificator} from "./IStatModificator.interface";
-import {IField} from "./IField";
-import {IStatModificatorSource} from "./IStatModificatorSource.interface";
+import {IField} from "./IField.interface";
 /**
  * Created by Mor on 15/08/2016.
  */

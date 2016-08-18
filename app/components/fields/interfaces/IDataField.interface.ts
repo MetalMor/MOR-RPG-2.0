@@ -1,6 +1,7 @@
 'use strict';
-import {IField} from "./IField";
+import {IField} from "./IField.interface";
+import {IStatModificatorSource} from "./IStatModificatorSource.interface";
 /**
  * Created by Mor on 15/08/2016.
  */
-export interface IDataField extends IField { }
+export interface IDataField extends IField, IStatModificatorSource {  }

@@ -1,13 +1,12 @@
 'use strict';
 import {IDataField} from "../interfaces/IDataField.interface";
 import {AbstractField} from "./AbstractField.class";
-import {IStatModificatorSource} from "../interfaces/IStatModificatorSource.interface";
 import {IStatModificator} from "../interfaces/IStatModificator.interface";
 import {Arrays} from "../../util/classes/Arrays.class";
 /**
  * Created by Mor on 15/08/2016.
  */
-export abstract class DataField extends AbstractField implements IDataField, IStatModificatorSource {
+export abstract class AbstractDataField extends AbstractField implements IDataField {
     _grants: IStatModificator[];
 
     constructor(obj?: IDataField) {

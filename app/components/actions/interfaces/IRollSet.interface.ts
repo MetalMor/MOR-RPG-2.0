@@ -9,7 +9,7 @@ export interface IRollSet extends IRoll {
     init(): IRollSet;
     validate(): IRollSet;
     resolve(): IRollSet;
-    add(roll: IRoll): boolean;
-    get(roll: number): IRoll;
-    remove(roll: IRoll | number): boolean;
+    add(_roll: IRoll): boolean;
+    get(_roll: IRoll): IRoll;
+    remove(_roll: IRoll): boolean;
 }

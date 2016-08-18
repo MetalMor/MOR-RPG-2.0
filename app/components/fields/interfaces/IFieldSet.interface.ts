@@ -1,6 +1,5 @@
 'use strict';
-import {AbstractField} from "../classes/AbstractField.class";
-import {IField} from "./IField";
+import {IField} from "./IField.interface";
 /**
  * Created by Mor on 15/08/2016.
  */

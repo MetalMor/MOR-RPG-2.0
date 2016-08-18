@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractField} from "./AbstractField.class";
 import {IFieldSet} from "../interfaces/IFieldSet.interface";
-import {IField} from "../interfaces/IField";
+import {IField} from "../interfaces/IField.interface";
 import {Arrays} from "../../util/classes/Arrays.class";
 /**
  * Created by Mor on 17/08/2016.

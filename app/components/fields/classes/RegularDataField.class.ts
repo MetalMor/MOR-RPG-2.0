@@ -1,17 +1,14 @@
 'use strict';
-import {DataField} from "./DataField.class";
-import {IDataField} from "../interfaces/IDataField.interface";
-import {IFieldSet} from "../interfaces/IFieldSet.interface";
+import {AbstractDataField} from "./AbstractDataField.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export class RegularDataField extends DataField {
+export class RegularDataField extends AbstractDataField {
     _value: string;
 
-    constructor(obj?: IDataField) {
+    constructor(obj?: RegularDataField) {
         super(obj);
-        var cast = <RegularDataField> obj;
-        this.value = cast && cast.value || 'undefined';
+        this.value = obj && obj.value || 'undefined';
     }
 
     get value(): string {

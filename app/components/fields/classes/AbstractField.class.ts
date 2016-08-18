@@ -1,5 +1,5 @@
 import {GameEntity} from "../../entities/classes/GameEntity.class";
-import {IField} from "../interfaces/IField";
+import {IField} from "../interfaces/IField.interface";
 /**
  * Created by becari on 17/08/2016.
  */

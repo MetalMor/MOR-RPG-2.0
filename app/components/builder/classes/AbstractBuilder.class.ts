@@ -5,6 +5,6 @@ import {IBuilder} from "../interfaces/IBuilder.interface";
  */
 export abstract class AbstractBuilder implements IBuilder {
     buildPart(): void {
-
+        // TODO impl
     };
 }

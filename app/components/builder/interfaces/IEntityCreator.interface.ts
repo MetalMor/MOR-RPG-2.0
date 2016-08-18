@@ -6,8 +6,8 @@
 import {IGameEntity} from "../../entities/interfaces/IGameEntity.interface";
 
 export interface IEntityCreator {
-    create(entity: IGameEntity): boolean;
-    remove(entity: IGameEntity | number): boolean;
-    find(entity: number): IGameEntity;
-    update(entity: IGameEntity): boolean;
+    create(_entity: IGameEntity): boolean;
+    remove(_entity: IGameEntity): boolean;
+    find(_entity: IGameEntity): IGameEntity;
+    update(_entity: IGameEntity): boolean;
 }
