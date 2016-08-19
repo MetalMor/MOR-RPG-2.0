@@ -9,14 +9,20 @@ import {Constants} from "../../util/classes/Constants.class";
  */
 export abstract class AbstractCharacter extends StatFieldSet implements ICharacter {
     _inherits: IIndexedGameEntity;
-    static _instance: AbstractCharacter;
+    // HOWDY! por ahora esto será un singleton, pero posiblemente englobe personajes, usuarios y partidas
+    // dentro de un objeto contexto que sea un singleton (no me fío demasiado de que en ningun momento haya
+    // más de una instancia de character, game o user)
+    // Otra opción es implementar todas estas clases con normalidad y luego heredarlas en clases con patron
+    // singleton, las cuales serán las que se instancien en el cliente (de este modo en el servidor se reseva
+    // el singleton para algo que realmente sea único)
+    static _instance: AbstractCharacter; // <-- esto hace que sea un singleton
 
     constructor(obj?: AbstractCharacter) {
         super(obj);
         if(AbstractCharacter.instance)
             throw new Error(Constants.ERR_SINGLETON);
         this.inherits = obj && obj.inherits || new IndexedGameEntityImpl();
-        AbstractCharacter.instance = this;
+        AbstractCharacter.instance = this; // <-- auto-referencia del singleton aquí
     }
 
     get id(): number {
