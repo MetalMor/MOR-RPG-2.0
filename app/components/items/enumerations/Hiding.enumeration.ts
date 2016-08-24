@@ -6,6 +6,6 @@
 export declare enum Hiding {
     Pocket = 3,
     Jacket = 2,
-    Gabardine = 1,
-    Unhidable = 0
+    Trenchcoat = 1,
+    None = 0
 }

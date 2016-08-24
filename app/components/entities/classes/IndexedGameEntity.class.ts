@@ -7,11 +7,12 @@ import {Util} from "../../util/classes/Util.class";
  */
 export abstract class IndexedGameEntity extends GameEntity implements IIndexedGameEntity {
     _id: number;
+    static _staticId: number;
 
     constructor(obj?: IIndexedGameEntity) {
         super(obj);
         var cast = <IndexedGameEntity> obj;
-        this.id = cast && cast.id || Util.autoId();
+        this.id = cast && cast.id || IndexedGameEntity.staticId++;
     }
 
     get id(): number {
@@ -19,6 +20,13 @@ export abstract class IndexedGameEntity extends GameEntity implements IIndexedGa
     }
     set id(_id: number) {
         this._id = _id;
+    }
+    static get staticId(): number {
+        if(!IndexedGameEntity.staticId) IndexedGameEntity.staticId = 0;
+        return IndexedGameEntity.staticId;
+    }
+    static set staticId(_staticId: number) {
+        IndexedGameEntity._staticId = _staticId;
     }
 
     toString(): string {

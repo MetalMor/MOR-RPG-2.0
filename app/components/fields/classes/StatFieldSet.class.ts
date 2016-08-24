@@ -1,12 +1,12 @@
 'use strict';
 import {IStatFieldSet} from "../interfaces/IStatFieldSet.interface";
 import {IStatModificator} from "../interfaces/IStatModificator.interface";
-import {RegularFieldSet} from "./RegularFieldSet.class";
+import {AbstractFieldSet} from "./AbstractFieldSet.class";
 import {Arrays} from "../../util/classes/Arrays.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export class StatFieldSet extends RegularFieldSet implements IStatFieldSet {
+export class StatFieldSet extends AbstractFieldSet implements IStatFieldSet {
     _mods: IStatModificator[];
     _initPoints: number;
 

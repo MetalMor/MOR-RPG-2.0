@@ -4,6 +4,8 @@ import {IIndexedGameEntity} from "../interfaces/IIndexedGameEntity.interface";
 import {StatFieldSet} from "../../fields/classes/StatFieldSet.class";
 import {IndexedGameEntityImpl} from "./IndexedGameEntityImpl.class";
 import {Constants} from "../../util/classes/Constants.class";
+import {IField} from "../../fields/interfaces/IField.interface";
+import {Timer} from "../../util/classes/Timer.class";
 /**
  * Created by becari on 18/08/2016.
  */
@@ -26,6 +28,39 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
     }
     set inherits(_inherits: IIndexedGameEntity) {
         this._inherits = _inherits;
+    }
+
+    get(_field: IField) {
+        var timer: Timer = new Timer(),
+            ret: IField;
+        timer.play();
+        ret = super.get(_field);
+        timer.stop(true);
+        return ret;
+    }
+    set(_field: IField): boolean {
+        var timer: Timer = new Timer(),
+            ret: boolean;
+        timer.play();
+        ret = super.set(_field);
+        timer.stop(true);
+        return ret;
+    }
+    add(_field: IField): boolean {
+        var timer: Timer = new Timer(),
+            ret: boolean;
+        timer.play();
+        ret = super.add(_field);
+        timer.stop(true);
+        return ret;
+    }
+    remove(_field: IField): boolean {
+        var timer: Timer = new Timer(),
+            ret: boolean;
+        timer.play();
+        ret = super.remove(_field);
+        timer.stop(true);
+        return ret;
     }
 
     toString(): string {
