@@ -3,7 +3,6 @@ import {ICharacter} from "../interfaces/ICharacter.interface";
 import {IIndexedGameEntity} from "../interfaces/IIndexedGameEntity.interface";
 import {StatFieldSet} from "../../fields/classes/StatFieldSet.class";
 import {IndexedGameEntityImpl} from "./IndexedGameEntityImpl.class";
-import {Constants} from "../../util/classes/Constants.class";
 import {IField} from "../../fields/interfaces/IField.interface";
 import {Timer} from "../../util/classes/Timer.class";
 /**
