@@ -17,6 +17,8 @@ export abstract class AbstractGame extends IndexedGameEntity implements IGame {
     constructor(obj?: AbstractGame) {
         super(obj);
         this.charList = obj && obj.charList || new GameCharacterList();
+        this.story = obj && obj.story || new RegularDataField();
+        this.image = obj && obj.image  || new ImageDataField();
     }
 
     get charList(): IGameCharacterList {
@@ -31,6 +33,12 @@ export abstract class AbstractGame extends IndexedGameEntity implements IGame {
     set story(_story: RegularDataField) {
         this._story = _story;
     }
+    get image(): ImageDataField {
+        return this._image;
+    }
+    set image(_image: ImageDataField) {
+        this._image = _image;
+    }
 
     addPc(_pc: ICharacter): boolean {
         return this.charList.addPc(_pc);
@@ -41,6 +49,9 @@ export abstract class AbstractGame extends IndexedGameEntity implements IGame {
     getPc(_pc: ICharacter): ICharacter {
         return this.charList.getPc(_pc);
     }
+    setPc(_pc: ICharacter): boolean {
+        return this.charList.setPc(_pc);
+    }
 
     addNpc(_npc: ICharacter): boolean {
         return this.charList.addNpc(_npc);
@@ -50,5 +61,8 @@ export abstract class AbstractGame extends IndexedGameEntity implements IGame {
     }
     getNpc(_npc: ICharacter): ICharacter {
         return this.charList.getNpc(_npc);
+    }
+    setNpc(_npc: ICharacter): boolean {
+        return this.charList.setNpc(_npc);
     }
 }

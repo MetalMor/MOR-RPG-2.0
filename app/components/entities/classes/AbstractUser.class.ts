@@ -52,13 +52,39 @@ export abstract class AbstractUser extends IndexedGameEntity implements IUser {
         return (<AbstractEntityCreator> this.inherits).update(_entity);
     }
 
+    /**
+     * Añade un personaje especificado por parámetro a la lista de personajes del usuario.
+     * @param _pc Personaje a añadir.
+     * @returns {boolean}
+     */
     addPc(_pc: ICharacter): boolean {
         return this.charList.addPc(_pc);
     }
+
+    /**
+     * Elimina un personaje especificado por parámetro de la lista de personajes del usuario.
+     * @param _pc Personaje a eliminar.
+     * @returns {boolean}
+     */
     removePc(_pc: ICharacter): boolean {
         return this.charList.removePc(_pc);
     }
+
+    /**
+     * Retorna un personaje especificado por parámetro de la lista de personajes del usuario.
+     * @param _pc Personaje requerido.
+     * @returns {ICharacter}
+     */
     getPc(_pc: ICharacter): ICharacter {
         return this.charList.getPc(_pc);
+    }
+
+    /**
+     * Actualiza un personaje especificado por parámetro de la lista de personajes del usuario.
+     * @param _pc
+     * @returns {boolean}
+     */
+    setPc(_pc: ICharacter): boolean {
+        return this.charList.setPc(_pc);
     }
 }

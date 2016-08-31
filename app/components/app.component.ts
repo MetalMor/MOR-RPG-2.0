@@ -1,11 +1,11 @@
 'use strict';
+import {PruebaInterface} from "./prueba.interface";
+import {Component} from '@angular/core';
 /**
  * Prueba componente de Angular 2
  * Created by becari on 18/07/2016.
  */
 
-import { Component } from '@angular/core';
-import { PruebaInterface } from 'prueba.interface.ts';
 
 @Component({
     selector: 'my-app',

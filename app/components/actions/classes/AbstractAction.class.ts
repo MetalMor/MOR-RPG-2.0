@@ -10,6 +10,9 @@ export abstract class AbstractAction extends IndexedGameEntity implements IActio
     _time: Date;
     _rolls: IRollSet[];
 
+    /**
+     * Resuelve todas las tiradas de dados englobadas en la acción.
+     */
     resolve(): void {
         var rolls: IRollSet[] = this.rolls;
         rolls.forEach(function(r) {
@@ -17,24 +20,24 @@ export abstract class AbstractAction extends IndexedGameEntity implements IActio
         });
     }
 
-    public get desc(): string {
+    get desc(): string {
         return this._desc;
     }
-    public set desc(_desc: string) {
+    set desc(_desc: string) {
         this._desc = _desc;
     }
 
-    public get time(): Date {
+    get time(): Date {
         return this._time;
     }
-    public set time(_time: Date) {
+    set time(_time: Date) {
         this._time = _time;
     }
 
-    public get rolls(): IRollSet[] {
+    get rolls(): IRollSet[] {
         return this._rolls;
     }
-    public set rolls(_rolls: IRollSet[]) {
+    set rolls(_rolls: IRollSet[]) {
         this._rolls = _rolls;
     }
 }

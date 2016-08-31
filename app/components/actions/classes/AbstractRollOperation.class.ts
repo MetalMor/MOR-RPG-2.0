@@ -1,6 +1,8 @@
+'use strict';
 import {GameEntity} from "../../entities/classes/GameEntity.class";
 import {IRollOperation} from "../interfaces/IRollOperation.interface";
 /**
+ * Clase abstracta que representa una operación de dados.
  * Created by becari on 18/08/2016.
  */
 export abstract class AbstractRollOperation extends GameEntity implements IRollOperation {

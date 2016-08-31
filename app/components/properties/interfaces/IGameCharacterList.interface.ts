@@ -5,7 +5,8 @@ import {ICharacterList} from "./ICharacterList.interface";
  * Created by Mor on 20/08/2016.
  */
 export interface IGameCharacterList extends ICharacterList {
-    addNpc(_npc: ICharacter);
-    removeNpc(_npc: ICharacter);
-    getNpc(_npc: ICharacter);
+    addNpc(_npc: ICharacter): boolean;
+    removeNpc(_npc: ICharacter): boolean;
+    getNpc(_npc: ICharacter): ICharacter;
+    setNpc(_npc: ICharacter): boolean;
 }

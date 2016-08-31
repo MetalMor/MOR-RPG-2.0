@@ -30,4 +30,7 @@ export class GameCharacterList extends AbstractCharacterList implements IGameCha
     getNpc(_npc: ICharacter): ICharacter {
         return <ICharacter> Arrays.get(this.npcs, _npc);
     }
+    setNpc(_npc: ICharacter): boolean {
+        return Arrays.set(this.npcs, _npc);
+    }
 }

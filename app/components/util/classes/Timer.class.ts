@@ -1,5 +1,6 @@
 'use strict';
 /**
+ * Clase que representa un temporizador para controlar los tiempos al debugar.
  * Created by Mor on 25/08/2016.
  */
 export class Timer {
@@ -15,6 +16,9 @@ export class Timer {
         this.on = obj && obj.on || false;
     }
 
+    /**
+     * Pone en marcha el temporizador.
+     */
     play() {
         if(!this.on) {
             this.on = true;
@@ -22,6 +26,13 @@ export class Timer {
             this.endTime = -1;
         }
     }
+
+    /**
+     * Detiene el temporizador y retorna el tiempo en milisegundos que ha transcurrido desde que se puso en marcha.
+     * Si el parámetro <code>log</code> vale true, el mensaje del tiempo transcurrido aparecerá en la consola.
+     * @param log
+     * @returns {number}
+     */
     stop(log?: boolean): number {
         if(this.on) {
             this.on = false;
@@ -33,7 +44,11 @@ export class Timer {
         return -1;
     }
 
-    static currentTimeInMillis() {
+    /**
+     * Retorna la fecha actual en milisegundos.
+     * @returns {number}
+     */
+    static currentTimeInMillis(): number {
         return (new Date()).getTime();
     }
 

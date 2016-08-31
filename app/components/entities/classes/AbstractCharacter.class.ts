@@ -5,15 +5,18 @@ import {StatFieldSet} from "../../fields/classes/StatFieldSet.class";
 import {IndexedGameEntityImpl} from "./IndexedGameEntityImpl.class";
 import {IField} from "../../fields/interfaces/IField.interface";
 import {Timer} from "../../util/classes/Timer.class";
+import {SingletonUser} from "./SingletonUser.class";
 /**
  * Created by becari on 18/08/2016.
  */
 export abstract class AbstractCharacter extends StatFieldSet implements ICharacter {
     _inherits: IIndexedGameEntity;
+    _ownerId: number;
 
     constructor(obj?: AbstractCharacter) {
         super(obj);
         this.inherits = obj && obj.inherits || new IndexedGameEntityImpl();
+        this.ownerId = obj && obj.ownerId || SingletonUser.instance.id;
     }
 
     get id(): number {
@@ -28,8 +31,19 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
     set inherits(_inherits: IIndexedGameEntity) {
         this._inherits = _inherits;
     }
+    get ownerId(): number {
+        return this._ownerId;
+    }
+    set ownerId(_ownerId: number) {
+        this._ownerId = _ownerId;
+    }
 
-    get(_field: IField) {
+    /**
+     * Retorna el campo especificado por parámetro perteneciente a este objeto.
+     * @param _field Campo requerido.
+     * @returns {IField}
+     */
+    get(_field: IField): IField {
         var timer: Timer = new Timer(),
             ret: IField;
         timer.play();
@@ -37,6 +51,12 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
         timer.stop(true);
         return ret;
     }
+
+    /**
+     * Actualiza el campo especificado por parámetro perteneciente a este objeto.
+     * @param _field Campo a actualizar.
+     * @returns {boolean}
+     */
     set(_field: IField): boolean {
         var timer: Timer = new Timer(),
             ret: boolean;
@@ -45,6 +65,12 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
         timer.stop(true);
         return ret;
     }
+
+    /**
+     * Añade un campo especificado por parámetro a la lista de campos del personaje
+     * @param _field Campo a añadir.
+     * @returns {boolean}
+     */
     add(_field: IField): boolean {
         var timer: Timer = new Timer(),
             ret: boolean;
@@ -53,6 +79,12 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
         timer.stop(true);
         return ret;
     }
+
+    /**
+     * Elimina un campo especificado por parámetro de la lista de campos de este objeto.
+     * @param _field Campo a eliminar.
+     * @returns {boolean}
+     */
     remove(_field: IField): boolean {
         var timer: Timer = new Timer(),
             ret: boolean;
@@ -62,9 +94,19 @@ export abstract class AbstractCharacter extends StatFieldSet implements ICharact
         return ret;
     }
 
+    /**
+     * Retorna una cadena de caracteres identificativa para el objeto.
+     * @returns {string}
+     */
     toString(): string {
         return this.inherits.toString();
     }
+
+    /**
+     * Comprueba si este objeto coincide con otro especificado por parámetro.
+     * @param obj Objeto a validar.
+     * @returns {boolean}
+     */
     equals(obj: AbstractCharacter): boolean {
         return this.inherits.equals(obj);
     }
