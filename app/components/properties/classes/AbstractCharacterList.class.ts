@@ -1,14 +1,14 @@
 'use strict';
 import {ICharacterList} from "../interfaces/ICharacterList.interface";
 import {ICharacter} from "../../entities/interfaces/ICharacter.interface";
-import {IndexedGameEntity} from "../../entities/classes/IndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "../../entities/classes/AbstractIndexedGameEntity.class";
 import {Arrays} from "../../util/classes/Arrays.class";
 import {AbstractUser} from "../../entities/classes/AbstractUser.class";
 import {SingletonUser} from "../../entities/classes/SingletonUser.class";
 /**
  * Created by Mor on 20/08/2016.
  */
-export abstract class AbstractCharacterList extends IndexedGameEntity implements ICharacterList {
+export abstract class AbstractCharacterList extends AbstractIndexedGameEntity implements ICharacterList {
     _pcs: ICharacter[];
     _ownerId: number;
 

@@ -1,18 +1,18 @@
 'use strict';
-import {GameEntity} from './GameEntity.class';
+import {AbstractGameEntity} from './AbstractGameEntity.class';
 import {IIndexedGameEntity} from "../interfaces/IIndexedGameEntity.interface";
 import {Util} from "../../util/classes/Util.class";
 /**
  * Created by Mor on 15/08/2016.
  */
-export abstract class IndexedGameEntity extends GameEntity implements IIndexedGameEntity {
+export abstract class AbstractIndexedGameEntity extends AbstractGameEntity implements IIndexedGameEntity {
     _id: number;
     static _staticId: number;
 
     constructor(obj?: IIndexedGameEntity) {
         super(obj);
-        var cast = <IndexedGameEntity> obj;
-        this.id = cast && cast.id || IndexedGameEntity.staticId++;
+        var cast = <AbstractIndexedGameEntity> obj;
+        this.id = cast && cast.id || AbstractIndexedGameEntity.staticId++;
     }
 
     get id(): number {
@@ -22,11 +22,11 @@ export abstract class IndexedGameEntity extends GameEntity implements IIndexedGa
         this._id = _id;
     }
     static get staticId(): number {
-        if(!IndexedGameEntity.staticId) IndexedGameEntity.staticId = 0;
-        return IndexedGameEntity.staticId;
+        if(!AbstractIndexedGameEntity.staticId) AbstractIndexedGameEntity.staticId = 0;
+        return AbstractIndexedGameEntity.staticId;
     }
     static set staticId(_staticId: number) {
-        IndexedGameEntity._staticId = _staticId;
+        AbstractIndexedGameEntity._staticId = _staticId;
     }
 
     toString(): string {
@@ -34,7 +34,7 @@ export abstract class IndexedGameEntity extends GameEntity implements IIndexedGa
     }
     equals(obj: IIndexedGameEntity): boolean {
         if(!obj) return false;
-        var other = <IndexedGameEntity> obj;
+        var other = <AbstractIndexedGameEntity> obj;
         return this.id === other.id;
     }
 }

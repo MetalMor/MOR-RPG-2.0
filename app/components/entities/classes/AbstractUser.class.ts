@@ -1,5 +1,5 @@
 'use strict';
-import {IndexedGameEntity} from "./IndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "./AbstractIndexedGameEntity.class";
 import {IEntityCreator} from "../../builder/interfaces/IEntityCreator.interface";
 import {IGameEntity} from "../interfaces/IGameEntity.interface";
 import {IUser} from "../interfaces/IUser.interface";
@@ -10,7 +10,7 @@ import {ICharacter} from "../interfaces/ICharacter.interface";
 /**
  * Created by Mor on 17/08/2016.
  */
-export abstract class AbstractUser extends IndexedGameEntity implements IUser {
+export abstract class AbstractUser extends AbstractIndexedGameEntity implements IUser {
     _inherits: IEntityCreator;
     _charList: IUserCharacterList;
     _passwd: string;

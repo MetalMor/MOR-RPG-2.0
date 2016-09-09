@@ -1,11 +1,11 @@
 'use strict';
-import {IndexedGameEntity} from "../../entities/classes/IndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "../../entities/classes/AbstractIndexedGameEntity.class";
 import {IAction} from "../interfaces/IAction.interface";
 import {IRollSet} from "../interfaces/IRollSet.interface";
 /**
  * Created by Mor on 15/08/2016.
  */
-export abstract class AbstractAction extends IndexedGameEntity implements IAction {
+export abstract class AbstractAction extends AbstractIndexedGameEntity implements IAction {
     _desc: string;
     _time: Date;
     _rolls: IRollSet[];

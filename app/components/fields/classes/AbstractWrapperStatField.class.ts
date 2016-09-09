@@ -1,18 +1,18 @@
 'use strict';
 import {IWrapperStatField} from "../interfaces/IWrapperStatField.interface";
 import {IWrapperField} from "../interfaces/IWrapperField.interface";
-import {StatField} from "./StatField.class";
 import {IStat} from "../interfaces/IStat.interface";
 import {WrapperFieldImpl} from "./WrapperFieldImpl.class";
 import {AbstractWrapperField} from "./AbstractWrapperField.class";
+import {StatFieldImpl} from "./StatFieldImpl.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export abstract class AbstractWrapperStatField extends StatField implements IWrapperStatField {
+export abstract class AbstractWrapperStatField extends StatFieldImpl implements IWrapperStatField {
     _inherits: IWrapperField;
 
     constructor(obj?: IWrapperStatField) {
-        super(obj);
+        super(<AbstractWrapperStatField>obj);
         var cast = <AbstractWrapperStatField> obj;
         this.inherits = obj && cast.inherits || new WrapperFieldImpl();
     }

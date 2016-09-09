@@ -82,4 +82,18 @@ export class Arrays {
         });
         return updated;
     }
+    static fromProperty(_array: Object[], _prop: string) {
+        return _array.map(function(element) {
+            return element[_prop];
+        });
+    }
+    /**
+     * Suma todos los números dentro de un array de números.
+     * @param _array Array de números
+     * @returns {number}
+     */
+    static summation(_array: number[]): number {
+        var sum: (firstTerm: number, lastTerm: number) => number = function(a, b) { return a + b; };
+        return _array.reduce(sum, 0);
+    }
 }

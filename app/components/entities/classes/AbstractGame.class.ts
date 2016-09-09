@@ -1,5 +1,5 @@
 'use strict';
-import {IndexedGameEntity} from "./IndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "./AbstractIndexedGameEntity.class";
 import {IGameCharacterList} from "../../properties/interfaces/IGameCharacterList.interface";
 import {GameCharacterList} from "../../properties/classes/GameCharacterList.class";
 import {IGame} from "../interfaces/IGame.interface";
@@ -9,7 +9,7 @@ import {RegularDataField} from "../../fields/classes/RegularDataField.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export abstract class AbstractGame extends IndexedGameEntity implements IGame {
+export abstract class AbstractGame extends AbstractIndexedGameEntity implements IGame {
     _charList: IGameCharacterList;
     _image: ImageDataField;
     _story: RegularDataField;

@@ -3,11 +3,11 @@ import {IGameEntity} from "../interfaces/IGameEntity.interface";
 /**
  * Created by Mor on 15/08/2016.
  */
-export abstract class GameEntity implements IGameEntity {
+export abstract class AbstractGameEntity implements IGameEntity {
     _name: string;
 
     constructor(obj?: IGameEntity) {
-        var cast = <GameEntity> obj;
+        var cast = <AbstractGameEntity> obj;
         this.name = cast && cast.name || "unnamed";
     }
 
@@ -23,7 +23,7 @@ export abstract class GameEntity implements IGameEntity {
     }
     equals(obj: IGameEntity): boolean {
         if(!other) return false;
-        var other = <GameEntity> obj;
+        var other = <AbstractGameEntity> obj;
         return other.name === this.name;
     }
 }

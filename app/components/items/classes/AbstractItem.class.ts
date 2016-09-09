@@ -2,10 +2,10 @@
 import {IItem} from "../interfaces/IItem.interface";
 import {AbstractFieldSet} from "../../fields/classes/AbstractFieldSet.class";
 import {IIndexedGameEntity} from "../../entities/interfaces/IIndexedGameEntity.interface";
-import {IndexedGameEntity} from "../../entities/classes/IndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "../../entities/classes/AbstractIndexedGameEntity.class";
 import {IndexedGameEntityImpl} from "../../entities/classes/IndexedGameEntityImpl.class";
 import {Hiding} from "../enumerations/Hiding.enumeration";
-import {IStatModificator} from "../../fields/interfaces/IStatModificator.interface";
+import {IStatModificator} from "../../modificators/interfaces/IStatModificator.interface";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -21,10 +21,10 @@ export abstract class AbstractItem extends AbstractFieldSet implements IItem {
     }
 
     get id(): number {
-        return (<IndexedGameEntity> this.inherits).id;
+        return (<AbstractIndexedGameEntity> this.inherits).id;
     }
     set id(_id: number) {
-        (<IndexedGameEntity> this.inherits).id = _id;
+        (<AbstractIndexedGameEntity> this.inherits).id = _id;
     }
     get inherits(): IIndexedGameEntity {
         return this._inherits;

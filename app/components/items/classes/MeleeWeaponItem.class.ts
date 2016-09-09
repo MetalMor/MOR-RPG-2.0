@@ -1,6 +1,6 @@
 'use strict';
 import {AbstractWeaponItem} from "./AbstractWeaponItem.class";
-import {StatField} from "../../fields/classes/StatField.class";
+import {StatField} from "../../fields/classes/AbstractStatField.class";
 /**
  * Created by Mor on 24/08/2016.
  */
