@@ -82,6 +82,13 @@ export class Arrays {
         });
         return updated;
     }
+
+    /**
+     * Extrae del array especificado un nuevo array a partir del valor en cada elemento de la propiedad especificada.
+     * @param _array Array de objetos.
+     * @param _prop Propiedad de la cual extraer el array.
+     * @returns {any[]}
+     */
     static fromProperty(_array: Object[], _prop: string) {
         return _array.map(function(element) {
             return element[_prop];

@@ -8,7 +8,7 @@ export abstract class AbstractGameEntity implements IGameEntity {
 
     constructor(obj?: IGameEntity) {
         var cast = <AbstractGameEntity> obj;
-        this.name = cast && cast.name || "unnamed";
+        this.name = cast && cast.name || "unnamed_"+(new Date()).getTime();
     }
 
     get name(): string {
@@ -22,8 +22,7 @@ export abstract class AbstractGameEntity implements IGameEntity {
         return this.name;
     }
     equals(obj: IGameEntity): boolean {
-        if(!other) return false;
-        var other = <AbstractGameEntity> obj;
-        return other.name === this.name;
+        if(!obj) return false;
+        return (<AbstractGameEntity> obj).name === this.name;
     }
 }

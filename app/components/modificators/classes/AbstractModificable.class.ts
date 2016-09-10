@@ -12,6 +12,8 @@ import {AbstractGameEntity} from "../../entities/classes/AbstractGameEntity.clas
 import {IFieldSet} from "../../fields/interfaces/IFieldSet.interface";
 import {StatFieldImpl} from "../../fields/classes/StatFieldImpl.class";
 import {AbstractStatFieldSet} from "../../fields/classes/AbstractStatFieldSet.class";
+import {RegularFieldSet} from "../../fields/classes/RegularFieldSet.class";
+import {AbstractFieldSet} from "../../fields/classes/AbstractFieldSet.class";
 /**
  * Created by Mor on 09/09/2016.
  */
@@ -33,7 +35,7 @@ export abstract class AbstractModificable extends AbstractGameEntity implements 
     onRemove(_owner: IFieldSet) { }
     addMod(_mod: IStatModificator): boolean {
         var mod: AbstractStatModificator = <AbstractStatModificator> _mod;
-        mod.name = mod.name || this.name+"_mods"+this.idCounter++;
+        mod.name = mod && mod.name || this.name+"_mods"+this.idCounter++;
         return Arrays.add(this.mods, mod);
     }
     removeMod(_mod: IStatModificator): boolean {

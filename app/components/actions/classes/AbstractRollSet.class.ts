@@ -7,8 +7,7 @@ import {Arrays} from "../../util/classes/Arrays.class";
 import {IThrowableRollOperation} from "../interfaces/IThrowableRollOperation.interface";
 import {SingletonCharacter} from "../../entities/classes/SingletonCharacter.class";
 import {IStat} from "../../fields/interfaces/IStat.interface";
-import {StatField} from "../../fields/classes/AbstractStatField.class";
-import {RollImpl} from "./RollImpl.class";
+import {AbstractStatField} from "../../fields/classes/AbstractStatField.class";
 /**
  * Clase abstracta que representa una tirada de dados de 10.
  * Created by becari on 18/08/2016.
@@ -55,7 +54,7 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         return <IRoll> Arrays.get(this.rolls, _roll);
     }
 
-    createRoll()
+    createRoll() {}
 
     /**
      * Retorna true si la tirada de dados ha sido exitosa, es decir, si al menos un resultado de los dados restantes
@@ -109,9 +108,9 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         var char: SingletonCharacter = SingletonCharacter.instance,
             stats: IStat[] = this.implies,
             self: AbstractRollSet = this,
-            stat: StatField, roll: AbstractRoll;
+            stat: AbstractStatField, roll: AbstractRoll;
         stats.forEach(function(s) {
-            stat = <StatField> s;
+            stat = <AbstractStatField> s;
         });
         return this;
     }
