@@ -7,6 +7,7 @@ import {EntityCreatorImpl} from "../../builder/classes/EntityCreatorImpl.class";
 import {AbstractEntityCreator} from "../../builder/classes/AbstractEntityCreator";
 import {IUserCharacterList} from "../../properties/interfaces/IUserCharacterList.interface";
 import {ICharacter} from "../interfaces/ICharacter.interface";
+import {UserCharacterList} from "../../properties/classes/UserCharacterList.class";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -18,6 +19,8 @@ export abstract class AbstractUser extends AbstractIndexedGameEntity implements 
     constructor(obj?: AbstractUser) {
         super(obj);
         this.inherits = obj && obj.inherits || new EntityCreatorImpl();
+        this.charList = obj && obj.charList || new UserCharacterList();
+        this.passwd = obj && obj.passwd || "";
     }
 
     get inherits(): IEntityCreator {

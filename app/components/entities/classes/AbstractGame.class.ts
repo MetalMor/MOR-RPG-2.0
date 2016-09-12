@@ -14,38 +14,12 @@ export abstract class AbstractGame extends AbstractIndexedGameEntity implements 
     _charList: IGameCharacterList;
     _image: ImageDataField;
     _story: RegularDataField;
-    _builder: IBuilder;
 
     constructor(obj?: AbstractGame) {
         super(obj);
         this.charList = obj && obj.charList || new GameCharacterList();
         this.story = obj && obj.story || new RegularDataField();
         this.image = obj && obj.image  || new ImageDataField();
-    }
-
-    get charList(): IGameCharacterList {
-        return this._charList;
-    }
-    set charList(_charList: IGameCharacterList) {
-        this._charList = _charList;
-    }
-    get story(): RegularDataField {
-        return this._story;
-    }
-    set story(_story: RegularDataField) {
-        this._story = _story;
-    }
-    get image(): ImageDataField {
-        return this._image;
-    }
-    set image(_image: ImageDataField) {
-        this._image = _image;
-    }
-    get builder(): IBuilder {
-        return this._builder;
-    }
-    set builder(_builder: IBuilder) {
-        this._builder = _builder;
     }
 
     addPc(_pc: ICharacter): boolean {
@@ -72,5 +46,24 @@ export abstract class AbstractGame extends AbstractIndexedGameEntity implements 
     }
     setNpc(_npc: ICharacter): boolean {
         return this.charList.setNpc(_npc);
+    }
+
+    get charList(): IGameCharacterList {
+        return this._charList;
+    }
+    set charList(_charList: IGameCharacterList) {
+        this._charList = _charList;
+    }
+    get story(): RegularDataField {
+        return this._story;
+    }
+    set story(_story: RegularDataField) {
+        this._story = _story;
+    }
+    get image(): ImageDataField {
+        return this._image;
+    }
+    set image(_image: ImageDataField) {
+        this._image = _image;
     }
 }
