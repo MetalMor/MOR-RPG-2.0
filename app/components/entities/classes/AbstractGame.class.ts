@@ -6,6 +6,7 @@ import {IGame} from "../interfaces/IGame.interface";
 import {ICharacter} from "../interfaces/ICharacter.interface";
 import {ImageDataField} from "../../fields/classes/ImageDataField.class";
 import {RegularDataField} from "../../fields/classes/RegularDataField.class";
+import {IBuilder} from "../../builder/interfaces/IBuilder.interface";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -13,6 +14,7 @@ export abstract class AbstractGame extends AbstractIndexedGameEntity implements 
     _charList: IGameCharacterList;
     _image: ImageDataField;
     _story: RegularDataField;
+    _builder: IBuilder;
 
     constructor(obj?: AbstractGame) {
         super(obj);
@@ -38,6 +40,12 @@ export abstract class AbstractGame extends AbstractIndexedGameEntity implements 
     }
     set image(_image: ImageDataField) {
         this._image = _image;
+    }
+    get builder(): IBuilder {
+        return this._builder;
+    }
+    set builder(_builder: IBuilder) {
+        this._builder = _builder;
     }
 
     addPc(_pc: ICharacter): boolean {
