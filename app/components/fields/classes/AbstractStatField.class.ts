@@ -3,14 +3,15 @@ import {AbstractField} from "./AbstractField.class";
 import {IStatModificator} from "../../modificators/interfaces/IStatModificator.interface";
 import {StatModificatorType} from "../../modificators/enumerations/StatModificatorType.enum";
 import {IStatField} from "../interfaces/IStatField.class";
-import {AbstractModificable} from "../../modificators/classes/AbstractModificable.class";
 import {ModificableImpl} from "../../modificators/classes/ModificableImpl.class";
 import {AbstractStatFieldSet} from "./AbstractStatFieldSet.class";
+import {IModificable} from "../../modificators/interfaces/IModificable.interface";
+import {AbstractModificable} from "../../modificators/classes/AbstractModificable.class";
 /**
  * Created by becari on 17/08/2016.
  */
 export abstract class AbstractStatField extends AbstractField implements IStatField {
-    _mods: AbstractModificable;
+    _mods: IModificable;
     _level: number;
     _limit: number;
     _min: number;
@@ -28,7 +29,7 @@ export abstract class AbstractStatField extends AbstractField implements IStatFi
         return this.mods.getModsByType(_type);
     }
     getValue(): number {
-        return this.mods.getValue(this);
+        return (<AbstractModificable> this.mods).getValue(this);
     }
     grow(): AbstractStatField {
         if(this.level < this.limit) this.level++;
@@ -44,10 +45,10 @@ export abstract class AbstractStatField extends AbstractField implements IStatFi
         return <IStatModificator> this.mods.getMod(_mod);
     }
 
-    get mods(): AbstractModificable {
+    get mods(): IModificable {
         return this._mods;
     }
-    set mods(_mods: AbstractModificable) {
+    set mods(_mods: IModificable) {
         this._mods = _mods;
     }
     get level(): number {
