@@ -3,31 +3,18 @@ import {IDataField} from "../interfaces/IDataField.interface";
 import {RegularDataField} from "./RegularDataField.class";
 import {IStatModificator} from "../../modificators/interfaces/IStatModificator.interface";
 import {AbstractDataField} from "./AbstractDataField.class";
-import {StatFieldImpl} from "./StatFieldImpl.class";
+import {AbstractStatField} from "./AbstractStatField.class";
 import {IStatModificatorSource} from "../../modificators/interfaces/IStatModificatorSource.interface";
 import {SingletonCharacter} from "../../entities/classes/SingletonCharacter.class";
 /**
  * Created by Mor on 15/08/2016.
  */
-export abstract class StatDataField extends StatFieldImpl implements IDataField {
+export abstract class AbstractStatDataField extends AbstractStatField implements IDataField {
     _inherits: IDataField;
 
-    constructor(obj?: StatDataField) {
+    constructor(obj?: AbstractStatDataField) {
         super(obj);
         this.inherits = obj && obj.inherits || new RegularDataField();
-    }
-
-    get inherits(): IDataField {
-        return this._inherits;
-    }
-    set inherits(_inherits: IDataField) {
-        this._inherits = _inherits;
-    }
-    get grants(): IStatModificatorSource {
-        return (<AbstractDataField> this.inherits).grants;
-    }
-    set grants(_grants: IStatModificatorSource) {
-        (<AbstractDataField> this.inherits).grants = _grants;
     }
 
     modify() {
@@ -44,5 +31,18 @@ export abstract class StatDataField extends StatFieldImpl implements IDataField 
     }
     getMod(_mod: IStatModificator): IStatModificator {
         return (<AbstractDataField> this.inherits).getMod(_mod);
+    }
+
+    get inherits(): IDataField {
+        return this._inherits;
+    }
+    set inherits(_inherits: IDataField) {
+        this._inherits = _inherits;
+    }
+    get grants(): IStatModificatorSource {
+        return (<AbstractDataField> this.inherits).grants;
+    }
+    set grants(_grants: IStatModificatorSource) {
+        (<AbstractDataField> this.inherits).grants = _grants;
     }
 }

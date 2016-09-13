@@ -4,6 +4,7 @@ import {RegularFieldSet} from "./RegularFieldSet.class";
 import {IWrapperField} from "../interfaces/IWrapperField.interface";
 import {AbstractField} from "./AbstractField.class";
 import {IField} from "../interfaces/IField.interface";
+import {AbstractFieldSet} from "./AbstractFieldSet.class";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -22,30 +23,37 @@ export abstract class AbstractWrapperField extends AbstractField implements IWra
     set inherits(_inherits: IFieldSet) {
         this._inherits = _inherits;
     }
-    get name(): string {
-        return (<RegularFieldSet> this.inherits).name;
-    }
-    set name(_name: string) {
-        (<RegularFieldSet> this.inherits).name = _name;
-    }
     get fields(): IField[] {
-        return (<RegularFieldSet> this.inherits).fields;
+        return (<AbstractFieldSet> this.inherits).fields;
     }
     set fields(_fields: IField[]) {
-        (<RegularFieldSet> this.inherits).fields = _fields;
+        (<AbstractFieldSet> this.inherits).fields = _fields;
+    }
+    /* comentado pq ya hereda estos atributos sin necesidad de cogerlos de inherits
+    get name(): string {
+        return (<AbstractFieldSet> this.inherits).name;
+    }
+    set name(_name: string) {
+        (<AbstractFieldSet> this.inherits).name = _name;
+    }
+    get fields(): IField[] {
+        return (<AbstractFieldSet> this.inherits).fields;
+    }
+    set fields(_fields: IField[]) {
+        (<AbstractFieldSet> this.inherits).fields = _fields;
     }
     get desc(): string {
-        return (<RegularFieldSet> this.inherits).desc;
+        return (<AbstractFieldSet> this.inherits).desc;
     }
     set desc(_desc: string) {
-        (<RegularFieldSet> this.inherits).desc = _desc;
+        (<AbstractFieldSet> this.inherits).desc = _desc;
     }
     get enabled(): boolean {
-        return (<RegularFieldSet> this.inherits).enabled;
+        return (<AbstractFieldSet> this.inherits).enabled;
     }
     set enabled(_enabled: boolean) {
-        (<RegularFieldSet> this.inherits).enabled = _enabled;
-    }
+        (<AbstractFieldSet> this.inherits).enabled = _enabled;
+    }*/
 
     get(field: IField): IField {
         return <IField> this.inherits.get(field);

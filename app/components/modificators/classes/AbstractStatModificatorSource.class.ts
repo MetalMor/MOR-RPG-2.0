@@ -14,12 +14,12 @@ import {IField} from "../../fields/interfaces/IField.interface";
  * Created by Mor on 09/09/2016.
  */
 export abstract class AbstractStatModificatorSource extends AbstractGameEntity implements IStatModificatorSource {
-    _grants: AbstractStatModificator[];
+    _grants: IStatModificator[];
     _owner: IStatModificatorSource;
 
     constructor(obj?: AbstractStatModificatorSource) {
         super(obj);
-        this.grants = obj && obj.grants || new Array<AbstractStatModificator>();
+        this.grants = obj && obj.grants || new Array<IStatModificator>();
         this.owner = obj && obj.owner || new RegularDataField();
     }
 
@@ -59,10 +59,10 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
         return <IStatModificator> Arrays.get(this.grants, _mod);
     }
 
-    get grants(): AbstractStatModificator[] {
+    get grants(): IStatModificator[] {
         return this._grants;
     }
-    set grants(_grants: AbstractStatModificator[]) {
+    set grants(_grants: IStatModificator[]) {
         this._grants = _grants;
     }
     get owner(): IStatModificatorSource {

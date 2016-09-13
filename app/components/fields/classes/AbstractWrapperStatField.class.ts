@@ -4,11 +4,11 @@ import {IWrapperField} from "../interfaces/IWrapperField.interface";
 import {IStat} from "../interfaces/IStat.interface";
 import {WrapperFieldImpl} from "./WrapperFieldImpl.class";
 import {AbstractWrapperField} from "./AbstractWrapperField.class";
-import {StatFieldImpl} from "./StatFieldImpl.class";
+import {AbstractStatField} from "./AbstractStatField.class";
 /**
  * Created by Mor on 17/08/2016.
  */
-export abstract class AbstractWrapperStatField extends StatFieldImpl implements IWrapperStatField {
+export abstract class AbstractWrapperStatField extends AbstractStatField implements IWrapperStatField {
     _inherits: IWrapperField;
 
     constructor(obj?: IWrapperStatField) {

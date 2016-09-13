@@ -19,25 +19,6 @@ export abstract class AbstractCharacter extends AbstractStatFieldSet implements 
         this.ownerId = obj && obj.ownerId || SingletonUser.instance.id;
     }
 
-    get id(): number {
-        return (<AbstractIndexedGameEntity> this.inherits).id;
-    }
-    set id(_id: number) {
-        (<AbstractIndexedGameEntity> this.inherits).id = _id;
-    }
-    get inherits(): IIndexedGameEntity {
-        return this._inherits;
-    }
-    set inherits(_inherits: IIndexedGameEntity) {
-        this._inherits = _inherits;
-    }
-    get ownerId(): number {
-        return this._ownerId;
-    }
-    set ownerId(_ownerId: number) {
-        this._ownerId = _ownerId;
-    }
-
     /**
      * Retorna el campo especificado por parámetro perteneciente a este objeto.
      * @param _field Campo requerido.
@@ -109,5 +90,24 @@ export abstract class AbstractCharacter extends AbstractStatFieldSet implements 
      */
     equals(obj: AbstractCharacter): boolean {
         return this.inherits.equals(obj);
+    }
+
+    get id(): number {
+        return (<AbstractIndexedGameEntity> this.inherits).id;
+    }
+    set id(_id: number) {
+        (<AbstractIndexedGameEntity> this.inherits).id = _id;
+    }
+    get inherits(): IIndexedGameEntity {
+        return this._inherits;
+    }
+    set inherits(_inherits: IIndexedGameEntity) {
+        this._inherits = _inherits;
+    }
+    get ownerId(): number {
+        return this._ownerId;
+    }
+    set ownerId(_ownerId: number) {
+        this._ownerId = _ownerId;
     }
 }
