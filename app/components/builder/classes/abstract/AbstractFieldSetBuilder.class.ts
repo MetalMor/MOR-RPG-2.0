@@ -1,5 +1,5 @@
 'use strict';
-import {AbstractFieldSet} from "../../../fields/classes/AbstractFieldSet.class";
+import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IField} from "../../../fields/interfaces/IField.interface";

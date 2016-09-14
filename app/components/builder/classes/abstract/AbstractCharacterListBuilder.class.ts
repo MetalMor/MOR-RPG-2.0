@@ -1,5 +1,5 @@
 'use strict';
-import {AbstractCharacterList} from "../../../properties/classes/AbstractCharacterList.class";
+import {AbstractCharacterList} from "../../../properties/classes/abstract/AbstractCharacterList.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {ICharacter} from "../../../entities/interfaces/ICharacter.interface";

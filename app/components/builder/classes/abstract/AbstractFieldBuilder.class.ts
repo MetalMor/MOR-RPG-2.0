@@ -1,8 +1,8 @@
 'use strict';
-import {AbstractField} from "../../../fields/classes/AbstractField.class";
+import {AbstractField} from "../../../fields/classes/abstract/AbstractField.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
-import {AbstractFieldSet} from "../../../fields/classes/AbstractFieldSet.class";
+import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
 /**
  * Created by becari on 12/09/2016.
  */

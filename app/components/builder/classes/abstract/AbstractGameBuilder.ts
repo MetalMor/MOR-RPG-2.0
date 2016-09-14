@@ -1,11 +1,11 @@
 'use strict';
-import {AbstractGame} from "../../../entities/classes/AbstractGame.class";
+import {AbstractGame} from "../../../entities/classes/abstract/AbstractGame.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
-import {RegularDataField} from "../../../fields/classes/RegularDataField.class";
-import {ImageDataField} from "../../../fields/classes/ImageDataField.class";
+import {RegularDataField} from "../../../fields/classes/implementation/RegularDataField.class";
+import {ImageDataField} from "../../../fields/classes/implementation/ImageDataField.class";
 import {IGameCharacterList} from "../../../properties/interfaces/IGameCharacterList.interface";
-import {GameCharacterList} from "../../../properties/classes/GameCharacterList.class";
+import {GameCharacterList} from "../../../properties/classes/implementation/GameCharacterList.class";
 /**
  * Created by becari on 12/09/2016.
  */

@@ -2,7 +2,7 @@
 import {IGameEntity} from "../../entities/interfaces/IGameEntity.interface";
 import {Util} from "./Util.class";
 import {IField} from "../../fields/interfaces/IField.interface";
-import {AbstractFieldSet} from "../../fields/classes/AbstractFieldSet.class";
+import {AbstractFieldSet} from "../../fields/classes/abstract/AbstractFieldSet.class";
 /**
  * Clase de utilidad para trabajar con arrays de forma recursiva.
  * Created by Mor on 17/08/2016.

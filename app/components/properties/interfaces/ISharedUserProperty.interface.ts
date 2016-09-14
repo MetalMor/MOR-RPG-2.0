@@ -1,6 +1,6 @@
 'use strict';
 import {IUserProperty} from "./IUserProperty.interface";
-import {AbstractUser} from "../../entities/classes/AbstractUser.class";
+import {AbstractUser} from "../../entities/classes/abstract/AbstractUser.class";
 /**
  * Created by Mor on 15/08/2016.
  */

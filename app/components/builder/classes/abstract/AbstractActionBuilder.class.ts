@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractAction} from "../../../actions/classes/AbstractAction.class";
+import {AbstractAction} from "../../../actions/classes/abstract/AbstractAction.class";
 import {IRollSet} from "../../../actions/interfaces/IRollSet.interface";
 /**
  * Created by becari on 14/09/2016.

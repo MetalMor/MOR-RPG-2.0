@@ -1,9 +1,9 @@
 'use strict';
 import {AbstractItemBuilder} from "./AbstractItemBuilder.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractWeaponItem} from "../../../items/classes/AbstractWeaponItem.class";
-import {AbstractDamage} from "../../../items/classes/AbstractDamage.class";
-import {DamageImpl} from "../../../items/classes/DamageImpl.class";
+import {AbstractWeaponItem} from "../../../items/classes/abstract/AbstractWeaponItem.class";
+import {AbstractDamage} from "../../../items/classes/abstract/AbstractDamage.class";
+import {DamageImpl} from "../../../items/classes/implementation/DamageImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */

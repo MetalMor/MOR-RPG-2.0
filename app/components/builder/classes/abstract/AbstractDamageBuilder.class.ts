@@ -1,8 +1,8 @@
 'use strict';
-import {AbstractDamage} from "../../../items/classes/AbstractDamage.class";
+import {AbstractDamage} from "../../../items/classes/abstract/AbstractDamage.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {DamageType} from "../../../items/enumerations/DamageType.enumeration";
-import {DamageImpl} from "../../../items/classes/DamageImpl.class";
+import {DamageImpl} from "../../../items/classes/implementation/DamageImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */

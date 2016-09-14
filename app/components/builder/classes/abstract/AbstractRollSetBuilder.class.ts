@@ -1,9 +1,9 @@
 'use strict';
 import {AbstractRollOperationBuilder} from "./AbstractRollOperationBuilder.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractRollSet} from "../../../actions/classes/AbstractRollSet.class";
+import {AbstractRollSet} from "../../../actions/classes/abstract/AbstractRollSet.class";
 import {IRoll} from "../../../actions/interfaces/IRoll.interface";
-import {AbstractRoll} from "../../../actions/classes/AbstractRoll.class";
+import {AbstractRoll} from "../../../actions/classes/abstract/AbstractRoll.class";
 /**
  * Created by becari on 14/09/2016.
  */

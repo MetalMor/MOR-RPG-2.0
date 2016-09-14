@@ -1,6 +1,6 @@
 'use strict';
 import {IModificators} from "./IModificators.interface";
-import {AbstractCharacter} from "../../entities/classes/AbstractCharacter.class";
+import {AbstractCharacter} from "../../entities/classes/abstract/AbstractCharacter.class";
 /**
  * Created by Mor on 09/09/2016.
  */

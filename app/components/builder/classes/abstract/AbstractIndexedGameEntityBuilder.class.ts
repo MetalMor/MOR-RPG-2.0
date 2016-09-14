@@ -1,5 +1,5 @@
 'use strict';
-import {AbstractIndexedGameEntity} from "../../../entities/classes/AbstractIndexedGameEntity.class";
+import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 /**

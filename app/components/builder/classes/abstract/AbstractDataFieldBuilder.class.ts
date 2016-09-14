@@ -1,9 +1,9 @@
 'use strict';
-import {AbstractDataField} from "../../../fields/classes/AbstractDataField.class";
+import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
-import {StatModificatorSourceImpl} from "../../../modificators/classes/StatModificatorSourceImpl.class";
+import {StatModificatorSourceImpl} from "../../../modificators/classes/implementation/StatModificatorSourceImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */

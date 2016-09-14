@@ -1,10 +1,10 @@
 'use strict';
-import {AbstractStatModificatorSource} from "../../../modificators/classes/AbstractStatModificatorSource.class";
+import {AbstractStatModificatorSource} from "../../../modificators/classes/abstract/AbstractStatModificatorSource.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
-import {AbstractStatModificator} from "../../../modificators/classes/AbstractStatModificator.class";
+import {AbstractStatModificator} from "../../../modificators/classes/abstract/AbstractStatModificator.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
-import {StatModificatorSourceImpl} from "../../../modificators/classes/StatModificatorSourceImpl.class";
+import {StatModificatorSourceImpl} from "../../../modificators/classes/implementation/StatModificatorSourceImpl.class";
 import {IStatModificator} from "../../../modificators/interfaces/IStatModificator.interface";
 /**
  * Created by becari on 13/09/2016.

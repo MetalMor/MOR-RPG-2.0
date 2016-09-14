@@ -2,9 +2,9 @@
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractStatFieldBuilder} from "./AbstractStatFieldBuilder.class";
 import {IDataField} from "../../../fields/interfaces/IDataField.interface";
-import {RegularDataField} from "../../../fields/classes/RegularDataField.class";
-import {AbstractStatDataField} from "../../../fields/classes/AbstractStatDataField.class";
-import {AbstractDataField} from "../../../fields/classes/AbstractDataField.class";
+import {RegularDataField} from "../../../fields/classes/implementation/RegularDataField.class";
+import {AbstractStatDataField} from "../../../fields/classes/abstract/AbstractStatDataField.class";
+import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
 /**
  * Created by becari on 13/09/2016.

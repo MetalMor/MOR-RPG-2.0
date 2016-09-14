@@ -1,11 +1,11 @@
 'use strict';
 import {AbstractWrapperFieldBuilder} from "./AbstractWrapperFieldBuilder.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractWrapperStatField} from "../../../fields/classes/AbstractWrapperStatField.class";
+import {AbstractWrapperStatField} from "../../../fields/classes/abstract/AbstractWrapperStatField.class";
 import {IWrapperField} from "../../../fields/interfaces/IWrapperField.interface";
-import {WrapperFieldImpl} from "../../../fields/classes/WrapperFieldImpl.class";
+import {WrapperFieldImpl} from "../../../fields/classes/implementation/WrapperFieldImpl.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
-import {AbstractWrapperField} from "../../../fields/classes/AbstractWrapperField.class";
+import {AbstractWrapperField} from "../../../fields/classes/abstract/AbstractWrapperField.class";
 /**
  * Created by becari on 13/09/2016.
  */

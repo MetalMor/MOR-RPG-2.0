@@ -1,10 +1,10 @@
 'use strict';
-import {AbstractWrapperField} from "../../../fields/classes/AbstractWrapperField.class";
+import {AbstractWrapperField} from "../../../fields/classes/abstract/AbstractWrapperField.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {IFieldSet} from "../../../fields/interfaces/IFieldSet.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
-import {AbstractFieldSet} from "../../../fields/classes/AbstractFieldSet.class";
+import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
 /**
  * Created by becari on 13/09/2016.
  */

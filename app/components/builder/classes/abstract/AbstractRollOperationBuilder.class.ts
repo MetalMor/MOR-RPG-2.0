@@ -1,5 +1,5 @@
 'use strict';
-import {AbstractRollOperation} from "../../../actions/classes/AbstractRollOperation.class";
+import {AbstractRollOperation} from "../../../actions/classes/abstract/AbstractRollOperation.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {IStat} from "../../../fields/interfaces/IStat.interface";

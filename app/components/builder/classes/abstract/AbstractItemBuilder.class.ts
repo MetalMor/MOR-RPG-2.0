@@ -1,11 +1,11 @@
 'use strict';
 import {AbstractFieldSetBuilder} from "./AbstractFieldSetBuilder.class";
-import {AbstractItem} from "../../../items/classes/AbstractItem.class";
+import {AbstractItem} from "../../../items/classes/abstract/AbstractItem.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntity.interface";
 import {Hiding} from "../../../items/enumerations/Hiding.enumeration";
-import {AbstractIndexedGameEntity} from "../../../entities/classes/AbstractIndexedGameEntity.class";
-import {IndexedGameEntityImpl} from "../../../entities/classes/IndexedGameEntityImpl.class";
+import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
+import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */

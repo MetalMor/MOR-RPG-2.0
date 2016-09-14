@@ -1,6 +1,6 @@
 'use strict';
 import {ISharedUserProperty} from "./ISharedUserProperty.interface";
-import {AbstractCharacter} from "../../entities/classes/AbstractCharacter.class";
+import {AbstractCharacter} from "../../entities/classes/abstract/AbstractCharacter.class";
 /**
  * Created by Mor on 15/08/2016.
  */

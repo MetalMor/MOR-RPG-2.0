@@ -1,9 +1,9 @@
 'use strict';
-import {AbstractStatField} from "../../../fields/classes/AbstractStatField.class";
+import {AbstractStatField} from "../../../fields/classes/abstract/AbstractStatField.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
-import {ModificableImpl} from "../../../modificators/classes/ModificableImpl.class";
+import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
