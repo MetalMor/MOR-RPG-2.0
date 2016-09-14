@@ -1,7 +1,10 @@
 node_modules
+www
 .idea/*
 typings/*
 uml/
 *.log
 *.png
-app/**/*.js*
+app/components/*.js*
+app/main/*.js*
+app/templates/*.js*
