@@ -23,6 +23,12 @@ export abstract class AbstractCharacterList extends AbstractIndexedGameEntity im
     set pcs(_pcs: ICharacter[]) {
         this._pcs = _pcs;
     }
+    get ownerId(): number {
+        return this._ownerId;
+    }
+    set ownerId(_ownerId: number) {
+        this._ownerId = _ownerId;
+    }
 
     addPc(_pc: ICharacter): boolean {
         return Arrays.add(this.pcs, _pc);

@@ -29,6 +29,7 @@ export abstract class AbstractIndexedGameEntity extends AbstractGameEntity imple
     equals(obj: IIndexedGameEntity): boolean {
         if(!obj) return false;
         var other = <AbstractIndexedGameEntity> obj;
+        if(!other.id) return false;
         return this.id === other.id;
     }
 }

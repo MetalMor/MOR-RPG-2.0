@@ -24,12 +24,12 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
     }
 
     modify(_char: AbstractCharacter) {
-        var mods = this.grants,
+        var mods: IStatModificator[] = this.grants,
             modificable: IModificable;
         mods.forEach(function(m) {
-            modificable = <IModificable> _char.get(m.modifies);
+            modificable = <IModificable> _char.get((<AbstractStatModificator> m).modifies);
             if(!Util.isUndefined(modificable)) {
-                m.source = this.owner;
+                (<AbstractStatModificator> m).source = this.owner;
                 modificable.addMod(m);
             }
         });
@@ -39,7 +39,7 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
             char = SingletonCharacter.instance,
             modificable: IModificable;
         mods.forEach(function(m) {
-            modificable = <IModificable> char.get(m.modifies);
+            modificable = <IModificable> char.get((<AbstractStatModificator> m).modifies);
             modificable.removeMod(m);
         });
     }

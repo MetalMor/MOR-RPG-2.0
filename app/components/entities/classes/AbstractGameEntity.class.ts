@@ -23,6 +23,8 @@ export abstract class AbstractGameEntity implements IGameEntity {
     }
     equals(obj: IGameEntity): boolean {
         if(!obj) return false;
-        return (<AbstractGameEntity> obj).name === this.name;
+        var other: AbstractGameEntity = <AbstractGameEntity> obj;
+        if(!other.name) return false;
+        return other.name === this.name;
     }
 }

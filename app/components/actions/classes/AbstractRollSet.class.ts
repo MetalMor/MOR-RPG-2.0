@@ -20,12 +20,6 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         this.rolls = obj && obj.rolls || new Array<AbstractRoll>();
     }
 
-    get rolls(): IRoll[] {
-        return this._rolls;
-    }
-    set rolls(_rolls: IRoll[]) {
-        this._rolls = _rolls;
-    }
 
     /**
      * Añade un objeto de dado especificado por parámetro a la lista de dados de la tirada.
@@ -116,5 +110,12 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
     }
     validate(): IRollSet {
         return this;
+    }
+
+    get rolls(): IRoll[] {
+        return this._rolls;
+    }
+    set rolls(_rolls: IRoll[]) {
+        this._rolls = _rolls;
     }
 }

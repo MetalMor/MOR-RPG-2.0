@@ -15,12 +15,6 @@ export abstract class AbstractRoll extends AbstractRollOperation implements IRol
         this.res = obj && obj.res || 0;
     }
 
-    get res(): number {
-        return this._res;
-    }
-    set res(_res: number) {
-        this._res = _res;
-    }
 
     /**
      * Tira el dado (entre 0 y 10) y retorna una referencia a este objeto.
@@ -50,5 +44,12 @@ export abstract class AbstractRoll extends AbstractRollOperation implements IRol
         var ret: boolean = this.res === 1;
         console.log(this.label+": "+ret?"Blunder":"Not blunder");
         return ret;
+    }
+
+    get res(): number {
+        return this._res;
+    }
+    set res(_res: number) {
+        this._res = _res;
     }
 }

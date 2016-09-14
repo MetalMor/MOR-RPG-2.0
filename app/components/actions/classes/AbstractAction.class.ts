@@ -10,6 +10,13 @@ export abstract class AbstractAction extends AbstractIndexedGameEntity implement
     _time: Date;
     _rolls: IRollSet[];
 
+    constructor(obj?: AbstractAction) {
+        super(obj);
+        this.desc = obj && obj.desc || "void desc";
+        this.time = obj && obj.time || new Date();
+        this.rolls = obj && obj.rolls || new Array<IRollSet>();
+    }
+
     /**
      * Resuelve todas las tiradas de dados englobadas en la acción.
      */
@@ -26,14 +33,12 @@ export abstract class AbstractAction extends AbstractIndexedGameEntity implement
     set desc(_desc: string) {
         this._desc = _desc;
     }
-
     get time(): Date {
         return this._time;
     }
     set time(_time: Date) {
         this._time = _time;
     }
-
     get rolls(): IRollSet[] {
         return this._rolls;
     }

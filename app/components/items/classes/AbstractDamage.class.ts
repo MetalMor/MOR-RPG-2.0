@@ -3,11 +3,11 @@ import {DamageType} from "../enumerations/DamageType.enumeration";
 /**
  * Created by Mor on 24/08/2016.
  */
-export class Damage {
+export abstract class AbstractDamage {
     _value: number;
     _type: DamageType;
 
-    constructor(obj?: Damage) {
+    constructor(obj?: AbstractDamage) {
         this.value = obj && obj.value || 1;
         this.type = obj && obj.type || DamageType.Bashing;
     }

@@ -1,17 +1,18 @@
 'use strict';
 import {AbstractItem} from "./AbstractItem.class";
-import {Damage} from "./Damage.class";
+import {AbstractDamage} from "./AbstractDamage.class";
 import {IWeaponItem} from "../interfaces/IWeaponItem.interface";
+import {DamageImpl} from "./DamageImpl.class";
 /**
  * Created by Mor on 24/08/2016.
  */
 export abstract class AbstractWeaponItem extends AbstractItem implements IWeaponItem {
-    _damage: Damage;
+    _damage: AbstractDamage;
     _dif: number;
 
     constructor(obj?: AbstractWeaponItem) {
         super(obj);
-        this.damage = obj && obj.damage || new Damage();
+        this.damage = obj && obj.damage || new DamageImpl();
         this.dif = obj && obj.dif || 6;
     }
 
@@ -19,10 +20,10 @@ export abstract class AbstractWeaponItem extends AbstractItem implements IWeapon
         return this.damage.value;
     }
 
-    get damage(): Damage {
+    get damage(): AbstractDamage {
         return this._damage;
     }
-    set damage(_damage: Damage) {
+    set damage(_damage: AbstractDamage) {
         this._damage = _damage;
     }
     get dif(): number {
