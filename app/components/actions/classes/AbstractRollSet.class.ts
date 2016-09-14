@@ -48,7 +48,9 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         return <IRoll> Arrays.get(this.rolls, _roll);
     }
 
-    createRoll() {}
+    createRoll() {
+
+    }
 
     /**
      * Retorna true si la tirada de dados ha sido exitosa, es decir, si al menos un resultado de los dados restantes

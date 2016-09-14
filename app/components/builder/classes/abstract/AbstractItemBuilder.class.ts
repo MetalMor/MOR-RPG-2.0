@@ -1,0 +1,59 @@
+'use strict';
+import {AbstractFieldSetBuilder} from "./AbstractFieldSetBuilder.class";
+import {AbstractItem} from "../../../items/classes/AbstractItem.class";
+import {IBuilder} from "../../interfaces/IBuilder.interface";
+import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntity.interface";
+import {Hiding} from "../../../items/enumerations/Hiding.enumeration";
+import {AbstractIndexedGameEntity} from "../../../entities/classes/AbstractIndexedGameEntity.class";
+import {IndexedGameEntityImpl} from "../../../entities/classes/IndexedGameEntityImpl.class";
+/**
+ * Created by becari on 14/09/2016.
+ */
+export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implements IBuilder<AbstractItem> {
+    _inherits: IIndexedGameEntity;
+    _hiding: Hiding;
+
+    constructor(obj?: AbstractItemBuilder) {
+        super(obj);
+        this.inherits = obj && obj.inherits || new IndexedGameEntityImpl();
+        this.hiding = obj && obj.hiding || Hiding.Pocket;
+    }
+
+    setId(_id: number): AbstractItemBuilder {
+        this.id = _id;
+        return this;
+    }
+    setInherits(_inherits: IIndexedGameEntity): AbstractItemBuilder {
+        this.inherits = _inherits;
+        return this;
+    }
+    setHiding(_hiding: Hiding): AbstractItemBuilder {
+        this.hiding = _hiding;
+        return this;
+    }
+    build(): AbstractItem {
+        var ret: AbstractItem = <AbstractItem> super.build();
+        ret.inherits = this.inherits;
+        ret.hiding = this.hiding;
+        return ret;
+    }
+
+    get id(): number {
+        return (<AbstractIndexedGameEntity> this.inherits).id;
+    }
+    set id(_id: number) {
+        (<AbstractIndexedGameEntity> this.inherits).id = _id;
+    }
+    get inherits(): IIndexedGameEntity {
+        return this._inherits;
+    }
+    set inherits(_inherits: IIndexedGameEntity) {
+        this._inherits = _inherits;
+    }
+    get hiding(): Hiding {
+        return this._hiding;
+    }
+    set hiding(_hiding: Hiding) {
+        this._hiding = _hiding;
+    }
+}
