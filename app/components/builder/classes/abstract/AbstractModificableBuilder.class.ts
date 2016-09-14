@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractModificable} from "../../../modificators/classes/AbstractModificable.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractBuilder} from "./AbstractBuilder.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {AbstractStatModificator} from "../../../modificators/classes/AbstractStatModificator.class";
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {StatFieldImpl} from "../../../fields/classes/StatFieldImpl.class";
@@ -9,7 +9,7 @@ import {StatModificatorImpl} from "../../../modificators/classes/StatModificator
 /**
  * Created by becari on 13/09/2016.
  */
-export abstract class AbstractModificableBuilder extends AbstractBuilder implements IBuilder<AbstractModificable> {
+export abstract class AbstractModificableBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractModificable> {
     _mods: AbstractStatModificator[];
     _owner: IModificable;
     _idCounter: number;

@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractStatModificatorSource} from "../../../modificators/classes/AbstractStatModificatorSource.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractBuilder} from "./AbstractBuilder.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {AbstractStatModificator} from "../../../modificators/classes/AbstractStatModificator.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
 import {StatModificatorSourceImpl} from "../../../modificators/classes/StatModificatorSourceImpl.class";
@@ -9,7 +9,7 @@ import {IStatModificator} from "../../../modificators/interfaces/IStatModificato
 /**
  * Created by becari on 13/09/2016.
  */
-export abstract class AbstractStatModificatorSourceBuilder extends AbstractBuilder implements IBuilder<AbstractStatModificatorSource> {
+export abstract class AbstractStatModificatorSourceBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractStatModificatorSource> {
     _grants: IStatModificator[];
     _owner: IStatModificatorSource;
 

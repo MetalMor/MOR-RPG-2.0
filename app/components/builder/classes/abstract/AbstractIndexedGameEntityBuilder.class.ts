@@ -1,22 +1,22 @@
 'use strict';
 import {AbstractIndexedGameEntity} from "../../../entities/classes/AbstractIndexedGameEntity.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractBuilder} from "./AbstractBuilder.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 /**
  * Created by becari on 12/09/2016.
  */
-export abstract class AbstractIndexedBuilder extends AbstractBuilder implements IBuilder<AbstractIndexedGameEntity> {
+export abstract class AbstractIndexedGameEntityBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractIndexedGameEntity> {
     _id: number;
     static _staticId: number = 0;
 
-    constructor(obj?: AbstractIndexedBuilder) {
+    constructor(obj?: AbstractIndexedGameEntityBuilder) {
         super(obj);
-        this.id = obj && obj.id || AbstractIndexedBuilder._staticId;
+        this.id = obj && obj.id || AbstractIndexedGameEntityBuilder._staticId;
     }
 
     build(): AbstractIndexedGameEntity {
         var ret: AbstractIndexedGameEntity = <AbstractIndexedGameEntity> super.build();
-        ret.id = AbstractIndexedBuilder.staticId++;
+        ret.id = AbstractIndexedGameEntityBuilder.staticId++;
         return ret;
     }
 
@@ -27,9 +27,9 @@ export abstract class AbstractIndexedBuilder extends AbstractBuilder implements 
         this._id = _id;
     }
     static get staticId(): number {
-        return AbstractIndexedBuilder._staticId;
+        return AbstractIndexedGameEntityBuilder._staticId;
     }
     static set staticId(_staticId: number) {
-        AbstractIndexedBuilder._staticId = _staticId;
+        AbstractIndexedGameEntityBuilder._staticId = _staticId;
     }
 }

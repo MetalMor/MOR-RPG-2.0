@@ -1,12 +1,12 @@
 'use strict';
 import {AbstractField} from "../../../fields/classes/AbstractField.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractBuilder} from "./AbstractBuilder.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {AbstractFieldSet} from "../../../fields/classes/AbstractFieldSet.class";
 /**
  * Created by becari on 12/09/2016.
  */
-export abstract class AbstractFieldBuilder extends AbstractBuilder implements IBuilder<AbstractField> {
+export abstract class AbstractFieldBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractField> {
     _desc: string;
     _enabled: boolean;
     _parent: AbstractFieldSet;

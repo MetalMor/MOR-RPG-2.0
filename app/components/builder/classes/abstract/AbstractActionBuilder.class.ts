@@ -1,12 +1,12 @@
 'use strict';
-import {AbstractIndexedBuilder} from "./AbstractIndexedBuilder.class";
+import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractAction} from "../../../actions/classes/AbstractAction.class";
 import {IRollSet} from "../../../actions/interfaces/IRollSet.interface";
 /**
  * Created by becari on 14/09/2016.
  */
-export abstract class AbstractActionBuilder extends AbstractIndexedBuilder implements IBuilder<AbstractAction> {
+export abstract class AbstractActionBuilder extends AbstractIndexedGameEntityBuilder implements IBuilder<AbstractAction> {
     _desc: string;
     _time: Date;
     _rolls: IRollSet[];

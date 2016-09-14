@@ -1,12 +1,12 @@
 'use strict';
 import {AbstractCharacterList} from "../../../properties/classes/AbstractCharacterList.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractIndexedBuilder} from "./AbstractIndexedBuilder.class";
+import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {ICharacter} from "../../../entities/interfaces/ICharacter.interface";
 /**
  * Created by becari on 14/09/2016.
  */
-export abstract class AbstractCharacterListBuilder extends AbstractIndexedBuilder implements IBuilder<AbstractCharacterList> {
+export abstract class AbstractCharacterListBuilder extends AbstractIndexedGameEntityBuilder implements IBuilder<AbstractCharacterList> {
     _pcs: ICharacter[];
     _ownerId: number;
 

@@ -1,12 +1,12 @@
 'use strict';
 import {AbstractRollOperation} from "../../../actions/classes/AbstractRollOperation.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractBuilder} from "./AbstractBuilder.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {IStat} from "../../../fields/interfaces/IStat.interface";
 /**
  * Created by becari on 14/09/2016.
  */
-export abstract class AbstractRollOperationBuilder extends AbstractBuilder implements IBuilder<AbstractRollOperation> {
+export abstract class AbstractRollOperationBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractRollOperation> {
     _label: string;
     _implies: IStat[];
     _dif: number;

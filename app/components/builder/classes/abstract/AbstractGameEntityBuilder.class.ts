@@ -5,10 +5,10 @@ import {GameEntityImpl} from "../../../entities/classes/GameEntityImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
-export abstract class AbstractBuilder implements IBuilder<AbstractGameEntity> {
+export abstract class AbstractGameEntityBuilder implements IBuilder<AbstractGameEntity> {
     _name: string;
 
-    constructor(obj?: AbstractBuilder) {
+    constructor(obj?: AbstractGameEntityBuilder) {
         this.name = obj && obj.name || "unnamed";
     }
 
@@ -17,7 +17,7 @@ export abstract class AbstractBuilder implements IBuilder<AbstractGameEntity> {
         ret.name = this.name;
         return ret;
     }
-    setName(_name: string): AbstractBuilder {
+    setName(_name: string): AbstractGameEntityBuilder {
         this._name = name;
         return this;
     }

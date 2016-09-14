@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractGame} from "../../../entities/classes/AbstractGame.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractIndexedBuilder} from "./AbstractIndexedBuilder.class";
+import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {RegularDataField} from "../../../fields/classes/RegularDataField.class";
 import {ImageDataField} from "../../../fields/classes/ImageDataField.class";
 import {IGameCharacterList} from "../../../properties/interfaces/IGameCharacterList.interface";
@@ -9,7 +9,7 @@ import {GameCharacterList} from "../../../properties/classes/GameCharacterList.c
 /**
  * Created by becari on 12/09/2016.
  */
-export abstract class AbstractGameBuilder extends AbstractIndexedBuilder implements IBuilder<AbstractGame> {
+export abstract class AbstractGameBuilder extends AbstractIndexedGameEntityBuilder implements IBuilder<AbstractGame> {
     _charList: IGameCharacterList;
     _image: ImageDataField;
     _story: RegularDataField;
