@@ -8,6 +8,9 @@ import {IThrowableRollOperation} from "../../interfaces/IThrowableRollOperation.
 import {SingletonCharacter} from "../../../entities/classes/implementation/SingletonCharacter.class";
 import {IStat} from "../../../fields/interfaces/IStat.interface";
 import {AbstractStatField} from "../../../fields/classes/abstract/AbstractStatField.class";
+import {RollBuilder} from "../../../builder/classes/implementation/RollBuilder.class";
+import {RollImpl} from "../implementation/RollImpl.class";
+import {IBuilder} from "../../../builder/interfaces/IBuilder.interface";
 /**
  * Clase abstracta que representa una tirada de dados de 10.
  * Created by becari on 18/08/2016.
@@ -48,8 +51,17 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         return <IRoll> Arrays.get(this.rolls, _roll);
     }
 
-    createRoll() {
-
+    /**
+     * Función de prueba así para hacer un poco el tontico con los builders. Debería funcionar (?)
+     * @returns {RollImpl}
+     */
+    createRoll(): RollImpl {
+        var builder: RollBuilder = new RollBuilder();
+        builder.setDif(this.dif)
+            .setLabel(this.label)
+            .setImplies(this.implies)
+            .setName(this.name+"_roll");
+        return builder.build();
     }
 
     /**
@@ -101,13 +113,7 @@ export abstract class AbstractRollSet extends AbstractRollOperation implements I
         return (<AbstractRollSet> this.init().throwDices()).validate();
     }
     init(): IRollSet {
-        var char: SingletonCharacter = SingletonCharacter.instance,
-            stats: IStat[] = this.implies,
-            self: AbstractRollSet = this,
-            stat: AbstractStatField, roll: AbstractRoll;
-        stats.forEach(function(s) {
-            stat = <AbstractStatField> s;
-        });
+        // TODO impl
         return this;
     }
     validate(): IRollSet {

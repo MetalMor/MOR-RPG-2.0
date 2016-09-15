@@ -1,7 +1,7 @@
 'use strict';
-import {AbstractIndexedGameEntity} from "../../entities/classes/abstract/AbstractIndexedGameEntity.class";
-import {IAction} from "../interfaces/IAction.interface";
-import {IRollSet} from "../interfaces/IRollSet.interface";
+import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
+import {IAction} from "../../interfaces/IAction.interface";
+import {IRollSet} from "../../interfaces/IRollSet.interface";
 /**
  * Created by Mor on 15/08/2016.
  */
