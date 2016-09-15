@@ -11,6 +11,6 @@ export class RollBuilder extends AbstractRollBuilder implements IBuilder<RollImp
     }
 
     build(): RollImpl {
-        return <RollImpl> super.build();
+        return new RollImpl(<RollImpl> super.build());
     }
 }

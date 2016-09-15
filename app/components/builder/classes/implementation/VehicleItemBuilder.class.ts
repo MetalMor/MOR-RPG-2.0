@@ -30,7 +30,7 @@ export class VehicleItemBuilder extends AbstractItemBuilder implements IBuilder<
         return this;
     }
     build(): VehicleItem {
-        var ret: VehicleItem = <VehicleItem> super.build();
+        var ret: VehicleItem = new VehicleItem(<VehicleItem> super.build());
         ret.safeSpeed = this.safeSpeed;
         ret.maxSpeed = this.maxSpeed;
         ret.maneuver = this.maneuver;

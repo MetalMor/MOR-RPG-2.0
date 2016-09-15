@@ -1,15 +1,20 @@
 'use strict';
+import {Logger} from "./Logger.class";
+import {LoggerBuilder} from "../../builder/classes/implementation/LoggerBuilder.class";
+import {AbstractLoggerBuilder} from "../../builder/classes/abstract/AbstractLoggerBuilder.class";
 /**
  * Clase que representa un temporizador para controlar los tiempos al debugar.
  * Created by Mor on 25/08/2016.
  */
 export class Timer {
+    _logger: Logger;
     _time: number;
     _startTime: number;
     _endTime: number;
     _on: boolean;
 
     constructor(obj?: Timer) {
+        this.logger = obj && obj.logger || (<AbstractLoggerBuilder> (new LoggerBuilder()).setName("timer")).build();
         this.time = obj && obj.time || 0;
         this.startTime = obj && obj.startTime || 0;
         this.endTime = obj && obj.endTime || -1;
@@ -38,9 +43,9 @@ export class Timer {
             this.on = false;
             this.startTime = 0;
             this.endTime = Timer.currentTimeInMillis();
-            if(log) console.log("Time elapsed: " + this.endTime);
+            if(log) this.logger.log("Time elapsed: " + this.endTime);
             return this.endTime;
-        } else if(log) console.log("Timer off");
+        } else if(log) this.logger.log("Timer off");
         return -1;
     }
 
@@ -52,6 +57,12 @@ export class Timer {
         return (new Date()).getTime();
     }
 
+    get logger(): Logger {
+        return this._logger;
+    }
+    set logger(_logger: Logger) {
+        this._logger = _logger;
+    }
     get time(): number {
         return this._time;
     }

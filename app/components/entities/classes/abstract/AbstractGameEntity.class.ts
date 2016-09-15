@@ -1,8 +1,13 @@
 'use strict';
 import {IGameEntity} from "../../interfaces/IGameEntity.interface";
+import {Component} from "@angular/core";
 /**
  * Created by Mor on 15/08/2016.
  */
+@Component({
+    selector: 'game-entity',
+    templateUrl: 'app/templates/GameEntity.component.html'
+})
 export abstract class AbstractGameEntity implements IGameEntity {
     _name: string;
 

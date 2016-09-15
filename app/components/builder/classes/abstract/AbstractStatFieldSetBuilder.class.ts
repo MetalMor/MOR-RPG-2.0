@@ -4,6 +4,7 @@ import {AbstractStatFieldSet} from "../../../fields/classes/abstract/AbstractSta
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
+import {StatFieldSetImpl} from "../../../fields/classes/implementation/StatFieldSetImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -26,7 +27,7 @@ export abstract class AbstractStatFieldSetBuilder extends AbstractFieldSetBuilde
         return this;
     }
     build(): AbstractStatFieldSet {
-        var ret: AbstractStatFieldSet = <AbstractStatFieldSet> super.build();
+        var ret: AbstractStatFieldSet = new StatFieldSetImpl(<AbstractStatFieldSet> super.build());
         ret.mods = this.mods;
         ret.initPoints = this.initPoints;
         return ret;

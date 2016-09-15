@@ -5,6 +5,7 @@ import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntity.interface";
 import {Hiding} from "../../../items/enumerations/Hiding.enumeration";
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
+import {ItemImpl} from "../../../items/classes/implementation/ItemImpl.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 /**
  * Created by becari on 14/09/2016.
@@ -32,7 +33,7 @@ export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implem
         return this;
     }
     build(): AbstractItem {
-        var ret: AbstractItem = <AbstractItem> super.build();
+        var ret: AbstractItem = new ItemImpl(<AbstractItem> super.build());
         ret.inherits = this.inherits;
         ret.hiding = this.hiding;
         return ret;

@@ -18,6 +18,10 @@ export class Util {
         return Math.floor(Math.random()*_max+_min);
     }
 
+    static getCurrentDate(): string {
+        return (new Date()).toDateString();
+    }
+
     /**
      * Genera un nuevo valor de <code>id</code> entre los números por defecto.
      * @returns {number}

@@ -31,7 +31,7 @@ export class RangedWeaponItemBuilder extends AbstractWeaponItemBuilder implement
         return this;
     }
     build(): RangedWeaponItem {
-        var ret: RangedWeaponItem = <RangedWeaponItem> super.build();
+        var ret: RangedWeaponItem = new RangedWeaponItem(<RangedWeaponItem> super.build());
         ret.range = this.range;
         ret.cadency = this.cadency;
         ret.capacity = this.capacity;

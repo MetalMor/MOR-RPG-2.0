@@ -3,6 +3,7 @@ import {AbstractField} from "../../../fields/classes/abstract/AbstractField.clas
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
+import {FieldImpl} from "../../../fields/classes/implementation/FieldImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -28,7 +29,7 @@ export abstract class AbstractFieldBuilder extends AbstractGameEntityBuilder imp
         return this;
     }
     build(): AbstractField {
-        var ret: AbstractField = <AbstractField> super.build();
+        var ret: AbstractField =  new FieldImpl(<AbstractField> super.build());
         ret.desc = this.desc;
         ret.enabled = this.enabled;
         ret.parent = this.parent;

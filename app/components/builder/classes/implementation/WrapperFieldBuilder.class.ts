@@ -11,6 +11,6 @@ export class WrapperFieldBuilder extends AbstractWrapperFieldBuilder implements 
     }
 
     build(): WrapperFieldImpl {
-        return <WrapperFieldImpl> super.build();
+        return new WrapperFieldImpl(<WrapperFieldImpl> super.build());
     }
 }

@@ -6,6 +6,7 @@ import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntit
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 import {Util} from "../../../util/classes/Util.class";
+import {CharacterImpl} from "../../../entities/classes/implementation/CharacterImpl.class";
 /**
  * Created by becari on 13/09/2016.
  */
@@ -32,7 +33,7 @@ export abstract class AbstractCharacterBuilder extends AbstractStatFieldSetBuild
         return this;
     }
     build(): AbstractCharacter {
-        var ret: AbstractCharacter = <AbstractCharacter> super.build();
+        var ret: AbstractCharacter = new CharacterImpl(<AbstractCharacter> super.build());
         ret.inherits = this.inherits;
         ret.ownerId = this.ownerId;
         return ret;

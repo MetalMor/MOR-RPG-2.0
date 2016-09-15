@@ -6,6 +6,7 @@ import {AbstractStatModificator} from "../../../modificators/classes/abstract/Ab
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
 import {StatModificatorImpl} from "../../../modificators/classes/implementation/StatModificatorImpl.class";
+import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
 /**
  * Created by becari on 13/09/2016.
  */
@@ -34,7 +35,7 @@ export abstract class AbstractModificableBuilder extends AbstractGameEntityBuild
         return this;
     }
     build(): AbstractModificable {
-        var ret: AbstractModificable = <AbstractModificable> super.build();
+        var ret: AbstractModificable = new ModificableImpl(<AbstractModificable> super.build());
         ret.mods = this.mods;
         ret.owner = this.owner;
         ret.idCounter = this.idCounter;

@@ -11,6 +11,6 @@ export class StatFieldBuilder extends AbstractStatFieldBuilder implements IBuild
     }
 
     build(): StatFieldImpl {
-        return <StatFieldImpl> super.build();
+        return new StatFieldImpl(<StatFieldImpl> super.build());
     }
 }

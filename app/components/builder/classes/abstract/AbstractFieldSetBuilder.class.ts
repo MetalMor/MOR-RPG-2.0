@@ -3,6 +3,7 @@ import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSe
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
+import {FieldSetImpl} from "../../../fields/classes/implementation/FieldSetImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -19,7 +20,7 @@ export abstract class AbstractFieldSetBuilder extends AbstractFieldBuilder imple
         return this;
     }
     build(): AbstractFieldSet {
-        var ret: AbstractFieldSet = <AbstractFieldSet> super.build();
+        var ret: AbstractFieldSet = new FieldSetImpl(<AbstractFieldSet> super.build());
         ret.fields = this.fields;
         return ret;
     }

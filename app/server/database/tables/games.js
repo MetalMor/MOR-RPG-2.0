@@ -47,4 +47,4 @@ var games = {
     }
 };
 
-module.exports = router;
+module.exports = games;

@@ -11,6 +11,6 @@ export class UserCharacterListBuilder extends AbstractCharacterListBuilder imple
     }
 
     build(): UserCharacterList {
-        return <UserCharacterList> super.build();
+        return new UserCharacterList(<UserCharacterList> super.build());
     }
 }

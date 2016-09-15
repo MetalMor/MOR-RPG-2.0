@@ -3,6 +3,7 @@ import {AbstractCharacterList} from "../../../properties/classes/abstract/Abstra
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
 import {ICharacter} from "../../../entities/interfaces/ICharacter.interface";
+import {CharacterListImpl} from "../../../properties/classes/implementation/CharacterListImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -25,7 +26,7 @@ export abstract class AbstractCharacterListBuilder extends AbstractIndexedGameEn
         return this;
     }
     build(): AbstractCharacterList {
-        var ret: AbstractCharacterList = <AbstractCharacterList> super.build();
+        var ret: AbstractCharacterList = new CharacterListImpl(<AbstractCharacterList> super.build());
         ret.pcs = this.pcs;
         ret.ownerId = this.ownerId;
         return ret;

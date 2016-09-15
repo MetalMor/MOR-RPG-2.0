@@ -11,6 +11,6 @@ export class BackgroundFieldBuilder extends AbstractStatDataFieldBuilder impleme
     }
 
     build(): BackgroundField {
-        return <BackgroundField> super.build();
+        return new BackgroundField(<BackgroundField> super.build());
     }
 }

@@ -27,7 +27,7 @@ export class HealthDataFieldBuilder extends NumericDataFieldBuilder implements I
         return this;
     }
     build(): HealthDataField {
-        var ret: HealthDataField = <HealthDataField> super.build();
+        var ret: HealthDataField = new HealthDataField(<HealthDataField> super.build());
         ret.labels = this.labels;
         return ret;
     }

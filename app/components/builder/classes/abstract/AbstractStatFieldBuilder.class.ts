@@ -4,6 +4,7 @@ import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
+import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -38,7 +39,7 @@ export abstract class AbstractStatFieldBuilder extends AbstractFieldBuilder impl
         return this
     }
     build(): AbstractStatField {
-        var ret: AbstractStatField = <AbstractStatField> super.build();
+        var ret: AbstractStatField = new StatFieldImpl(<AbstractStatField> super.build());
         ret.mods = this.mods;
         ret.level = this.level;
         ret.limit = this.limit;

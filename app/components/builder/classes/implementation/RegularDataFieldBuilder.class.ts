@@ -18,7 +18,7 @@ export class RegularDataFieldBuilder extends AbstractDataFieldBuilder implements
         return this;
     }
     build(): RegularDataField {
-        var ret: RegularDataField = <RegularDataField> super.build();
+        var ret: RegularDataField = new RegularDataField(<RegularDataField> super.build());
         ret.value = this.value;
         return ret;
     }

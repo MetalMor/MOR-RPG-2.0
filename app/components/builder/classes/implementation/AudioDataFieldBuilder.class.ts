@@ -37,7 +37,7 @@ export class AudioDataFieldBuilder extends AbstractDataFieldBuilder implements I
         return this;
     }
     build(): AudioDataField {
-        var ret: AudioDataField = <AudioDataField> super.build();
+        var ret: AudioDataField = new AudioDataField(<AudioDataField> super.build());
         ret.value = this.value;
         ret.time = this.time;
         ret.playing = this.playing;

@@ -12,7 +12,7 @@ import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGam
 import {IFieldSet} from "../../../fields/interfaces/IFieldSet.interface";
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
 import {AbstractStatFieldSet} from "../../../fields/classes/abstract/AbstractStatFieldSet.class";
-import {RegularFieldSet} from "../../../fields/classes/implementation/RegularFieldSet.class";
+import {FieldSetImpl} from "../../../fields/classes/implementation/FieldSetImpl.class";
 import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
 /**
  * Created by Mor on 09/09/2016.

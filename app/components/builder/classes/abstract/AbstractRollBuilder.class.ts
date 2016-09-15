@@ -2,10 +2,11 @@
 import {AbstractRollOperationBuilder} from "./AbstractRollOperationBuilder.class";
 import {AbstractRoll} from "../../../actions/classes/abstract/AbstractRoll.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
+import {RollImpl} from "../../../actions/classes/implementation/RollImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */
-export class AbstractRollBuilder extends AbstractRollOperationBuilder implements IBuilder<AbstractRoll> {
+export abstract class AbstractRollBuilder extends AbstractRollOperationBuilder implements IBuilder<AbstractRoll> {
     _res: number;
 
     constructor(obj?: AbstractRollBuilder) {
@@ -18,7 +19,7 @@ export class AbstractRollBuilder extends AbstractRollOperationBuilder implements
         return this;
     }
     build(): AbstractRoll {
-        var ret: AbstractRoll = <AbstractRoll> super.build();
+        var ret: AbstractRoll = new RollImpl(<AbstractRoll> super.build());
         ret.res = this.res;
         return ret;
     }

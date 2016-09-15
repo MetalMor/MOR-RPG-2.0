@@ -3,8 +3,8 @@ import {AbstractGameEntityBuilder} from "../abstract/AbstractGameEntityBuilder.c
 /**
  * Created by becari on 12/09/2016.
  */
-export class BuilderImpl extends AbstractGameEntityBuilder {
-    constructor(obj?: BuilderImpl) {
+export class GameEntityBuilder extends AbstractGameEntityBuilder {
+    constructor(obj?: GameEntityBuilder) {
         super(obj);
     }
 }

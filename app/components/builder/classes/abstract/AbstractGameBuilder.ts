@@ -6,6 +6,7 @@ import {RegularDataField} from "../../../fields/classes/implementation/RegularDa
 import {ImageDataField} from "../../../fields/classes/implementation/ImageDataField.class";
 import {IGameCharacterList} from "../../../properties/interfaces/IGameCharacterList.interface";
 import {GameCharacterList} from "../../../properties/classes/implementation/GameCharacterList.class";
+import {GameImpl} from "../../../entities/classes/implementation/GameImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -34,7 +35,7 @@ export abstract class AbstractGameBuilder extends AbstractIndexedGameEntityBuild
         return this;
     }
     build(): AbstractGame {
-        var ret: AbstractGame = <AbstractGame> super.build();
+        var ret: AbstractGame = new GameImpl(<AbstractGame> super.build());
         ret.charList = this.charList;
         ret.image = this.image;
         ret.story = this.story;

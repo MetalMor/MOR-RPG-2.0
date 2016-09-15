@@ -47,4 +47,4 @@ var actions = {
     }
 };
 
-module.exports = router;
+module.exports = actions;

@@ -6,6 +6,7 @@ import {RegularDataField} from "../../../fields/classes/implementation/RegularDa
 import {AbstractStatDataField} from "../../../fields/classes/abstract/AbstractStatDataField.class";
 import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
+import {StatDataFieldImpl} from "../../../fields/classes/implementation/StatDataFieldImpl.class";
 /**
  * Created by becari on 13/09/2016.
  */
@@ -26,7 +27,7 @@ export abstract class AbstractStatDataFieldBuilder extends AbstractStatFieldBuil
         return this;
     }
     build(): AbstractStatDataField {
-        var ret: AbstractStatDataField = <AbstractStatDataField> super.build();
+        var ret: AbstractStatDataField = new StatDataFieldImpl(<AbstractStatDataField> super.build());
         ret.inherits = this.inherits;
         return ret;
     }

@@ -2,6 +2,7 @@
 import {AbstractUser} from "../../../entities/classes/abstract/AbstractUser.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuilder.class";
+import {UserImpl} from "../../../entities/classes/implementation/UserImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -14,7 +15,7 @@ export abstract class AbstractUserBuilder extends AbstractIndexedGameEntityBuild
     }
 
     build(): AbstractUser {
-        var ret: AbstractUser = <AbstractUser> super.build();
+        var ret: AbstractUser = new UserImpl(<AbstractUser> super.build());
         ret.passwd = this.passwd;
         return ret;
     }

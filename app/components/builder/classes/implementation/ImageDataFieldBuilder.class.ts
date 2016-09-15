@@ -18,7 +18,7 @@ export class ImageDataFieldBuilder extends AbstractDataFieldBuilder implements I
         return this;
     }
     build(): ImageDataField {
-        var ret: ImageDataField = <ImageDataField> super.build();
+        var ret: ImageDataField = new ImageDataField(<ImageDataField> super.build());
         ret.value = this.value;
         return ret;
     }

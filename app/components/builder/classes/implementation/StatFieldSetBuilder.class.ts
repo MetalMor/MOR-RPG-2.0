@@ -11,6 +11,6 @@ export class StatFieldSetBuilder extends AbstractStatFieldSetBuilder implements 
     }
 
     build(): StatFieldSetImpl {
-        return <StatFieldSetImpl> super.build();
+        return new StatFieldSetImpl(<StatFieldSetImpl> super.build());
     }
 }

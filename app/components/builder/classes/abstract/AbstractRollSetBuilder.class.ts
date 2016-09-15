@@ -4,6 +4,7 @@ import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractRollSet} from "../../../actions/classes/abstract/AbstractRollSet.class";
 import {IRoll} from "../../../actions/interfaces/IRoll.interface";
 import {AbstractRoll} from "../../../actions/classes/abstract/AbstractRoll.class";
+import {RollSetImpl} from "../../../actions/classes/implementation/RollSetImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -20,7 +21,7 @@ export abstract class AbstractRollSetBuilder extends AbstractRollOperationBuilde
         return this;
     }
     build(): AbstractRollSet {
-        var ret: AbstractRollSet = <AbstractRollSet> super.build();
+        var ret: AbstractRollSet = new RollSetImpl(<AbstractRollSet> super.build());
         ret.rolls = this.rolls;
         return ret;
     }

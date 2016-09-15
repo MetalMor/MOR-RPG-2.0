@@ -1,6 +1,6 @@
 'use strict';
 import {IFieldSet} from "../../interfaces/IFieldSet.interface";
-import {RegularFieldSet} from "../implementation/RegularFieldSet.class";
+import {FieldSetImpl} from "../implementation/FieldSetImpl.class";
 import {IWrapperField} from "../../interfaces/IWrapperField.interface";
 import {AbstractField} from "./AbstractField.class";
 import {IField} from "../../interfaces/IField.interface";
@@ -14,7 +14,7 @@ export abstract class AbstractWrapperField extends AbstractField implements IWra
     constructor(obj?: IWrapperField) {
         super(obj);
         var cast = <AbstractWrapperField> obj;
-        this.inherits = cast && cast.inherits || new RegularFieldSet();
+        this.inherits = cast && cast.inherits || new FieldSetImpl();
     }
 
     get inherits(): IFieldSet {

@@ -11,6 +11,6 @@ export class RollSetBuilder extends AbstractRollSetBuilder implements IBuilder<R
     }
 
     build(): RollSetImpl {
-        return <RollSetImpl> super.build();
+        return new RollSetImpl(<RollSetImpl> super.build());
     }
 }

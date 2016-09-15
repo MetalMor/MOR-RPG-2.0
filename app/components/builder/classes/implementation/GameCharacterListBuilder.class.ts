@@ -19,7 +19,7 @@ export class GameCharacterListBuilder extends AbstractCharacterListBuilder imple
         return this;
     }
     build(): GameCharacterList {
-        var ret: GameCharacterList = <GameCharacterList> super.build();
+        var ret: GameCharacterList = new GameCharacterList(<GameCharacterList> super.build());
         ret.npcs = this.npcs;
         return ret;
     }

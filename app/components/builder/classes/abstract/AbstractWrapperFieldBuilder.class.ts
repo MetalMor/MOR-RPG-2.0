@@ -5,6 +5,7 @@ import {IFieldSet} from "../../../fields/interfaces/IFieldSet.interface";
 import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
 import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
+import {WrapperFieldImpl} from "../../../fields/classes/implementation/WrapperFieldImpl.class";
 /**
  * Created by becari on 13/09/2016.
  */
@@ -24,7 +25,7 @@ export abstract class AbstractWrapperFieldBuilder extends AbstractFieldBuilder i
         return this;
     }
     build(): AbstractWrapperField {
-        var ret: AbstractWrapperField = <AbstractWrapperField> super.build();
+        var ret: AbstractWrapperField = new WrapperFieldImpl(<AbstractWrapperField> super.build());
         ret.inherits = this.inherits;
         return ret;
     }

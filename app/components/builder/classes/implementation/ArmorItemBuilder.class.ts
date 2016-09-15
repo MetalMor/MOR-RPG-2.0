@@ -24,7 +24,7 @@ export class ArmorItemBuilder extends AbstractItemBuilder implements IBuilder<Ar
         return this;
     }
     build(): ArmorItem {
-        var ret: ArmorItem = <ArmorItem> super.build();
+        var ret: ArmorItem = new ArmorItem(<ArmorItem> super.build());
         ret.value = this.value;
         ret.penalty = this.penalty;
         return ret;

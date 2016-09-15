@@ -47,4 +47,4 @@ var users = {
     }
 };
 
-module.exports = router;
+module.exports = users;

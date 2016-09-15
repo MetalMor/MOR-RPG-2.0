@@ -47,4 +47,4 @@ var characters = {
     }
 };
 
-module.exports = router;
+module.exports = characters;

@@ -18,7 +18,7 @@ export class NumericDataFieldBuilder extends AbstractDataFieldBuilder implements
         return this;
     }
     build(): NumericDataField {
-        var ret: NumericDataField = <NumericDataField> super.build();
+        var ret: NumericDataField = new NumericDataField(<NumericDataField> super.build());
         ret.value = this.value;
         return ret;
     }

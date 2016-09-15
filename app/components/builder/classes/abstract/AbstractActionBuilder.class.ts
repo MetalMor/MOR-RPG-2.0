@@ -3,6 +3,7 @@ import {AbstractIndexedGameEntityBuilder} from "./AbstractIndexedGameEntityBuild
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractAction} from "../../../actions/classes/abstract/AbstractAction.class";
 import {IRollSet} from "../../../actions/interfaces/IRollSet.interface";
+import {ActionImpl} from "../../../actions/classes/implementation/ActionImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -31,7 +32,7 @@ export abstract class AbstractActionBuilder extends AbstractIndexedGameEntityBui
         return this;
     }
     build(): AbstractAction {
-        var ret: AbstractAction = <AbstractAction> super.build();
+        var ret: AbstractAction = new ActionImpl(<AbstractAction> super.build());
         ret.desc = this.desc;
         ret.time = this.time;
         ret.rolls = this.rolls;

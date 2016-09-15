@@ -18,7 +18,7 @@ export abstract class AbstractGameEntityBuilder implements IBuilder<AbstractGame
         return ret;
     }
     setName(_name: string): AbstractGameEntityBuilder {
-        this._name = name;
+        this.name = _name;
         return this;
     }
 

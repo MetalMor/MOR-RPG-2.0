@@ -7,6 +7,7 @@ import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModi
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
 import {StatModificatorSourceImpl} from "../../../modificators/classes/implementation/StatModificatorSourceImpl.class";
+import {StatModificatorImpl} from "../../../modificators/classes/implementation/StatModificatorImpl.class";
 /**
  * Created by becari on 13/09/2016.
  */
@@ -41,7 +42,7 @@ export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityB
         return this;
     }
     build(): AbstractStatModificator {
-        var ret: AbstractStatModificator = <AbstractStatModificator> super.build();
+        var ret: AbstractStatModificator = new StatModificatorImpl(<AbstractStatModificator> super.build());
         ret.modifies = this.modifies;
         ret.source = this.source;
         ret.type = this.type;

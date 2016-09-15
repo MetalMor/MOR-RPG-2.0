@@ -20,7 +20,7 @@ export class MeleeWeaponItemBuilder extends AbstractWeaponItemBuilder implements
         return this;
     }
     build(): MeleeWeaponItem {
-        var ret: MeleeWeaponItem = <MeleeWeaponItem> super.build();
+        var ret: MeleeWeaponItem = new MeleeWeaponItem(<MeleeWeaponItem> super.build());
         ret.uses = this.uses;
         return ret;
     }

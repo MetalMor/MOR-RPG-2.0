@@ -28,7 +28,7 @@ export abstract class AbstractStatModificatorSourceBuilder extends AbstractGameE
         return this;
     }
     build(): AbstractStatModificatorSource {
-        var ret: AbstractStatModificatorSource = <AbstractStatModificatorSource> super.build();
+        var ret: AbstractStatModificatorSource = new StatModificatorSourceImpl(<AbstractStatModificatorSource> super.build());
         ret.grants = this.grants;
         ret.owner = this.owner;
         return ret;

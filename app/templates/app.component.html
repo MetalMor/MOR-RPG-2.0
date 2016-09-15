@@ -1,3 +1,5 @@
 <h1>{{ title }}</h1>
-<button (click)="switchText()">{{ getButtonText() }}</button>
-<p *ngIf="visible">HOWDY</p>
+<button (click)="test()">TEST</button>
+<div *ngIf="testing">
+    <p>Name: {{ testing.name }}</p>
+</div>

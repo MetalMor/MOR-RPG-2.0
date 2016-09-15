@@ -3,6 +3,7 @@ import {AbstractRollOperation} from "../../../actions/classes/abstract/AbstractR
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 import {IStat} from "../../../fields/interfaces/IStat.interface";
+import {RollOperationImpl} from "../../../actions/classes/implementation/RollOperationImpl.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -30,7 +31,7 @@ export abstract class AbstractRollOperationBuilder extends AbstractGameEntityBui
         return this;
     }
     build(): AbstractRollOperation {
-        var ret: AbstractRollOperation = <AbstractRollOperation> super.build();
+        var ret: AbstractRollOperation = new RollOperationImpl(<AbstractRollOperation> super.build());
         ret.dif = this.dif;
         ret.label = this.label;
         ret.implies = this.implies;

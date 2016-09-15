@@ -2,6 +2,7 @@
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
+import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -11,11 +12,11 @@ export abstract class AbstractIndexedGameEntityBuilder extends AbstractGameEntit
 
     constructor(obj?: AbstractIndexedGameEntityBuilder) {
         super(obj);
-        this.id = obj && obj.id || AbstractIndexedGameEntityBuilder._staticId;
+        this.id = obj && obj.id || AbstractIndexedGameEntityBuilder.staticId;
     }
 
     build(): AbstractIndexedGameEntity {
-        var ret: AbstractIndexedGameEntity = <AbstractIndexedGameEntity> super.build();
+        var ret: AbstractIndexedGameEntity = new IndexedGameEntityImpl(<AbstractIndexedGameEntity> super.build());
         ret.id = AbstractIndexedGameEntityBuilder.staticId++;
         return ret;
     }
