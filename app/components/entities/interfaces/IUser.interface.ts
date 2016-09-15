@@ -1,9 +1,9 @@
 'use strict';
-import {IEntityCreator} from "../../builder/interfaces/IEntityCreator.interface";
 import {IIndexedGameEntity} from "./IIndexedGameEntity.interface";
+import {IUserCharacterList} from "../../properties/interfaces/IUserCharacterList.interface";
 /**
  * Created by becari on 18/08/2016.
  */
-export interface IUser extends IEntityCreator, IIndexedGameEntity {
-    _inherits: IEntityCreator;
+export interface IUser extends IIndexedGameEntity {
+    _charList: IUserCharacterList;
 }

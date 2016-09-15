@@ -4,6 +4,9 @@
 var MongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
+// typescript+mongoose https://gist.github.com/masahirompp/3c012c8721b70821fa45
+// typescript+mongoDB https://github.com/Microsoft/TypeScriptSamples/blob/master/imageboard/db.ts
+
 var url = 'mongodb://localhost:27017/vtda';
 
 var connector = {

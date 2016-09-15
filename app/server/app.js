@@ -6,11 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./database/tables/users');
 var actions = require('./routes/actions');
-var characters = require('./routes/characters');
-var items = require('./routes/items');
-var games = require('./routes/games');
+var characters = require('./database/tables/characters');
+var items = require('./database/tables/items');
+var games = require('./database/tables/games');
 
 var app = express();
 

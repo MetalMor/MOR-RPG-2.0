@@ -1,5 +1,4 @@
 'use strict';
-import {PruebaInterface} from "./prueba.interface";
 import {Component} from '@angular/core';
 /**
  * Prueba componente de Angular 2
@@ -11,26 +10,26 @@ import {Component} from '@angular/core';
     selector: 'my-app',
     templateUrl: 'app/templates/app.component.html'
 })
-export class AppComponent implements PruebaInterface {
+export class AppComponent {
     private _title: string;
-    private _visible: boolean;
+    private _visible: number;
     private _buttonText: string[];
 
     public constructor() {
         var buttonText: string[] = [];
         this.title = "Prueba Angular 2";
-        this.visible = false;
-        buttonText[true] = "Hide";
-        buttonText[false] = "Show";
+        this.visible = 0;
+        buttonText[0] = "Show";
+        buttonText[1] = "Hide";
         this.buttonText = buttonText;
     }
 
     public switchText(): void {
-        this.visible = !this.visible;
+        this.visible = this.visible === 0 ? 1 : 0;
     }
 
     public getButtonText(): string {
-        return this.buttonText[this.visible]
+        return this.buttonText[this.visible];
     }
 
     public get title(): string {
@@ -40,10 +39,10 @@ export class AppComponent implements PruebaInterface {
         this._title = title;
     }
 
-    public get visible(): boolean {
+    public get visible(): number {
         return this._visible;
     }
-    public set visible(visible: boolean) {
+    public set visible(visible: number) {
         this._visible = visible;
     }
 
