@@ -4,7 +4,6 @@ typings/*
 uml/
 *.log
 *.png
-app/components/*.js*
-app/main/*.js*
-app/test/*.js*
+app/components/**/*.js*
+app/main/**/*.js*
 app/templates/*.js*

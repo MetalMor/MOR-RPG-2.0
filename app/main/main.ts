@@ -5,6 +5,6 @@
 
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
-import { TestFieldSet } from './components/testing/classes/implementation/TestFieldSet.component';
+import { TestFieldSet } from '../components/testing/classes/implementation/TestFieldSet.component';
 
 bootstrap(TestFieldSet);
