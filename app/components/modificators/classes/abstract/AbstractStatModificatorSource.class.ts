@@ -20,7 +20,7 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
     constructor(obj?: AbstractStatModificatorSource) {
         super(obj);
         this.grants = obj && obj.grants || new Array<IStatModificator>();
-        this.owner = obj && obj.owner || new RegularDataField();
+        this.owner = obj && obj.owner || null;
     }
 
     modify(_char: AbstractCharacter) {

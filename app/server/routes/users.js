@@ -1,5 +1,5 @@
 var express = require('express');
-var users = require('database/tables/users');
+var users = require('../database/tables/users');
 var router = express.Router();
 
 /* POST users listing. */

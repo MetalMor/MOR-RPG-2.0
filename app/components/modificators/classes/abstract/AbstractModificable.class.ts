@@ -26,7 +26,7 @@ export abstract class AbstractModificable extends AbstractGameEntity implements 
         super(obj);
         this.mods = obj && obj.mods || new Array<StatModificatorImpl>();
         this.idCounter = obj && obj.idCounter || 0;
-        this.owner = obj && obj.owner || new StatFieldImpl();
+        this.owner = obj && obj.owner || null;
     }
 
     onAppend(_owner: IFieldSet) {

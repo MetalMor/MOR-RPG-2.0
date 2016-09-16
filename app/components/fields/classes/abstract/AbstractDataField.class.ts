@@ -14,9 +14,7 @@ export abstract class AbstractDataField extends AbstractField implements IDataFi
 
     constructor(obj?: AbstractDataField) {
         super(obj);
-        var grants: AbstractStatModificatorSource = new StatModificatorSourceImpl();
-        grants.owner = this;
-        this.grants = obj && obj.grants || grants;
+        this.grants = obj && obj.grants || new StatModificatorSourceImpl();
     }
 
     addMod(_mod: IStatModificator): boolean {
@@ -39,6 +37,7 @@ export abstract class AbstractDataField extends AbstractField implements IDataFi
         return this._grants;
     }
     set grants(_grants: IStatModificatorSource) {
+        (<AbstractStatModificatorSource> _grants).owner = this;
         this._grants = _grants;
     }
 }

@@ -18,11 +18,11 @@ export abstract class AbstractStatField extends AbstractField implements IStatFi
 
     constructor(obj?: IStat) {
         super(obj);
-        var cast = <AbstractStatField> obj;
-        this.mods = cast && cast.mods || new ModificableImpl();
-        this.level = cast && cast.level || 0;
+        var cast: AbstractStatField = <AbstractStatField> obj;
+        this.min = cast && cast.min || 1;
+        this.level = cast && cast.level || this.min;
         this.limit = cast && cast.limit || 10;
-        this.min = cast && cast.min || 0;
+        this.mods = cast && cast.mods || new ModificableImpl();
     }
 
     getModsByType(_type: StatModificatorType): IStatModificator[] {
@@ -49,19 +49,22 @@ export abstract class AbstractStatField extends AbstractField implements IStatFi
         return this._mods;
     }
     set mods(_mods: IModificable) {
+        (<AbstractModificable> _mods).owner = this;
         this._mods = _mods;
     }
     get level(): number {
         return this._level;
     }
     set level(_level: number) {
-        if(_level >= this.min) this._level = _level;
+        if(_level >= (this.min || 0)) this._level = _level;
+        else console.log(_level + " < " + this.min)
     }
     get limit(): number {
         return this._limit;
     }
     set limit(_limit: number) {
-        if(_limit >= this.min) this._limit = _limit;
+        if(_limit >= (this.min || 0)) this._limit = _limit;
+        else console.log(_limit + " < " + this.min)
     }
     get min(): number {
         return this._min;

@@ -5,6 +5,12 @@ import {Constants} from "./Constants.class";
  * Created by Mor on 17/08/2016.
  */
 export class Util {
+    static numberPad(_number: number, _pad: number): string {
+        var number: string = _number.toString(),
+            pad: number = _pad - number.length;
+        while(pad-- > 0) number = '0' + number;
+        return number;
+    }
     /**
      * Genera un número aleatorio entre el mínimo y el máximo especificados por parámetro. En caso de ser omitidos,
      * la función llama a los valores por defecto de la clase <code>Constants</code>.

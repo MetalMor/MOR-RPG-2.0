@@ -4,6 +4,6 @@
  */
 "use strict";
 var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var app_component_1 = require('./components/app.component');
-platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent);
+var TestFieldSet_component_1 = require('./components/testing/classes/implementation/TestFieldSet.component');
+platform_browser_dynamic_1.bootstrap(TestFieldSet_component_1.TestFieldSet);
 //# sourceMappingURL=main.js.map

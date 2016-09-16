@@ -3,6 +3,7 @@ import {AbstractField} from "./AbstractField.class";
 import {IFieldSet} from "../../interfaces/IFieldSet.interface";
 import {IField} from "../../interfaces/IField.interface";
 import {Arrays} from "../../../util/classes/Arrays.class";
+import {FieldImpl} from "../implementation/FieldImpl.class";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -26,7 +27,7 @@ export abstract class AbstractFieldSet extends AbstractField implements IFieldSe
         return <IField> Arrays.get(this.fields, _field);
     }
     add(_field: IField): boolean {
-        var cast = <AbstractField> _field;
+        var cast: AbstractField = <AbstractField> _field;
         cast.parent = this;
         return Arrays.add(this.fields, cast);
     }

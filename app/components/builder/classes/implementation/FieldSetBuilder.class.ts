@@ -5,8 +5,8 @@ import {IBuilder} from "../../interfaces/IBuilder.interface";
 /**
  * Created by becari on 14/09/2016.
  */
-export class RegularFieldSetBuilder extends AbstractFieldSetBuilder implements IBuilder<FieldSetImpl> {
-    constructor(obj?: RegularFieldSetBuilder) {
+export class FieldSetBuilder extends AbstractFieldSetBuilder implements IBuilder<FieldSetImpl> {
+    constructor(obj?: FieldSetBuilder) {
         super(obj);
     }
 

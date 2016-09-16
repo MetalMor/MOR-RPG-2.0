@@ -5,6 +5,8 @@ import {AbstractFieldBuilder} from "./AbstractFieldBuilder.class";
 import {IModificable} from "../../../modificators/interfaces/IModificable.interface";
 import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
+import {AbstractModificable} from "../../../modificators/classes/abstract/AbstractModificable.class";
+import {Util} from "../../../util/classes/Util.class";
 /**
  * Created by becari on 12/09/2016.
  */
@@ -16,10 +18,10 @@ export abstract class AbstractStatFieldBuilder extends AbstractFieldBuilder impl
 
     constructor(obj?: AbstractStatFieldBuilder) {
         super(obj);
-        this.mods = obj && obj.mods || new ModificableImpl();
         this.min = obj && obj.min || 1;
         this.level = obj && obj.level || this.min;
         this.limit = obj && obj.limit || 10;
+        this.mods = obj && obj.mods || new ModificableImpl();
     }
 
     setMods(_mods: IModificable): AbstractStatFieldBuilder {

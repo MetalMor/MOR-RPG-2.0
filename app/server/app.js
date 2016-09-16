@@ -5,12 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./database/tables/users');
+var users = require('./routes/users');
 var actions = require('./routes/actions');
-var characters = require('./database/tables/characters');
-var items = require('./database/tables/items');
-var games = require('./database/tables/games');
+var characters = require('./routes/characters');
+var items = require('./routes/items');
+var games = require('./routes/games');
 
 var app = express();
 
@@ -26,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 app.use('/users', users);
 app.use('/actions', actions);
 app.use('/characters', characters);
@@ -50,6 +48,6 @@ app.use(function(err, req, res, next) {
     error: e
   });
 });
-
+console.log("Server initialized");
 
 module.exports = app;
