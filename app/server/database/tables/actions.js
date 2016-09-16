@@ -16,7 +16,6 @@ var actions = {
     create: function(object, callback) {
         this.connect(function(col) {
             col.insertOne(object, function(err, result) {
-                assert.equal(null, err);
                 callback(result);
             });
         });
@@ -24,7 +23,6 @@ var actions = {
     read: function(object, callback) {
         this.connect(function(col) {
             col.findOne({id: object.id}, function(err, document) {
-                assert.equal(null, err);
                 callback(document);
             });
         });
@@ -32,7 +30,6 @@ var actions = {
     update: function(object, callback) {
         this.connect(function(col) {
             col.updateOne({id: object.id}, object, function(err, document) {
-                assert.equal(null, err);
                 callback(document);
             });
         });
@@ -40,7 +37,6 @@ var actions = {
     delete: function(object, callback) {
         this.connect(function(col) {
             col.deleteOne({id: object.id}, function(err, result) {
-                assert.equal(null, err);
                 callback(result);
             });
         });

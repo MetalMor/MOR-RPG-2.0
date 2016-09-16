@@ -6,4 +6,3 @@ uml/
 *.png
 app/components/**/*.js*
 app/main/**/*.js*
-app/templates/*.js*
