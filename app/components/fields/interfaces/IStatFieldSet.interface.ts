@@ -5,6 +5,6 @@ import {IModificable} from "../../modificators/interfaces/IModificable.interface
 /**
  * Created by Mor on 17/08/2016.
  */
-export interface IStatFieldSet extends IFieldSet, IStat, IModificable {
+export interface IStatFieldSet extends IFieldSet, IStat {
 
 }

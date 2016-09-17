@@ -4,6 +4,6 @@ import {IModificable} from "../../modificators/interfaces/IModificable.interface
 /**
  * Created by Mor on 09/09/2016.
  */
-export interface IStatField extends IStat, IModificable {
+export interface IStatField extends IStat {
     getValue(): number;
 }

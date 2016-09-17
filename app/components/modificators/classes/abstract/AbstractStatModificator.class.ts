@@ -7,23 +7,22 @@ import {RegularDataField} from "../../../fields/classes/implementation/RegularDa
 import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IModificable} from "../../interfaces/IModificable.interface";
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
+import {DataFieldImpl} from "../../../fields/classes/implementation/DataFieldImpl.class";
 /**
  * Created by Mor on 24/08/2016.
  */
 export abstract class AbstractStatModificator extends AbstractGameEntity implements IStatModificator {
     _modifies: IModificable;
-    _source: IStatModificatorSource;
+    //_source: IStatModificatorSource;
     _type: StatModificatorType;
     _value: number;
 
     constructor(obj?: AbstractStatModificator) {
         super(obj);
-        var source: AbstractDataField = new RegularDataField();
-        source.name = "environment";
         this.modifies = obj && obj.modifies || new StatFieldImpl();
         this.type = obj && obj.type || StatModificatorType.Level;
         this.value = obj && obj.value || 0;
-        this.source = obj && obj.source || source;
+        //this.source = obj && obj.source || source;
     }
 
     isType(_type: StatModificatorType): boolean {
@@ -48,10 +47,10 @@ export abstract class AbstractStatModificator extends AbstractGameEntity impleme
     set value(_value: number) {
         this._value = _value;
     }
-    get source(): IStatModificatorSource {
+    /*get source(): IStatModificatorSource {
         return this._source;
     }
     set source(_source: IStatModificatorSource) {
         this._source = _source;
-    }
+    }*/
 }

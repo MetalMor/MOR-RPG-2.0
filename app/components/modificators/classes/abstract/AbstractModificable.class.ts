@@ -14,12 +14,13 @@ import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImp
 import {AbstractStatFieldSet} from "../../../fields/classes/abstract/AbstractStatFieldSet.class";
 import {FieldSetImpl} from "../../../fields/classes/implementation/FieldSetImpl.class";
 import {AbstractFieldSet} from "../../../fields/classes/abstract/AbstractFieldSet.class";
+import {IStat} from "../../../fields/interfaces/IStat.interface";
 /**
  * Created by Mor on 09/09/2016.
  */
 export abstract class AbstractModificable extends AbstractGameEntity implements IModificable {
     _mods: AbstractStatModificator[];
-    _owner: IModificable;
+    _owner: IStat;
     _idCounter: number;
 
     constructor(obj?: AbstractModificable) {
@@ -67,10 +68,10 @@ export abstract class AbstractModificable extends AbstractGameEntity implements 
     set idCounter(_idCounter: number) {
         this._idCounter = _idCounter;
     }
-    get owner(): IModificable {
+    get owner(): IStat {
         return this._owner;
     }
-    set owner(_owner: IModificable) {
+    set owner(_owner: IStat) {
         this._owner = _owner;
     }
 }

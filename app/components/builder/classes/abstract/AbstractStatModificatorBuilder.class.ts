@@ -13,14 +13,14 @@ import {StatModificatorImpl} from "../../../modificators/classes/implementation/
  */
 export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractStatModificator> {
     _modifies: IModificable;
-    _source: IStatModificatorSource;
+    //_source: IStatModificatorSource;
     _type: StatModificatorType;
     _value: number;
 
     constructor(obj?: AbstractStatModificatorBuilder) {
         super(obj);
         this.modifies = obj && obj.modifies || new ModificableImpl();
-        this.source = obj && obj.source || new StatModificatorSourceImpl();
+        //this.source = obj && obj.source || new StatModificatorSourceImpl();
         this.type = obj && obj.type || StatModificatorType.Level;
         this.value = obj && obj.value || 0;
     }
@@ -29,10 +29,10 @@ export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityB
         this.modifies = _modifies;
         return this;
     }
-    setSource(_source: IStatModificatorSource): AbstractStatModificatorBuilder {
+    /*setSource(_source: IStatModificatorSource): AbstractStatModificatorBuilder {
         this.source = _source;
         return this;
-    }
+    }*/
     setType(_type: StatModificatorType): AbstractStatModificatorBuilder {
         this.type = _type;
         return this;
@@ -44,7 +44,7 @@ export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityB
     build(): AbstractStatModificator {
         var ret: AbstractStatModificator = new StatModificatorImpl(<AbstractStatModificator> super.build());
         ret.modifies = this.modifies;
-        ret.source = this.source;
+        //ret.source = this.source;
         ret.type = this.type;
         ret.value = this.value;
         return ret;
@@ -68,10 +68,10 @@ export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityB
     set value(_value: number) {
         this._value = _value;
     }
-    get source(): IStatModificatorSource {
+    /*get source(): IStatModificatorSource {
         return this._source;
     }
     set source(_source: IStatModificatorSource) {
         this._source = _source;
-    }
+    }*/
 }

@@ -10,6 +10,7 @@ import {RegularDataField} from "../../../fields/classes/implementation/RegularDa
 import {Util} from "../../../util/classes/Util.class";
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
+import {AbstractGrantedStatModificator} from "./AbstractGrantedStatModificator.class";
 /**
  * Created by Mor on 09/09/2016.
  */
@@ -29,7 +30,7 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
         mods.forEach(function(m) {
             modificable = <IModificable> _char.get((<AbstractStatModificator> m).modifies);
             if(!Util.isUndefined(modificable)) {
-                (<AbstractStatModificator> m).source = this.owner;
+                (<AbstractGrantedStatModificator> m).source = this.owner;
                 modificable.addMod(m);
             }
         });

@@ -7,12 +7,13 @@ import {IModificable} from "../../../modificators/interfaces/IModificable.interf
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
 import {StatModificatorImpl} from "../../../modificators/classes/implementation/StatModificatorImpl.class";
 import {ModificableImpl} from "../../../modificators/classes/implementation/ModificableImpl.class";
+import {IStat} from "../../../fields/interfaces/IStat.interface";
 /**
  * Created by becari on 13/09/2016.
  */
 export abstract class AbstractModificableBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractModificable> {
     _mods: AbstractStatModificator[];
-    _owner: IModificable;
+    _owner: IStat;
     _idCounter: number;
 
     constructor(obj?: AbstractModificableBuilder) {
@@ -26,7 +27,7 @@ export abstract class AbstractModificableBuilder extends AbstractGameEntityBuild
         this.mods = _mods;
         return this;
     }
-    setOwner(_owner: IModificable): AbstractModificableBuilder {
+    setOwner(_owner: IStat): AbstractModificableBuilder {
         this.owner = _owner;
         return this;
     }
@@ -54,10 +55,10 @@ export abstract class AbstractModificableBuilder extends AbstractGameEntityBuild
     set idCounter(_idCounter: number) {
         this._idCounter = _idCounter;
     }
-    get owner(): IModificable {
+    get owner(): IStat {
         return this._owner;
     }
-    set owner(_owner: IModificable) {
+    set owner(_owner: IStat) {
         this._owner = _owner;
     }
 }
