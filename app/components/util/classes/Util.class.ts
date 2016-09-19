@@ -22,7 +22,7 @@ export class Util {
         var _min: number = _min || Constants.Numbers.DEF_MAX_ID,
             _max: number = _max || Constants.Numbers.DEF_MIN_ID;
         if(_min > _max) throw new Error(Constants.Errors.ERR_NUMBERS);
-        return Math.floor(Math.random()*_max+_min);
+        return Math.floor(Math.random()*(_max-_min+1)+_min);
     }
 
     static getCurrentDate(): string {

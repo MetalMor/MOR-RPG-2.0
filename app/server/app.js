@@ -40,6 +40,6 @@ app.use(function(err, req, res, next) {
     error: e
   });
 });
-console.log("Server initialized");
+console.log("Server started");
 
 module.exports = app;

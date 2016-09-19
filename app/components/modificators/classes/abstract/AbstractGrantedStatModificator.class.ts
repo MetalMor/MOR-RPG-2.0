@@ -3,7 +3,6 @@ import {AbstractStatModificator} from "./AbstractStatModificator.class";
 import {IStatModificatorSource} from "../../interfaces/IStatModificatorSource.interface";
 import {DataFieldImpl} from "../../../fields/classes/implementation/DataFieldImpl.class";
 import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
-import {IStat} from "../../../fields/interfaces/IStat.interface";
 import {AbstractStatModificatorSource} from "./AbstractStatModificatorSource.class";
 import {StatModificatorSourceImpl} from "../implementation/StatModificatorSourceImpl.class";
 /**
