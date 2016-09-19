@@ -1,8 +1,8 @@
 'use strict';
 import {AbstractGameEntity} from './AbstractGameEntity.class';
 import {IIndexedGameEntity} from "../../interfaces/IIndexedGameEntity.interface";
-import {Util} from "../../../util/classes/Util.class";
 import {Constants} from "../../../util/classes/Constants.class";
+import {Util} from "../../../util/classes/Util.class";
 /**
  * Created by Mor on 15/08/2016.
  */
@@ -12,8 +12,8 @@ export abstract class AbstractIndexedGameEntity extends AbstractGameEntity imple
     constructor(obj?: IIndexedGameEntity) {
         super(obj);
         var cast = <AbstractIndexedGameEntity> obj;
-        if(!cast.id) throw new Error(Constants.ERR_BUILDER);
-        this.id = cast && cast.id || -1;
+        if(Util.isUndefined(cast.id)) throw new Error(Constants.Errors.ERR_BUILDER);
+        this.id = cast && cast.id;
     }
 
     get id(): number {

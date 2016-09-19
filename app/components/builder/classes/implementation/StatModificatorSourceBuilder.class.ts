@@ -4,7 +4,7 @@ import {AbstractStatModificatorSourceBuilder} from "../abstract/AbstractStatModi
  * Created by becari on 14/09/2016.
  */
 export class StatModificatorSourceBuilder extends AbstractStatModificatorSourceBuilder {
-    constructor(obj: StatModificatorSourceBuilder) {
+    constructor(obj?: StatModificatorSourceBuilder) {
         super(obj);
     }
 }

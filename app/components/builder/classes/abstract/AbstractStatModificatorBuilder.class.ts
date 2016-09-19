@@ -19,7 +19,7 @@ export abstract class AbstractStatModificatorBuilder extends AbstractGameEntityB
 
     constructor(obj?: AbstractStatModificatorBuilder) {
         super(obj);
-        this.modifies = obj && obj.modifies || new ModificableImpl();
+        this.modifies = obj && obj.modifies || null;
         //this.source = obj && obj.source || new StatModificatorSourceImpl();
         this.type = obj && obj.type || StatModificatorType.Level;
         this.value = obj && obj.value || 0;

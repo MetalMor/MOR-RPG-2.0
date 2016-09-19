@@ -6,20 +6,25 @@ import {DataFieldImpl} from "../../../fields/classes/implementation/DataFieldImp
 import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
 import {GrantedStatModificatorImpl} from "../../../modificators/classes/implementation/GrantedStatModificatorImpl.class";
+import {AbstractStatModificatorSource} from "../../../modificators/classes/abstract/AbstractStatModificatorSource.class";
+import {StatModificatorSourceImpl} from "../../../modificators/classes/implementation/StatModificatorSourceImpl.class";
 /**
  * Created by Mor on 17/09/2016.
  */
 export abstract class AbstractGrantedStatModificatorBuilder extends AbstractStatModificatorBuilder implements IBuilder<AbstractGrantedStatModificator> {
-    _source: IStatModificatorSource;
+    _source: AbstractStatModificatorSource;
 
     constructor(obj?: AbstractGrantedStatModificatorBuilder) {
         super(obj);
-        var source: AbstractDataField = new DataFieldImpl();
-        source.name = "environment";
+        var source: AbstractStatModificatorSource = new StatModificatorSourceImpl(),
+            field: AbstractDataField = new DataFieldImpl();
+        field.name = "environment";
+        source.owner = field;
+        field.grants = source;
         this.source = obj && obj.source || source;
     }
 
-    setSource(_source: IStatModificatorSource): AbstractGrantedStatModificatorBuilder {
+    setSource(_source: AbstractStatModificatorSource): AbstractGrantedStatModificatorBuilder {
         this.source = _source;
         return this;
     }
@@ -29,10 +34,10 @@ export abstract class AbstractGrantedStatModificatorBuilder extends AbstractStat
         return ret;
     }
 
-    get source(): IStatModificatorSource {
+    get source(): AbstractStatModificatorSource {
         return this._source;
     }
-    set source(_source: IStatModificatorSource) {
+    set source(_source: AbstractStatModificatorSource) {
         this._source = _source;
     }
 }

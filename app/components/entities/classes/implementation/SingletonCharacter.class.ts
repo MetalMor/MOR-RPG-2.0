@@ -10,7 +10,7 @@ export class SingletonCharacter extends AbstractCharacter {
     constructor(obj?: SingletonCharacter) {
         super(obj);
         if(SingletonCharacter.instance)
-            throw new Error(Constants.ERR_SINGLETON);
+            throw new Error(Constants.Errors.ERR_SINGLETON);
         SingletonCharacter.instance = this; // <-- auto-referencia del singleton aquí
     }
 

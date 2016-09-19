@@ -10,7 +10,7 @@ export class SingletonUser extends AbstractUser {
     constructor(obj?: SingletonUser) {
         super(obj);
         if(SingletonUser.instance)
-            throw new Error(Constants.ERR_SINGLETON);
+            throw new Error(Constants.Errors.ERR_SINGLETON);
         SingletonUser.instance = this; // <-- auto-referencia del singleton aquí
     }
 

@@ -6,25 +6,26 @@ import {AbstractStatModificator} from "../../../modificators/classes/abstract/Ab
 import {IStatModificatorSource} from "../../../modificators/interfaces/IStatModificatorSource.interface";
 import {StatModificatorSourceImpl} from "../../../modificators/classes/implementation/StatModificatorSourceImpl.class";
 import {IStatModificator} from "../../../modificators/interfaces/IStatModificator.interface";
+import {IGrantedStatModificator} from "../../../modificators/interfaces/IGrantedStatModificator.interface";
 /**
  * Created by becari on 13/09/2016.
  */
 export abstract class AbstractStatModificatorSourceBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractStatModificatorSource> {
-    _grants: IStatModificator[];
+    _grants: IGrantedStatModificator[];
     _owner: IStatModificatorSource;
 
     constructor(obj?: AbstractStatModificatorSourceBuilder) {
         super(obj);
-        this.grants = obj && obj.grants || new Array<IStatModificator>();
+        this.grants = obj && obj.grants || new Array<IGrantedStatModificator>();
         this.owner = obj && obj.owner || new StatModificatorSourceImpl();
     }
 
-    setGrants(_grants: IStatModificator[]): AbstractStatModificatorSourceBuilder {
+    setGrants(_grants: IGrantedStatModificator[]): AbstractStatModificatorSourceBuilder {
         this.grants = _grants;
         return this;
     }
     setOwner(_owner: IStatModificatorSource): AbstractStatModificatorSourceBuilder {
-        this.owner = _owner;
+        if(!(_owner instanceof AbstractStatModificatorSource)) this.owner = _owner;
         return this;
     }
     build(): AbstractStatModificatorSource {
@@ -34,10 +35,10 @@ export abstract class AbstractStatModificatorSourceBuilder extends AbstractGameE
         return ret;
     }
 
-    get grants(): IStatModificator[] {
+    get grants(): IGrantedStatModificator[] {
         return this._grants;
     }
-    set grants(_grants: IStatModificator[]) {
+    set grants(_grants: IGrantedStatModificator[]) {
         this._grants = _grants;
     }
     get owner(): IStatModificatorSource {

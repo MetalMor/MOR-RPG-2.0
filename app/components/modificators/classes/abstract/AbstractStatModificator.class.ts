@@ -2,12 +2,9 @@
 import {IStatModificator} from "../../interfaces/IStatModificator.interface";
 import {StatModificatorType} from "../../enumerations/StatModificatorType.enum";
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
-import {IStatModificatorSource} from "../../interfaces/IStatModificatorSource.interface";
-import {RegularDataField} from "../../../fields/classes/implementation/RegularDataField.class";
-import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {IModificable} from "../../interfaces/IModificable.interface";
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
-import {DataFieldImpl} from "../../../fields/classes/implementation/DataFieldImpl.class";
+import {Constants} from "../../../util/classes/Constants.class";
 /**
  * Created by Mor on 24/08/2016.
  */
@@ -25,6 +22,16 @@ export abstract class AbstractStatModificator extends AbstractGameEntity impleme
         //this.source = obj && obj.source || source;
     }
 
+    getTypeAsString(): string {
+        switch(this.type) {
+            case StatModificatorType.Level:
+                return Constants.Types.TYPE_MOD_LEVEL;
+            case StatModificatorType.Difficulty:
+                return Constants.Types.TYPE_MOD_DIFFICULTY;
+            default:
+                throw new Error(Constants.Errors.ERR_MODTYPE);
+        }
+    }
     isType(_type: StatModificatorType): boolean {
         return this.type === _type;
     }

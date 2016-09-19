@@ -19,8 +19,9 @@ export class Util {
      * @returns {number}
      */
     static randomNumber(_min?: number, _max?: number): number {
-        var _min: number = _min || Constants.DEF_MAX_ID,
-            _max: number = _max || Constants.DEF_MIN_ID;
+        var _min: number = _min || Constants.Numbers.DEF_MAX_ID,
+            _max: number = _max || Constants.Numbers.DEF_MIN_ID;
+        if(_min > _max) throw new Error(Constants.Errors.ERR_NUMBERS);
         return Math.floor(Math.random()*_max+_min);
     }
 
@@ -42,6 +43,6 @@ export class Util {
      * @returns {boolean}
      */
     static isUndefined(obj): boolean {
-        return typeof obj === Constants.TYPE_UNDEFINED;
+        return typeof obj === Constants.Types.TYPE_UNDEFINED;
     }
 }

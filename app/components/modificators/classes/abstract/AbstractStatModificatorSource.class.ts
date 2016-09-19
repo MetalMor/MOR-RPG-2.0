@@ -11,24 +11,25 @@ import {Util} from "../../../util/classes/Util.class";
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
 import {IField} from "../../../fields/interfaces/IField.interface";
 import {AbstractGrantedStatModificator} from "./AbstractGrantedStatModificator.class";
+import {IGrantedStatModificator} from "../../interfaces/IGrantedStatModificator.interface";
 /**
  * Created by Mor on 09/09/2016.
  */
 export abstract class AbstractStatModificatorSource extends AbstractGameEntity implements IStatModificatorSource {
-    _grants: IStatModificator[];
+    _grants: IGrantedStatModificator[];
     _owner: IStatModificatorSource;
 
     constructor(obj?: AbstractStatModificatorSource) {
         super(obj);
-        this.grants = obj && obj.grants || new Array<IStatModificator>();
+        this.grants = obj && obj.grants || new Array<IGrantedStatModificator>();
         this.owner = obj && obj.owner || null;
     }
 
     modify(_char: AbstractCharacter) {
-        var mods: IStatModificator[] = this.grants,
+        var mods: IGrantedStatModificator[] = this.grants,
             modificable: IModificable;
         mods.forEach(function(m) {
-            modificable = <IModificable> _char.get((<AbstractStatModificator> m).modifies);
+            modificable = <IModificable> _char.get((<AbstractGrantedStatModificator> m).modifies);
             if(!Util.isUndefined(modificable)) {
                 (<AbstractGrantedStatModificator> m).source = this.owner;
                 modificable.addMod(m);
@@ -40,7 +41,7 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
             char = SingletonCharacter.instance,
             modificable: IModificable;
         mods.forEach(function(m) {
-            modificable = <IModificable> char.get((<AbstractStatModificator> m).modifies);
+            modificable = <IModificable> char.get((<AbstractGrantedStatModificator> m).modifies);
             modificable.removeMod(m);
         });
     }
@@ -60,10 +61,10 @@ export abstract class AbstractStatModificatorSource extends AbstractGameEntity i
         return <IStatModificator> Arrays.get(this.grants, _mod);
     }
 
-    get grants(): IStatModificator[] {
+    get grants(): IGrantedStatModificator[] {
         return this._grants;
     }
-    set grants(_grants: IStatModificator[]) {
+    set grants(_grants: IGrantedStatModificator[]) {
         this._grants = _grants;
     }
     get owner(): IStatModificatorSource {

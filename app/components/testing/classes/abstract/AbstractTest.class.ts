@@ -1,10 +1,11 @@
 'use strict';
 import {Logger} from "../../../util/classes/Logger.class";
+import {OnDestroy, OnInit} from "@angular/core";
 /**
  * Representa una prueba unitaria.
  * Created by becari on 16/09/2016.
  */
-export abstract class AbstractTest {
+export abstract class AbstractTest implements OnInit, OnDestroy {
     _title: string;
     _logger: Logger;
 
@@ -15,6 +16,15 @@ export abstract class AbstractTest {
 
     test() {
         this.logger.log("Running test...");
+    }
+    ngOnInit() {
+        this.log("Initializing component");
+    }
+    ngOnDestroy() {
+        this.log("Destroying component");
+    }
+    log(_msg: string) {
+        this.logger.log(_msg);
     }
 
     get title(): string {

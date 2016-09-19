@@ -10,7 +10,7 @@ export class SingletonGame extends AbstractGame {
     constructor(obj?: SingletonGame) {
         super(obj);
         if(SingletonGame.instance)
-            throw new Error(Constants.ERR_SINGLETON);
+            throw new Error(Constants.Errors.ERR_SINGLETON);
         SingletonGame.instance = this; // <-- auto-referencia del singleton aquí
     }
 

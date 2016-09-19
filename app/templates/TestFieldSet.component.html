@@ -6,8 +6,8 @@
     <p>Is enabled? {{ enabledLabel }}</p>
     <p>Fields:</p>
     <ul>
-        <li *ngFor="let field of testing.fields" >
-            <test-datafield [testing]="field"></test-datafield>
+        <li *ngFor="let field of testing.fields">
+            <test-datafield spy [testing]="field"></test-datafield>
         </li>
     </ul>
 </div>

@@ -8,6 +8,7 @@ import {RegularDataFieldBuilder} from "../../../builder/classes/implementation/R
 import {RegularDataField} from "../../../fields/classes/implementation/RegularDataField.class";
 import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
 import {Util} from "../../../util/classes/Util.class";
+import {Constants} from "../../../util/classes/Constants.class";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {ITest} from "../../interfaces/ITest.interface";
 import {TestDataField} from "./TestDataField.component";
@@ -50,9 +51,13 @@ export class TestFieldSet extends AbstractTest implements ITest<AbstractFieldSet
         this.testing = fieldSetBuilder.build();
         this.logger.log("Name: " + this.testing.name);
     }
+    ngOnInit() {
+        super.ngOnInit();
+        this.test();
+    }
 
     get enabledLabel(): string {
-        return this.testing.enabled ? "YUP" : "NOPE";
+        return this.testing.enabled ? Constants.Labels.ENABLED : Constants.Labels.DISABLED;
     }
     get testing(): AbstractFieldSet {
         return this._testing;
