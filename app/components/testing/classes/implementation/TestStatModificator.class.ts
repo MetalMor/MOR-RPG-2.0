@@ -1,14 +1,16 @@
 'use strict';
-import {AbstractGrantedStatModificator} from "../../../modificators/classes/abstract/AbstractGrantedStatModificator.class";
+import {AbstractGrantedStatModificator} from "../../../../model/modificators/classes/abstract/AbstractGrantedStatModificator.class";
 import {ITest} from "../../interfaces/ITest.interface";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {Input, Optional, SkipSelf, Component} from "@angular/core";
+import {SpyDirective} from "../hooks/Spy.hook";
 /**
  * Created by becari on 19/09/2016.
  */
 @Component({
     selector: 'test-statmodificator',
-    templateUrl: 'app/templates/TestStatModificator.component.html'
+    templateUrl: 'app/templates/TestStatModificator.component.html',
+    directives: [SpyDirective]
 })
 export class TestStatModificator extends AbstractTest implements ITest<AbstractGrantedStatModificator> {
     @Input('testing') _testing: AbstractGrantedStatModificator;

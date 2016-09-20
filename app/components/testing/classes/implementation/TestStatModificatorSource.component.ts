@@ -2,13 +2,13 @@
 import {ITest} from "../../interfaces/ITest.interface";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {Optional, SkipSelf, Component, Input} from "@angular/core";
-import {AbstractStatModificatorSource} from "../../../modificators/classes/abstract/AbstractStatModificatorSource.class";
-import {StatModificatorType} from "../../../modificators/enumerations/StatModificatorType.enum";
-import {Util} from "../../../util/classes/Util.class";
+import {AbstractStatModificatorSource} from "../../../../model/modificators/classes/abstract/AbstractStatModificatorSource.class";
+import {StatModificatorType} from "../../../../model/modificators/enumerations/StatModificatorType.enum";
+import {Util} from "../../../../model/util/classes/Util.class";
 import {TestStatModificator} from "./TestStatModificator.class";
-import {GrantedStatModificatorBuilder} from "../../../builder/classes/implementation/GrantedStatModificatorBuilder.class";
-import {AbstractGrantedStatModificatorBuilder} from "../../../builder/classes/abstract/AbstractGrantedStatModificatorBuilder.class";
-import {AbstractGrantedStatModificator} from "../../../modificators/classes/abstract/AbstractGrantedStatModificator.class";
+import {GrantedStatModificatorBuilder} from "../../../../model/builder/classes/implementation/GrantedStatModificatorBuilder.class";
+import {AbstractGrantedStatModificatorBuilder} from "../../../../model/builder/classes/abstract/AbstractGrantedStatModificatorBuilder.class";
+import {AbstractGrantedStatModificator} from "../../../../model/modificators/classes/abstract/AbstractGrantedStatModificator.class";
 /**
  * Created by becari on 16/09/2016.
  */

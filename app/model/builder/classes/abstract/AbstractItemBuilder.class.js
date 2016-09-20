@@ -1,0 +1,72 @@
+'use strict';
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var AbstractFieldSetBuilder_class_1 = require("./AbstractFieldSetBuilder.class");
+var Hiding_enumeration_1 = require("../../../items/enumerations/Hiding.enumeration");
+var ItemImpl_class_1 = require("../../../items/classes/implementation/ItemImpl.class");
+var IndexedGameEntityImpl_class_1 = require("../../../entities/classes/implementation/IndexedGameEntityImpl.class");
+/**
+ * Created by becari on 14/09/2016.
+ */
+var AbstractItemBuilder = (function (_super) {
+    __extends(AbstractItemBuilder, _super);
+    function AbstractItemBuilder(obj) {
+        _super.call(this, obj);
+        this.inherits = obj && obj.inherits || new IndexedGameEntityImpl_class_1.IndexedGameEntityImpl();
+        this.hiding = obj && obj.hiding || Hiding_enumeration_1.Hiding.Pocket;
+    }
+    AbstractItemBuilder.prototype.setId = function (_id) {
+        this.id = _id;
+        return this;
+    };
+    AbstractItemBuilder.prototype.setInherits = function (_inherits) {
+        this.inherits = _inherits;
+        return this;
+    };
+    AbstractItemBuilder.prototype.setHiding = function (_hiding) {
+        this.hiding = _hiding;
+        return this;
+    };
+    AbstractItemBuilder.prototype.build = function () {
+        var ret = new ItemImpl_class_1.ItemImpl(_super.prototype.build.call(this));
+        ret.inherits = this.inherits;
+        ret.hiding = this.hiding;
+        return ret;
+    };
+    Object.defineProperty(AbstractItemBuilder.prototype, "id", {
+        get: function () {
+            return this.inherits.id;
+        },
+        set: function (_id) {
+            this.inherits.id = _id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractItemBuilder.prototype, "inherits", {
+        get: function () {
+            return this._inherits;
+        },
+        set: function (_inherits) {
+            this._inherits = _inherits;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(AbstractItemBuilder.prototype, "hiding", {
+        get: function () {
+            return this._hiding;
+        },
+        set: function (_hiding) {
+            this._hiding = _hiding;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return AbstractItemBuilder;
+}(AbstractFieldSetBuilder_class_1.AbstractFieldSetBuilder));
+exports.AbstractItemBuilder = AbstractItemBuilder;
+//# sourceMappingURL=AbstractItemBuilder.class.js.map

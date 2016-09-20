@@ -2,9 +2,9 @@
 import {ITest} from "../../interfaces/ITest.interface";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {Input, Component, SkipSelf, Optional} from "@angular/core";
-import {AbstractDataField} from "../../../fields/classes/abstract/AbstractDataField.class";
+import {AbstractDataField} from "../../../../model/fields/classes/abstract/AbstractDataField.class";
 import {TestStatModificatorSource} from "./TestStatModificatorSource.component";
-import {StatModificatorSourceBuilder} from "../../../builder/classes/implementation/StatModificatorSourceBuilder.class"
+import {StatModificatorSourceBuilder} from "../../../../model/builder/classes/implementation/StatModificatorSourceBuilder.class"
 /**
  * Created by becari on 16/09/2016.
  */

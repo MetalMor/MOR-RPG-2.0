@@ -1,5 +1,5 @@
 'use strict';
-import {Logger} from "../../../util/classes/Logger.class";
+import {Logger} from "../../../../model/util/classes/Logger.class";
 import {OnDestroy, OnInit} from "@angular/core";
 /**
  * Representa una prueba unitaria.

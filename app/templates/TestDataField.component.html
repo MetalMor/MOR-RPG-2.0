@@ -1,5 +1,5 @@
 <div *ngIf="testing" (load)="test()">
     <p>Name: {{ testing.name }}</p>
     <p>Modifies: </p>
-    <ul><test-statmodificatorsource [testing]="testing.grants"></test-statmodificatorsource></ul>
+    <test-statmodificatorsource [testing]="testing.grants"></test-statmodificatorsource>
 </div>
