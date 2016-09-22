@@ -6,5 +6,6 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
 import { TestFieldSet } from '../components/testing/classes/implementation/TestFieldSet.component';
+import {TestRangedWeaponItem} from "../components/testing/classes/implementation/TestRangedWeaponItem.component";
 
-bootstrap(TestFieldSet);
+bootstrap(TestRangedWeaponItem);

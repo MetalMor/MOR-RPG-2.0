@@ -5,8 +5,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractGameEntity_class_1 = require('./AbstractGameEntity.class');
-var Constants_class_1 = require("../../../util/classes/Constants.class");
-var Util_class_1 = require("../../../util/classes/Util.class");
 /**
  * Created by Mor on 15/08/2016.
  */
@@ -15,9 +13,8 @@ var AbstractIndexedGameEntity = (function (_super) {
     function AbstractIndexedGameEntity(obj) {
         _super.call(this, obj);
         var cast = obj;
-        if (Util_class_1.Util.isUndefined(cast.id))
-            throw new Error(Constants_class_1.Constants.Errors.ERR_BUILDER);
-        this.id = cast && cast.id;
+        if (cast && cast.id)
+            this.id = cast.id;
     }
     Object.defineProperty(AbstractIndexedGameEntity.prototype, "id", {
         get: function () {

@@ -12,8 +12,7 @@ export abstract class AbstractIndexedGameEntity extends AbstractGameEntity imple
     constructor(obj?: IIndexedGameEntity) {
         super(obj);
         var cast = <AbstractIndexedGameEntity> obj;
-        if(Util.isUndefined(cast.id)) throw new Error(Constants.Errors.ERR_BUILDER);
-        this.id = cast && cast.id;
+        if(cast && cast.id) this.id = cast.id;
     }
 
     get id(): number {

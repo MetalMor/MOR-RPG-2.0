@@ -5,7 +5,7 @@ import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntit
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 import {Hiding} from "../../enumerations/Hiding.enumeration";
-import {IStatModificator} from "../../../modificators/interfaces/IStatModificator.interface";
+import {Constants} from "../../../../model/util/classes/Constants.class";
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -18,6 +18,32 @@ export abstract class AbstractItem extends AbstractFieldSet implements IItem {
         var cast = <AbstractItem> obj;
         this.inherits = cast && cast.inherits || new IndexedGameEntityImpl();
         this.hiding = cast && cast.hiding || Hiding.Pocket;
+    }
+
+    addMods(): boolean {
+        var fields = this.fields;
+        // TODO impl
+        return !fields;
+    }
+    getHidingAsString(): string {
+        var ret: string;
+        switch(this.hiding) {
+            case Hiding.Pocket:
+                ret = Constants.Types.TYPE_HID_POCKET;
+                break;
+            case Hiding.Jacket:
+                ret = Constants.Types.TYPE_HID_JACKET;
+                break;
+            case Hiding.Trenchcoat:
+                ret = Constants.Types.TYPE_HID_TRENCHCOAT;
+                break;
+            case Hiding.None:
+                ret = Constants.Types.TYPE_HID_NONE;
+                break;
+            default:
+                throw new Error(Constants.Errors.ERR_HIDTYPE);
+        }
+        return ret;
     }
 
     get id(): number {
@@ -37,12 +63,6 @@ export abstract class AbstractItem extends AbstractFieldSet implements IItem {
     }
     set hiding(_hiding: Hiding) {
         this._hiding = _hiding;
-    }
-
-    addMods(): boolean {
-        var fields = this.fields;
-        // TODO impl
-        return !fields;
     }
 
     equals(obj: IIndexedGameEntity): boolean {

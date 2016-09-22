@@ -5,9 +5,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractFieldSetBuilder_class_1 = require("./AbstractFieldSetBuilder.class");
-var Hiding_enumeration_1 = require("../../../items/enumerations/Hiding.enumeration");
 var ItemImpl_class_1 = require("../../../items/classes/implementation/ItemImpl.class");
-var IndexedGameEntityImpl_class_1 = require("../../../entities/classes/implementation/IndexedGameEntityImpl.class");
+var IndexedGameEntityBuilder_class_1 = require("../implementation/IndexedGameEntityBuilder.class");
 /**
  * Created by becari on 14/09/2016.
  */
@@ -15,8 +14,8 @@ var AbstractItemBuilder = (function (_super) {
     __extends(AbstractItemBuilder, _super);
     function AbstractItemBuilder(obj) {
         _super.call(this, obj);
-        this.inherits = obj && obj.inherits || new IndexedGameEntityImpl_class_1.IndexedGameEntityImpl();
-        this.hiding = obj && obj.hiding || Hiding_enumeration_1.Hiding.Pocket;
+        this.inherits = obj && obj.inherits || (new IndexedGameEntityBuilder_class_1.IndexedGameEntityBuilder()).build();
+        this.hiding = obj && obj.hiding || 3;
     }
     AbstractItemBuilder.prototype.setId = function (_id) {
         this.id = _id;

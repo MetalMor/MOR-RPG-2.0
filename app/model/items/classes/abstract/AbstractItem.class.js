@@ -7,6 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var AbstractFieldSet_class_1 = require("../../../fields/classes/abstract/AbstractFieldSet.class");
 var IndexedGameEntityImpl_class_1 = require("../../../entities/classes/implementation/IndexedGameEntityImpl.class");
 var Hiding_enumeration_1 = require("../../enumerations/Hiding.enumeration");
+var Constants_class_1 = require("../../../../model/util/classes/Constants.class");
 /**
  * Created by Mor on 17/08/2016.
  */
@@ -18,6 +19,31 @@ var AbstractItem = (function (_super) {
         this.inherits = cast && cast.inherits || new IndexedGameEntityImpl_class_1.IndexedGameEntityImpl();
         this.hiding = cast && cast.hiding || Hiding_enumeration_1.Hiding.Pocket;
     }
+    AbstractItem.prototype.addMods = function () {
+        var fields = this.fields;
+        // TODO impl
+        return !fields;
+    };
+    AbstractItem.prototype.getHidingAsString = function () {
+        var ret;
+        switch (this.hiding) {
+            case Hiding_enumeration_1.Hiding.Pocket:
+                ret = Constants_class_1.Constants.Types.TYPE_HID_POCKET;
+                break;
+            case Hiding_enumeration_1.Hiding.Jacket:
+                ret = Constants_class_1.Constants.Types.TYPE_HID_JACKET;
+                break;
+            case Hiding_enumeration_1.Hiding.Trenchcoat:
+                ret = Constants_class_1.Constants.Types.TYPE_HID_TRENCHCOAT;
+                break;
+            case Hiding_enumeration_1.Hiding.None:
+                ret = Constants_class_1.Constants.Types.TYPE_HID_NONE;
+                break;
+            default:
+                throw new Error(Constants_class_1.Constants.Errors.ERR_HIDTYPE);
+        }
+        return ret;
+    };
     Object.defineProperty(AbstractItem.prototype, "id", {
         get: function () {
             return this.inherits.id;
@@ -48,11 +74,6 @@ var AbstractItem = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    AbstractItem.prototype.addMods = function () {
-        var fields = this.fields;
-        // TODO impl
-        return !fields;
-    };
     AbstractItem.prototype.equals = function (obj) {
         return obj && this.inherits.equals(obj);
     };

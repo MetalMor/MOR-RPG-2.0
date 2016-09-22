@@ -1,5 +1,5 @@
 'use strict';
-import {Component, SkipSelf, Optional} from '@angular/core';
+import {Component, SkipSelf, Optional, OnInit} from '@angular/core';
 import {AbstractFieldSet} from "../../../../model/fields/classes/abstract/AbstractFieldSet.class";
 import {AbstractFieldSetBuilder} from "../../../../model/builder/classes/abstract/AbstractFieldSetBuilder.class";
 import {FieldSetBuilder} from "../../../../model/builder/classes/implementation/FieldSetBuilder.class";
@@ -21,7 +21,7 @@ import {TestDataField} from "./TestDataField.component";
     templateUrl: 'app/templates/TestFieldSet.component.html',
     directives: [TestDataField]
 })
-export class TestFieldSet extends AbstractTest implements ITest<AbstractFieldSet> {
+export class TestFieldSet extends AbstractTest implements OnInit, ITest<AbstractFieldSet> {
     _testing: AbstractFieldSet;
 
     constructor(@SkipSelf() @Optional() obj?: TestFieldSet) {

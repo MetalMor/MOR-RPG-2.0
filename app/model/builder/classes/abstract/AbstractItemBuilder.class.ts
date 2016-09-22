@@ -7,6 +7,7 @@ import {Hiding} from "../../../items/enumerations/Hiding.enumeration";
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {ItemImpl} from "../../../items/classes/implementation/ItemImpl.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
+import {IndexedGameEntityBuilder} from "../implementation/IndexedGameEntityBuilder.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -16,8 +17,8 @@ export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implem
 
     constructor(obj?: AbstractItemBuilder) {
         super(obj);
-        this.inherits = obj && obj.inherits || new IndexedGameEntityImpl();
-        this.hiding = obj && obj.hiding || Hiding.Pocket;
+        this.inherits = obj && obj.inherits || (new IndexedGameEntityBuilder()).build();
+        this.hiding = obj && obj.hiding || 3;
     }
 
     setId(_id: number): AbstractItemBuilder {
