@@ -4,7 +4,7 @@ import {StatModificatorType} from "../../enumerations/StatModificatorType.enum";
 import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
 import {IModificable} from "../../interfaces/IModificable.interface";
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
-import {Constants} from "../../../util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 /**
  * Created by Mor on 24/08/2016.
  */

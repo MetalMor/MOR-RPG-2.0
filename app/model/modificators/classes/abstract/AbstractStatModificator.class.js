@@ -7,7 +7,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var StatModificatorType_enum_1 = require("../../enumerations/StatModificatorType.enum");
 var StatFieldImpl_class_1 = require("../../../fields/classes/implementation/StatFieldImpl.class");
 var AbstractGameEntity_class_1 = require("../../../entities/classes/abstract/AbstractGameEntity.class");
-var Constants_class_1 = require("../../../util/classes/Constants.class");
+var Constants_module_1 = require("../../../util/modules/Constants.module");
 /**
  * Created by Mor on 24/08/2016.
  */
@@ -23,11 +23,11 @@ var AbstractStatModificator = (function (_super) {
     AbstractStatModificator.prototype.getTypeAsString = function () {
         switch (this.type) {
             case StatModificatorType_enum_1.StatModificatorType.Level:
-                return Constants_class_1.Constants.Types.TYPE_MOD_LEVEL;
+                return Constants_module_1.Constants.Types.TYPE_MOD_LEVEL;
             case StatModificatorType_enum_1.StatModificatorType.Difficulty:
-                return Constants_class_1.Constants.Types.TYPE_MOD_DIFFICULTY;
+                return Constants_module_1.Constants.Types.TYPE_MOD_DIFFICULTY;
             default:
-                throw new Error(Constants_class_1.Constants.Errors.ERR_MODTYPE);
+                throw new Error(Constants_module_1.Constants.Errors.ERR_MODTYPE);
         }
     };
     AbstractStatModificator.prototype.isType = function (_type) {

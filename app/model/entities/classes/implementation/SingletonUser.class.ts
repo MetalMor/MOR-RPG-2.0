@@ -1,6 +1,6 @@
 'use strict';
 import {AbstractUser} from "../abstract/AbstractUser.class";
-import {Constants} from "../../../util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 /**
  * Created by becari on 31/08/2016.
  */

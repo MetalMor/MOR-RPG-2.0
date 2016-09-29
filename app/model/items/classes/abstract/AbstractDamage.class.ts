@@ -1,7 +1,7 @@
 'use strict';
 import {DamageType} from "../../enumerations/DamageType.enumeration";
 import {IDamage} from "../../interfaces/IDamage.interface";
-import {Constants} from "../../../util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 /**
  * Created by Mor on 24/08/2016.
  */

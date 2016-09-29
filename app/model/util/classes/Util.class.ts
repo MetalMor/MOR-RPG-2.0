@@ -1,5 +1,5 @@
 'use strict';
-import {Constants} from "./Constants.class";
+import {Constants} from "../modules/Constants.module";
 /**
  * Clase de utilidades varias y generales.
  * Created by Mor on 17/08/2016.

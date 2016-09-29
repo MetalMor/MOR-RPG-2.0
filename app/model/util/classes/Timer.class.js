@@ -1,12 +1,13 @@
 'use strict';
-var LoggerBuilder_class_1 = require("../../builder/classes/implementation/LoggerBuilder.class");
+var Log_module_1 = require("../modules/Log.module");
+var LoggerBuilder = Log_module_1.Log.LoggerBuilder;
 /**
  * Clase que representa un temporizador para controlar los tiempos al debugar.
  * Created by Mor on 25/08/2016.
  */
 var Timer = (function () {
     function Timer(obj) {
-        this.logger = obj && obj.logger || (new LoggerBuilder_class_1.LoggerBuilder()).setName("timer").build();
+        this.logger = obj && obj.logger || (new LoggerBuilder()).setSource("timer").build();
         this.time = obj && obj.time || 0;
         this.startTime = obj && obj.startTime || 0;
         this.endTime = obj && obj.endTime || -1;

@@ -1,10 +1,12 @@
 'use strict';
-import {Logger} from "../../../../model/util/classes/Logger.class";
+import {Log} from "../../../../model/util/modules/Log.module";
 import {OnDestroy, OnInit} from "@angular/core";
+import Logger = Log.Logger;
 /**
  * Representa una prueba unitaria.
  * Created by becari on 16/09/2016.
  */
+
 export abstract class AbstractTest implements OnInit, OnDestroy {
     _title: string;
     _logger: Logger;

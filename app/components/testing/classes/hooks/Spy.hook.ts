@@ -1,6 +1,8 @@
 'use strict';
 import {OnDestroy, OnInit, Optional, SkipSelf, Directive} from "@angular/core";
-import {Logger} from "../../../../model/util/classes/Logger.class";
+import {Log} from "../../../../model/util/modules/Log.module";
+import Logger = Log.Logger;
+import LoggerBuilder = Log.LoggerBuilder;
 /**
  * Hook para probar cuándo se llaman los métodos de ciclo de vida de los componentes.
  * Created by becari on 19/09/2016.
@@ -12,8 +14,7 @@ export class SpyDirective implements OnInit, OnDestroy {
     _logger: Logger;
 
     constructor(@SkipSelf() @Optional() obj?: SpyDirective) {
-        this.logger = obj && obj.logger || new Logger();
-        this.logger.name = "spy";
+        this.logger = obj && obj.logger || (new LoggerBuilder()).setSource("spy").build();
     }
 
     ngOnInit() {

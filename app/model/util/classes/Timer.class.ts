@@ -1,7 +1,7 @@
 'use strict';
-import {Logger} from "./Logger.class";
-import {LoggerBuilder} from "../../builder/classes/implementation/LoggerBuilder.class";
-import {AbstractLoggerBuilder} from "../../builder/classes/abstract/AbstractLoggerBuilder.class";
+import {Log} from "../modules/Log.module";
+import Logger = Log.Logger;
+import LoggerBuilder = Log.LoggerBuilder;
 /**
  * Clase que representa un temporizador para controlar los tiempos al debugar.
  * Created by Mor on 25/08/2016.
@@ -14,7 +14,7 @@ export class Timer {
     _on: boolean;
 
     constructor(obj?: Timer) {
-        this.logger = obj && obj.logger || (<AbstractLoggerBuilder> (new LoggerBuilder()).setName("timer")).build();
+        this.logger = obj && obj.logger || (new LoggerBuilder()).setSource("timer").build();
         this.time = obj && obj.time || 0;
         this.startTime = obj && obj.startTime || 0;
         this.endTime = obj && obj.endTime || -1;

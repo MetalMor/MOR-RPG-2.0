@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Constants_class_1 = require("../../../util/classes/Constants.class");
+var Constants_module_1 = require("../../../util/modules/Constants.module");
 var AbstractGame_class_1 = require("../abstract/AbstractGame.class");
 /**
  * Created by becari on 31/08/2016.
@@ -14,7 +14,7 @@ var SingletonGame = (function (_super) {
     function SingletonGame(obj) {
         _super.call(this, obj);
         if (SingletonGame.instance)
-            throw new Error(Constants_class_1.Constants.Errors.ERR_SINGLETON);
+            throw new Error(Constants_module_1.Constants.Errors.ERR_SINGLETON);
         SingletonGame.instance = this; // <-- auto-referencia del singleton aquí
     }
     Object.defineProperty(SingletonGame, "instance", {

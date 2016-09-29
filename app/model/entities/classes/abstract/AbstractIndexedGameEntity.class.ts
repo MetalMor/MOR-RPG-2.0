@@ -1,7 +1,7 @@
 'use strict';
 import {AbstractGameEntity} from './AbstractGameEntity.class';
 import {IIndexedGameEntity} from "../../interfaces/IIndexedGameEntity.interface";
-import {Constants} from "../../../util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 import {Util} from "../../../util/classes/Util.class";
 /**
  * Created by Mor on 15/08/2016.

@@ -5,7 +5,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractUser_class_1 = require("../abstract/AbstractUser.class");
-var Constants_class_1 = require("../../../util/classes/Constants.class");
+var Constants_module_1 = require("../../../util/modules/Constants.module");
 /**
  * Created by becari on 31/08/2016.
  */
@@ -14,7 +14,7 @@ var SingletonUser = (function (_super) {
     function SingletonUser(obj) {
         _super.call(this, obj);
         if (SingletonUser.instance)
-            throw new Error(Constants_class_1.Constants.Errors.ERR_SINGLETON);
+            throw new Error(Constants_module_1.Constants.Errors.ERR_SINGLETON);
         SingletonUser.instance = this; // <-- auto-referencia del singleton aquí
     }
     Object.defineProperty(SingletonUser, "instance", {

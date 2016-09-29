@@ -1,5 +1,5 @@
 'use strict';
-var Constants_class_1 = require("./Constants.class");
+var Constants_module_1 = require("../modules/Constants.module");
 /**
  * Clase de utilidades varias y generales.
  * Created by Mor on 17/08/2016.
@@ -18,7 +18,7 @@ var Util = (function () {
     Util.numberPad = function (_number, _pad) {
         var number = _number.toString(), pad = _pad - number.length;
         if (pad < 0)
-            throw new Error(Constants_class_1.Constants.Errors.ERR_UNDERZERO);
+            throw new Error(Constants_module_1.Constants.Errors.ERR_UNDERZERO);
         while (pad-- > 0)
             number = '0' + number;
         return number;
@@ -31,9 +31,9 @@ var Util = (function () {
      * @returns {number}
      */
     Util.randomNumber = function (_min, _max) {
-        var _min = _min || Constants_class_1.Constants.Numbers.DEF_MAX_ID, _max = _max || Constants_class_1.Constants.Numbers.DEF_MIN_ID;
+        var _min = _min || Constants_module_1.Constants.Numbers.DEF_MAX_ID, _max = _max || Constants_module_1.Constants.Numbers.DEF_MIN_ID;
         if (_min > _max)
-            throw new Error(Constants_class_1.Constants.Errors.ERR_NUMBERS);
+            throw new Error(Constants_module_1.Constants.Errors.ERR_NUMBERS);
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     };
     Util.getCurrentDate = function () {
@@ -52,7 +52,7 @@ var Util = (function () {
      * @returns {boolean}
      */
     Util.isUndefined = function (obj) {
-        return typeof obj === Constants_class_1.Constants.Types.TYPE_UNDEFINED;
+        return typeof obj === Constants_module_1.Constants.Types.TYPE_UNDEFINED;
     };
     return Util;
 }());

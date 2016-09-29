@@ -8,7 +8,7 @@ import {RegularDataFieldBuilder} from "../../../../model/builder/classes/impleme
 import {RegularDataField} from "../../../../model/fields/classes/implementation/RegularDataField.class";
 import {AbstractDataField} from "../../../../model/fields/classes/abstract/AbstractDataField.class";
 import {Util} from "../../../../model/util/classes/Util.class";
-import {Constants} from "../../../../model/util/classes/Constants.class";
+import {Constants} from "../../../../model/util/modules/Constants.module";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {ITest} from "../../interfaces/ITest.interface";
 import {TestDataField} from "./TestDataField.component";

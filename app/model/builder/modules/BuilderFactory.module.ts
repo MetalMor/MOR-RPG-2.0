@@ -19,12 +19,16 @@ export module BuilderFactory {
     }
 
     export class GenericFactory<T extends AbstractGameEntity> extends AbstractFactory<T> {
+        constructor(obj?: GenericFactory<T>) {
+            super(obj);
+        }
+
         create(_type: {new(): IBuilder<T>}): IBuilder<T> {
             return this.getBuilder(_type)
         }
     }
 
-    export class VehicleItemFactory extends AbstractFactory<AbstractItem> implements IFactory<VehicleItemBuilder> {
+    export class VehicleItemFactory extends GenericFactory<AbstractItem> implements IFactory<VehicleItemBuilder> {
         constructor(obj?: VehicleItemFactory) {
             super(obj);
         }
@@ -34,7 +38,7 @@ export module BuilderFactory {
         }
     }
 
-    export class RangedWeaponItemFactory extends AbstractFactory<AbstractItem> implements IFactory<RangedWeaponItemBuilder> {
+    export class RangedWeaponItemFactory extends GenericFactory<AbstractItem> implements IFactory<RangedWeaponItemBuilder> {
         constructor(obj?: RangedWeaponItemFactory) {
             super(obj);
         }
@@ -44,7 +48,7 @@ export module BuilderFactory {
         }
     }
 
-    export class ArmorItemFactory extends AbstractFactory<AbstractItem> implements IFactory<ArmorItemBuilder> {
+    export class ArmorItemFactory extends GenericFactory<AbstractItem> implements IFactory<ArmorItemBuilder> {
         constructor(obj?: ArmorItemFactory) {
             super(obj);
         }

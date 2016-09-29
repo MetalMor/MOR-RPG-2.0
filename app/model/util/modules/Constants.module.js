@@ -50,4 +50,4 @@ var Constants;
     }());
     Constants.Labels = Labels;
 })(Constants = exports.Constants || (exports.Constants = {}));
-//# sourceMappingURL=Constants.class.js.map
+//# sourceMappingURL=Constants.module.js.map

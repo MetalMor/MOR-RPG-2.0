@@ -1,6 +1,6 @@
 'use strict';
 import {AbstractCharacter} from "../abstract/AbstractCharacter.class";
-import {Constants} from "../../../util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 /**
  * Created by Mor on 20/08/2016.
  */

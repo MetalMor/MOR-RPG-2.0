@@ -5,7 +5,7 @@ import {IIndexedGameEntity} from "../../../entities/interfaces/IIndexedGameEntit
 import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/AbstractIndexedGameEntity.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 import {Hiding} from "../../enumerations/Hiding.enumeration";
-import {Constants} from "../../../../model/util/classes/Constants.class";
+import {Constants} from "../../../util/modules/Constants.module";
 /**
  * Created by Mor on 17/08/2016.
  */
