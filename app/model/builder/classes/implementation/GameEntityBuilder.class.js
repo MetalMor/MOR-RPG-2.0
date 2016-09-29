@@ -16,4 +16,4 @@ var GameEntityBuilder = (function (_super) {
     return GameEntityBuilder;
 }(AbstractGameEntityBuilder_class_1.AbstractGameEntityBuilder));
 exports.GameEntityBuilder = GameEntityBuilder;
-//# sourceMappingURL=GameEntityBuilder.js.map
+//# sourceMappingURL=GameEntityBuilder.class.js.map
