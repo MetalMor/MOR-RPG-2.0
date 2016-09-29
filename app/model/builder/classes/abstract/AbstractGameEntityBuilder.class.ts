@@ -2,18 +2,20 @@
 import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {GameEntityImpl} from "../../../entities/classes/implementation/GameEntityImpl.class";
+import {AbstractBuilder} from "./AbstractBuilder.class";
 /**
  * Created by becari on 12/09/2016.
  */
-export abstract class AbstractGameEntityBuilder implements IBuilder<AbstractGameEntity> {
+export abstract class AbstractGameEntityBuilder extends AbstractBuilder implements IBuilder<AbstractGameEntity> {
     _name: string;
 
     constructor(obj?: AbstractGameEntityBuilder) {
+        super(obj);
         this.name = obj && obj.name || "unnamed";
     }
 
     build(): AbstractGameEntity {
-        var ret: AbstractGameEntity = new GameEntityImpl();
+        var ret: AbstractGameEntity = new GameEntityImpl(<AbstractGameEntity> super.build());
         ret.name = this.name;
         return ret;
     }

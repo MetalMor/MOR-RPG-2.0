@@ -10,26 +10,19 @@ import {WeaponItemImpl} from "../../../items/classes/implementation/WeaponItemIm
  */
 export abstract class AbstractWeaponItemBuilder extends AbstractItemBuilder implements IBuilder<AbstractWeaponItem> {
     _damage: AbstractDamage;
-    _dif: number;
 
     constructor(obj?: AbstractWeaponItemBuilder) {
         super(obj);
         this.damage = obj && obj.damage || new DamageImpl();
-        this.dif = obj && obj.dif || 6;
     }
 
     setDamage(_damage: AbstractDamage): AbstractWeaponItemBuilder {
         this.damage = _damage;
         return this;
     }
-    setDif(_dif: number): AbstractWeaponItemBuilder {
-        this.dif = _dif;
-        return this;
-    }
     build(): AbstractWeaponItem {
         var ret: AbstractWeaponItem = new WeaponItemImpl(<AbstractWeaponItem> super.build());
         ret.damage = this.damage;
-        ret.dif = this.dif;
         return ret;
     }
 
@@ -38,11 +31,5 @@ export abstract class AbstractWeaponItemBuilder extends AbstractItemBuilder impl
     }
     set damage(_damage: AbstractDamage) {
         this._damage = _damage;
-    }
-    get dif(): number {
-        return this._dif;
-    }
-    set dif(_dif: number) {
-        this._dif = _dif;
     }
 }

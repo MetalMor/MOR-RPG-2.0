@@ -15,20 +15,14 @@ var AbstractWeaponItemBuilder = (function (_super) {
     function AbstractWeaponItemBuilder(obj) {
         _super.call(this, obj);
         this.damage = obj && obj.damage || new DamageImpl_class_1.DamageImpl();
-        this.dif = obj && obj.dif || 6;
     }
     AbstractWeaponItemBuilder.prototype.setDamage = function (_damage) {
         this.damage = _damage;
         return this;
     };
-    AbstractWeaponItemBuilder.prototype.setDif = function (_dif) {
-        this.dif = _dif;
-        return this;
-    };
     AbstractWeaponItemBuilder.prototype.build = function () {
         var ret = new WeaponItemImpl_class_1.WeaponItemImpl(_super.prototype.build.call(this));
         ret.damage = this.damage;
-        ret.dif = this.dif;
         return ret;
     };
     Object.defineProperty(AbstractWeaponItemBuilder.prototype, "damage", {
@@ -37,16 +31,6 @@ var AbstractWeaponItemBuilder = (function (_super) {
         },
         set: function (_damage) {
             this._damage = _damage;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AbstractWeaponItemBuilder.prototype, "dif", {
-        get: function () {
-            return this._dif;
-        },
-        set: function (_dif) {
-            this._dif = _dif;
         },
         enumerable: true,
         configurable: true

@@ -18,7 +18,7 @@ export module BuilderFactory {
         }
     }
 
-    export class GenericFactory<T extends AbstractGameEntity> extends AbstractFactory<T> {
+    class GenericFactory<T extends AbstractGameEntity> extends AbstractFactory<T> {
         constructor(obj?: GenericFactory<T>) {
             super(obj);
         }

@@ -1,4 +1,9 @@
 'use strict';
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12,8 +17,10 @@ var core_1 = require("@angular/core");
 /**
  * Created by Mor on 15/08/2016.
  */
-var AbstractGameEntity = (function () {
+var AbstractGameEntity = (function (_super) {
+    __extends(AbstractGameEntity, _super);
     function AbstractGameEntity(obj) {
+        _super.call(this, obj);
         var cast = obj;
         this.name = cast && cast.name || "unnamed_" + (new Date()).getTime();
     }
@@ -46,6 +53,6 @@ var AbstractGameEntity = (function () {
         __metadata('design:paramtypes', [Object])
     ], AbstractGameEntity);
     return AbstractGameEntity;
-}());
+}(Object));
 exports.AbstractGameEntity = AbstractGameEntity;
 //# sourceMappingURL=AbstractGameEntity.class.js.map

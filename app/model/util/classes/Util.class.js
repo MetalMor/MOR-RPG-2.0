@@ -36,6 +36,17 @@ var Util = (function () {
             throw new Error(Constants_module_1.Constants.Errors.ERR_NUMBERS);
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     };
+    /**
+     * Retorna el string especificado por parámetro con la primera letra vuelta mayúscula.
+     * @param _string
+     */
+    Util.capitalizeFirst = function (_string) {
+        return _string.charAt(0).toUpperCase() + _string.slice(1);
+    };
+    /**
+     * Obtiene la fecha actual en formato String.
+     * @returns {string}
+     */
     Util.getCurrentDate = function () {
         return (new Date()).toDateString();
     };

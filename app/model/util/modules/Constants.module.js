@@ -7,6 +7,10 @@ var Constants;
     var Errors = (function () {
         function Errors() {
         }
+        Errors.ERR_UNDEFINED_PROPERTY = function (_name) {
+            return Errors.ERR_UNDEFINED + _name;
+        };
+        ;
         Errors.ERR_SINGLETON = "Mendrugo, el Singleton se coge con el método accesor.";
         Errors.ERR_BUILDER = "Objeto construido sin usar el builder correspondiente.";
         Errors.ERR_NUMBERS = "Los números introducidos son erróneos.";
@@ -14,6 +18,7 @@ var Constants;
         Errors.ERR_HIDTYPE = "El nivel de ocultación no se reconoce.";
         Errors.ERR_DMGTYPE = "El tipo de daño no se reconoce.";
         Errors.ERR_UNDERZERO = "No se permite una cifra negativa.";
+        Errors.ERR_UNDEFINED = "No se encuentra la propiedad ";
         return Errors;
     }());
     Constants.Errors = Errors;

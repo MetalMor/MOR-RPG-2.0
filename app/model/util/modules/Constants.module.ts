@@ -10,6 +10,10 @@ export module Constants {
         static ERR_HIDTYPE: string = "El nivel de ocultación no se reconoce.";
         static ERR_DMGTYPE: string = "El tipo de daño no se reconoce.";
         static ERR_UNDERZERO: string = "No se permite una cifra negativa.";
+        static ERR_UNDEFINED: string = "No se encuentra la propiedad ";
+        static ERR_UNDEFINED_PROPERTY(_name: string): string {
+            return Errors.ERR_UNDEFINED + _name;
+        };
     }
 
     export class Numbers {
@@ -34,4 +38,5 @@ export module Constants {
         static ENABLED: string = "Activado";
         static DISABLED: string = "Desactivado";
     }
+
 }

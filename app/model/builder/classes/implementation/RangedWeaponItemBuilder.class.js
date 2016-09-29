@@ -5,7 +5,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractWeaponItemBuilder_class_1 = require("../abstract/AbstractWeaponItemBuilder.class");
-var RangedWeaponItem_class_1 = require("../../../items/classes/implementation/RangedWeaponItem.class");
 /**
  * Created by becari on 14/09/2016.
  */
@@ -13,27 +12,27 @@ var RangedWeaponItemBuilder = (function (_super) {
     __extends(RangedWeaponItemBuilder, _super);
     function RangedWeaponItemBuilder(obj) {
         _super.call(this, obj);
-        this.range = obj && obj.range || 12;
-        this.cadency = obj && obj.cadency || 3;
-        this.capacity = obj && obj.capacity || 6;
+        this.range = obj && obj.range || this.numericDataFieldBuilder.build();
+        this.cadency = obj && obj.cadency || this.numericDataFieldBuilder.build();
+        this.capacity = obj && obj.capacity || this.numericDataFieldBuilder.build();
     }
     RangedWeaponItemBuilder.prototype.setRange = function (_range) {
-        this.range = _range;
+        this.range = this.createNumericDataField("Cadencia", _range);
         return this;
     };
     RangedWeaponItemBuilder.prototype.setCadency = function (_cadency) {
-        this.cadency = _cadency;
+        this.cadency = this.createNumericDataField("Cadencia", _cadency);
         return this;
     };
     RangedWeaponItemBuilder.prototype.setCapacity = function (_capacity) {
-        this.capacity = _capacity;
+        this.capacity = this.createNumericDataField("Capacidad", _capacity);
         return this;
     };
     RangedWeaponItemBuilder.prototype.build = function () {
-        var ret = new RangedWeaponItem_class_1.RangedWeaponItem(_super.prototype.build.call(this));
-        ret.range = this.range;
-        ret.cadency = this.cadency;
-        ret.capacity = this.capacity;
+        var ret = _super.prototype.build.call(this);
+        ret.add(this.range);
+        ret.add(this.cadency);
+        ret.add(this.capacity);
         return ret;
     };
     Object.defineProperty(RangedWeaponItemBuilder.prototype, "range", {

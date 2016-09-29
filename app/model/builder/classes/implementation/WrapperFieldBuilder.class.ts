@@ -5,12 +5,8 @@ import {WrapperFieldImpl} from "../../../fields/classes/implementation/WrapperFi
 /**
  * Created by becari on 14/09/2016.
  */
-export class WrapperFieldBuilder extends AbstractWrapperFieldBuilder implements IBuilder<WrapperFieldImpl> {
+export class WrapperFieldBuilder extends AbstractWrapperFieldBuilder {
     constructor(obj?: WrapperFieldBuilder) {
         super(obj);
-    }
-
-    build(): WrapperFieldImpl {
-        return new WrapperFieldImpl(<WrapperFieldImpl> super.build());
     }
 }

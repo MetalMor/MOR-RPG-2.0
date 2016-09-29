@@ -8,14 +8,14 @@ import {Optional, SkipSelf, Component, Input} from "@angular/core";
  */
 @Component({
     selector: 'test-damage',
-    templateUrl: "app/templates/TestDamage.component.html"
+    templateUrl: "app/templates/testing/TestDamage.component.html"
 })
 export class TestDamage extends AbstractTest implements ITest<AbstractDamage> {
     @Input('testing') _testing: AbstractDamage;
 
     constructor(@SkipSelf() @Optional() obj?: TestDamage) {
         super(obj);
-        this.logger.name = "test_damage";
+        this.logger.source = "test_damage";
     }
 
     test() {

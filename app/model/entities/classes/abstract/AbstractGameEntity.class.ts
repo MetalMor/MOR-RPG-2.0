@@ -8,10 +8,11 @@ import {Component} from "@angular/core";
     selector: 'game-entity',
     templateUrl: 'app/templates/GameEntity.component.html'
 })
-export abstract class AbstractGameEntity implements IGameEntity {
+export abstract class AbstractGameEntity extends Object implements IGameEntity {
     _name: string;
 
     constructor(obj?: IGameEntity) {
+        super(obj);
         var cast = <AbstractGameEntity> obj;
         this.name = cast && cast.name || "unnamed_"+(new Date()).getTime();
     }

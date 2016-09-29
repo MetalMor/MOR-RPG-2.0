@@ -14,7 +14,7 @@ import {AbstractGrantedStatModificator} from "../../../../model/modificators/cla
  */
 @Component({
     selector: 'test-statmodificatorsource',
-    templateUrl: 'app/templates/TestStatModificatorSource.component.html',
+    templateUrl: 'app/templates/testing/TestStatModificatorSource.component.html',
     directives: [TestStatModificator]
 })
 export class TestStatModificatorSource extends AbstractTest implements ITest<AbstractStatModificatorSource> {
@@ -22,7 +22,7 @@ export class TestStatModificatorSource extends AbstractTest implements ITest<Abs
 
     constructor(@SkipSelf() @Optional() obj?: TestStatModificatorSource) {
         super(obj);
-        this.logger.name = "test_statmodificatorsource";
+        this.logger.source = "test_statmodificatorsource";
         this.title = "Prueba MOR - RPG";
     }
 

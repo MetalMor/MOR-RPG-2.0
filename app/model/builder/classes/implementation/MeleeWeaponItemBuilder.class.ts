@@ -1,34 +1,38 @@
 'use strict';
 import {AbstractWeaponItemBuilder} from "../abstract/AbstractWeaponItemBuilder.class";
-import {MeleeWeaponItem} from "../../../items/classes/implementation/MeleeWeaponItem.class";
 import {IBuilder} from "../../interfaces/IBuilder.interface";
-import {AbstractStatField} from "../../../fields/classes/abstract/AbstractStatField.class";
-import {StatFieldImpl} from "../../../fields/classes/implementation/StatFieldImpl.class";
+import {AbstractWeaponItem} from "../../../items/classes/abstract/AbstractWeaponItem.class";
+import {RegularDataField} from "../../../fields/classes/implementation/RegularDataField.class";
+import {RegularDataFieldBuilder} from "./RegularDataFieldBuilder.class";
 /**
  * Created by becari on 14/09/2016.
  */
-export class MeleeWeaponItemBuilder extends AbstractWeaponItemBuilder implements IBuilder<MeleeWeaponItem> {
-    _uses: AbstractStatField;
+export class MeleeWeaponItemBuilder extends AbstractWeaponItemBuilder implements IBuilder<AbstractWeaponItem> {
+    _uses: RegularDataField;
 
     constructor(obj?: MeleeWeaponItemBuilder) {
         super(obj);
-        this.uses = obj && obj.uses || new StatFieldImpl();
+        this.uses = obj && obj.uses || new RegularDataField();
     }
 
-    setUses(_uses: AbstractStatField): MeleeWeaponItemBuilder {
-        this.uses = _uses;
+    setUses(_uses: string): MeleeWeaponItemBuilder {
+        var regularDataFieldBuilder: RegularDataFieldBuilder = new RegularDataFieldBuilder();
+        this.uses = (<RegularDataFieldBuilder> regularDataFieldBuilder.setValue(_uses)
+            .setDesc("Nombre de la estadística que el objeto requiere.")
+            .setName("Utiliza"))
+            .build();
         return this;
     }
-    build(): MeleeWeaponItem {
-        var ret: MeleeWeaponItem = new MeleeWeaponItem(<MeleeWeaponItem> super.build());
-        ret.uses = this.uses;
+    build(): AbstractWeaponItem {
+        var ret: AbstractWeaponItem = super.build();
+        ret.add(this.uses);
         return ret;
     }
 
-    get uses(): AbstractStatField {
+    get uses(): RegularDataField {
         return this._uses;
     }
-    set uses(_uses: AbstractStatField) {
+    set uses(_uses: RegularDataField) {
         this._uses = _uses;
     }
 }

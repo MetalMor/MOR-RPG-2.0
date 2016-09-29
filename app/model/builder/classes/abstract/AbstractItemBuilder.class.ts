@@ -8,15 +8,19 @@ import {AbstractIndexedGameEntity} from "../../../entities/classes/abstract/Abst
 import {ItemImpl} from "../../../items/classes/implementation/ItemImpl.class";
 import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/IndexedGameEntityImpl.class";
 import {IndexedGameEntityBuilder} from "../implementation/IndexedGameEntityBuilder.class";
+import {NumericDataFieldBuilder} from "../implementation/NumericDataFieldBuilder.class";
+import {NumericDataField} from "../../../fields/classes/implementation/NumericDataField.class";
 /**
  * Created by becari on 14/09/2016.
  */
 export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implements IBuilder<AbstractItem> {
     _inherits: IIndexedGameEntity;
     _hiding: Hiding;
+    _numericDataFieldBuilder: NumericDataFieldBuilder;
 
     constructor(obj?: AbstractItemBuilder) {
         super(obj);
+        this.numericDataFieldBuilder = obj && obj.numericDataFieldBuilder || new NumericDataFieldBuilder();
         this.inherits = obj && obj.inherits || (new IndexedGameEntityBuilder()).build();
         this.hiding = obj && obj.hiding || 3;
     }
@@ -33,6 +37,12 @@ export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implem
         this.hiding = _hiding;
         return this;
     }
+    protected createNumericDataField(_name: string, _value: number): NumericDataField {
+        return <NumericDataField> this.numericDataFieldBuilder.create({
+            name: _name,
+            value: _value
+        });
+    }
     build(): AbstractItem {
         var ret: AbstractItem = new ItemImpl(<AbstractItem> super.build());
         ret.inherits = this.inherits;
@@ -45,6 +55,12 @@ export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implem
     }
     set id(_id: number) {
         (<AbstractIndexedGameEntity> this.inherits).id = _id;
+    }
+    get numericDataFieldBuilder(): NumericDataFieldBuilder {
+        return this._numericDataFieldBuilder;
+    }
+    set numericDataFieldBuilder(_numericDataFieldBuilder: NumericDataFieldBuilder) {
+        this._numericDataFieldBuilder = _numericDataFieldBuilder;
     }
     get inherits(): IIndexedGameEntity {
         return this._inherits;

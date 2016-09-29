@@ -34,6 +34,18 @@ export class Util {
         return Math.floor(Math.random()*(_max-_min+1)+_min);
     }
 
+    /**
+     * Retorna el string especificado por parámetro con la primera letra vuelta mayúscula.
+     * @param _string
+     */
+    static capitalizeFirst(_string: string): string {
+        return _string.charAt(0).toUpperCase() + _string.slice(1);
+    }
+
+    /**
+     * Obtiene la fecha actual en formato String.
+     * @returns {string}
+     */
     static getCurrentDate(): string {
         return (new Date()).toDateString();
     }

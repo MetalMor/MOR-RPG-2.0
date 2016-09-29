@@ -8,12 +8,10 @@ import {DamageImpl} from "../implementation/DamageImpl.class";
  */
 export abstract class AbstractWeaponItem extends AbstractItem implements IWeaponItem {
     _damage: AbstractDamage;
-    _dif: number;
 
     constructor(obj?: AbstractWeaponItem) {
         super(obj);
         this.damage = obj && obj.damage || new DamageImpl();
-        this.dif = obj && obj.dif || 6;
     }
 
     getDamageRolls(): number {
@@ -25,11 +23,5 @@ export abstract class AbstractWeaponItem extends AbstractItem implements IWeapon
     }
     set damage(_damage: AbstractDamage) {
         this._damage = _damage;
-    }
-    get dif(): number {
-        return this._dif;
-    }
-    set dif(_dif: number) {
-        this._dif = _dif;
     }
 }

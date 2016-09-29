@@ -9,7 +9,7 @@ import {SpyDirective} from "../hooks/Spy.hook";
  */
 @Component({
     selector: 'test-statmodificator',
-    templateUrl: 'app/templates/TestStatModificator.component.html',
+    templateUrl: 'app/templates/testing/TestStatModificator.component.html',
     directives: [SpyDirective]
 })
 export class TestStatModificator extends AbstractTest implements ITest<AbstractGrantedStatModificator> {
@@ -17,7 +17,7 @@ export class TestStatModificator extends AbstractTest implements ITest<AbstractG
 
     constructor(@SkipSelf() @Optional() obj?: TestStatModificator) {
         super(obj);
-        this.logger.name = "test_statmodificator"
+        this.logger.source = "test_statmodificator"
     }
 
     test() {

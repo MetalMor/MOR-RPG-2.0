@@ -10,7 +10,7 @@ import {StatModificatorSourceBuilder} from "../../../../model/builder/classes/im
  */
 @Component({
     selector: 'test-datafield',
-    templateUrl: 'app/templates/TestDataField.component.html',
+    templateUrl: 'app/templates/testing/TestDataField.component.html',
     directives: [TestStatModificatorSource]
 })
 export class TestDataField extends AbstractTest implements ITest<AbstractDataField> {
@@ -18,7 +18,7 @@ export class TestDataField extends AbstractTest implements ITest<AbstractDataFie
 
     constructor(@SkipSelf() @Optional() obj?: TestDataField) {
         super(obj);
-        this.logger.name = "test_modificatorsource";
+        this.logger.source = "test_modificatorsource";
     }
 
     test() {

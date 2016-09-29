@@ -1,7 +1,6 @@
 <div *ngIf="testing">
     <p>Name: {{ testing.name }}</p>
     <p>Desc: {{ testing.desc }}</p>
-    <p>Difficulty: {{ testing.dif }}</p>
     <p>Hiding: {{ testing.getHidingAsString() }}</p>
     <p>Damage:</p>
     <ul><li><test-damage [testing]="testing.damage"></test-damage></li></ul>

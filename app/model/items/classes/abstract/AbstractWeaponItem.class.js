@@ -14,7 +14,6 @@ var AbstractWeaponItem = (function (_super) {
     function AbstractWeaponItem(obj) {
         _super.call(this, obj);
         this.damage = obj && obj.damage || new DamageImpl_class_1.DamageImpl();
-        this.dif = obj && obj.dif || 6;
     }
     AbstractWeaponItem.prototype.getDamageRolls = function () {
         return this.damage.value;
@@ -25,16 +24,6 @@ var AbstractWeaponItem = (function (_super) {
         },
         set: function (_damage) {
             this._damage = _damage;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AbstractWeaponItem.prototype, "dif", {
-        get: function () {
-            return this._dif;
-        },
-        set: function (_dif) {
-            this._dif = _dif;
         },
         enumerable: true,
         configurable: true

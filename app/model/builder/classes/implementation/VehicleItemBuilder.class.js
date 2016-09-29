@@ -5,7 +5,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractItemBuilder_class_1 = require("../abstract/AbstractItemBuilder.class");
-var VehicleItem_class_1 = require("../../../items/classes/implementation/VehicleItem.class");
 /**
  * Created by becari on 14/09/2016.
  */
@@ -13,27 +12,27 @@ var VehicleItemBuilder = (function (_super) {
     __extends(VehicleItemBuilder, _super);
     function VehicleItemBuilder(obj) {
         _super.call(this, obj);
-        this.safeSpeed = obj && obj.safeSpeed || 95;
-        this.maxSpeed = obj && obj.maxSpeed || 145;
-        this.maneuver = obj && obj.maneuver || 3;
+        this.safeSpeed = obj && obj.safeSpeed || this.numericDataFieldBuilder.build();
+        this.maxSpeed = obj && obj.maxSpeed || this.numericDataFieldBuilder.build();
+        this.maneuver = obj && obj.maneuver || this.numericDataFieldBuilder.build();
     }
     VehicleItemBuilder.prototype.setSafeSpeed = function (_safeSpeed) {
-        this.safeSpeed = _safeSpeed;
+        this.safeSpeed = this.createNumericDataField("Velocidad segura", _safeSpeed);
         return this;
     };
     VehicleItemBuilder.prototype.setMaxSpeed = function (_maxSpeed) {
-        this.maxSpeed = _maxSpeed;
+        this.maxSpeed = this.createNumericDataField("Velocidad máxima", _maxSpeed);
         return this;
     };
     VehicleItemBuilder.prototype.setManeuver = function (_maneuver) {
-        this.maneuver = _maneuver;
+        this.maneuver = this.createNumericDataField("Maniobrabilidad", _maneuver);
         return this;
     };
     VehicleItemBuilder.prototype.build = function () {
-        var ret = new VehicleItem_class_1.VehicleItem(_super.prototype.build.call(this));
-        ret.safeSpeed = this.safeSpeed;
-        ret.maxSpeed = this.maxSpeed;
-        ret.maneuver = this.maneuver;
+        var ret = _super.prototype.build.call(this);
+        ret.add(this.safeSpeed);
+        ret.add(this.maxSpeed);
+        ret.add(this.maneuver);
         return ret;
     };
     Object.defineProperty(VehicleItemBuilder.prototype, "safeSpeed", {

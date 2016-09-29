@@ -18,7 +18,7 @@ import {TestDataField} from "./TestDataField.component";
  */
 @Component({
     selector: 'test-fieldset',
-    templateUrl: 'app/templates/TestFieldSet.component.html',
+    templateUrl: 'app/templates/testing/TestFieldSet.component.html',
     directives: [TestDataField]
 })
 export class TestFieldSet extends AbstractTest implements OnInit, ITest<AbstractFieldSet> {
@@ -27,7 +27,7 @@ export class TestFieldSet extends AbstractTest implements OnInit, ITest<Abstract
     constructor(@SkipSelf() @Optional() obj?: TestFieldSet) {
         super(obj);
         this.title = "Prueba MOR - RPG";
-        this.logger.name = "test_fieldset";
+        this.logger.source = "test_fieldset";
     }
 
     test() {
@@ -38,12 +38,20 @@ export class TestFieldSet extends AbstractTest implements OnInit, ITest<Abstract
             field: AbstractDataField, numberPad: string, counter: number;
         for(counter = 0; counter < 10; counter++) {
             numberPad = Util.numberPad(counter, 2);
-            fieldBuilder.setEnabled(true)
+            /*fieldBuilder.setEnabled(true)
                 .setDesc("Campo número #" + counter + "de la tabla.")
                 .setName("Field#" + numberPad);
-            fields.push(fieldBuilder.build());
+            field = fieldBuilder.build()
+            */
+            field = fieldBuilder.create({
+                desc: "Campo número #" + counter + "de la tabla.",
+                name: "Field#" + numberPad,
+                enabled: true
+            });
+            fields.push(field);
             this.logger.log("Built field #"+numberPad);
         }
+
         fieldSetBuilder.setFields(fields)
             .setEnabled(true)
             .setDesc("Tabla de campos de prueba")
