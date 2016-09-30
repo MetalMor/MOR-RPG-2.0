@@ -1,5 +1,7 @@
 'use strict';
 import {Constants} from "../modules/Constants.module";
+import {IBuilder} from "../../builder/interfaces/IBuilder.interface";
+import {AbstractGameEntity} from "../../entities/classes/abstract/AbstractGameEntity.class";
 /**
  * Clase de utilidades varias y generales.
  * Created by Mor on 17/08/2016.
@@ -32,6 +34,18 @@ export class Util {
             _max: number = _max || Constants.Numbers.DEF_MIN_ID;
         if(_min > _max) throw new Error(Constants.Errors.ERR_NUMBERS);
         return Math.floor(Math.random()*(_max-_min+1)+_min);
+    }
+
+    /**
+     * A partir de un parámetro constructor de objeto, retorna el constructor de su clase Builder correspondiente.
+     * @param _type Clase de la cual necesitamos el builder.
+     * @returns {IConstructor<IBuilder<T>>}
+     */
+    static getBuilderType<T extends AbstractGameEntity>(_type: IConstructor<T>): IConstructor<IBuilder<T>> {
+        var typeName: string = _type.name, index: number;
+        if((index = typeName.indexOf("Impl")) > 0) typeName.substring(index, typeName.length);
+        typeName += "Builder";
+        return <IConstructor<IBuilder<T>>> eval(typeName);
     }
 
     /**

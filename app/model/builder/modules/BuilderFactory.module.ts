@@ -1,60 +1,21 @@
 'use strict';
 import {IBuilder} from "../interfaces/IBuilder.interface";
-import {IFactory} from "../interfaces/IFactory.interface";
-import {VehicleItemBuilder} from "../classes/implementation/VehicleItemBuilder.class";
-import {AbstractItem} from "../../items/classes/abstract/AbstractItem.class";
 import {AbstractGameEntity} from "../../entities/classes/abstract/AbstractGameEntity.class";
-import {RangedWeaponItemBuilder} from "../classes/implementation/RangedWeaponItemBuilder.class";
-import {ArmorItemBuilder} from "../classes/implementation/ArmorItemBuilder.class";
+import {Util} from "../../util/classes/Util.class";
 /**
  * Created by becari on 29/09/2016.
  */
 export module BuilderFactory {
-    abstract class AbstractFactory<T extends AbstractGameEntity> {
-        constructor(obj?: AbstractFactory<T>) { }
+    export class GenericFactory {
+        constructor(obj?: GenericFactory) { }
 
-        protected getBuilder<B extends IBuilder<T>>(_type: {new(): B}): B {
+        protected static getBuilder<T extends AbstractGameEntity>(_type: IConstructor<IBuilder<T>>): IBuilder<T> {
             return new _type();
         }
-    }
-
-    class GenericFactory<T extends AbstractGameEntity> extends AbstractFactory<T> {
-        constructor(obj?: GenericFactory<T>) {
-            super(obj);
-        }
-
-        create(_type: {new(): IBuilder<T>}): IBuilder<T> {
-            return this.getBuilder(_type)
-        }
-    }
-
-    export class VehicleItemFactory extends GenericFactory<AbstractItem> implements IFactory<VehicleItemBuilder> {
-        constructor(obj?: VehicleItemFactory) {
-            super(obj);
-        }
-
-        create(): VehicleItemBuilder {
-            return this.getBuilder(VehicleItemBuilder);
-        }
-    }
-
-    export class RangedWeaponItemFactory extends GenericFactory<AbstractItem> implements IFactory<RangedWeaponItemBuilder> {
-        constructor(obj?: RangedWeaponItemFactory) {
-            super(obj);
-        }
-
-        create(): RangedWeaponItemBuilder {
-            return this.getBuilder(RangedWeaponItemBuilder);
-        }
-    }
-
-    export class ArmorItemFactory extends GenericFactory<AbstractItem> implements IFactory<ArmorItemBuilder> {
-        constructor(obj?: ArmorItemFactory) {
-            super(obj);
-        }
-
-        create(): ArmorItemBuilder {
-            return this.getBuilder(ArmorItemBuilder);
+        static create<T extends AbstractGameEntity>(_type: IConstructor<T>): IBuilder<T> {
+            //return this.getBuilder(<Constructor<IBuilder<T>>>[_type.name + "Builder"].constructor)
+            var _builderType: IConstructor<IBuilder<T>> = Util.getBuilderType(_type);
+            return this.getBuilder(_builderType);
         }
     }
 }

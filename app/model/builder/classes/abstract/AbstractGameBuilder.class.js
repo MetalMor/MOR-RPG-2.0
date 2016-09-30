@@ -72,4 +72,4 @@ var AbstractGameBuilder = (function (_super) {
     return AbstractGameBuilder;
 }(AbstractIndexedGameEntityBuilder_class_1.AbstractIndexedGameEntityBuilder));
 exports.AbstractGameBuilder = AbstractGameBuilder;
-//# sourceMappingURL=AbstractGameBuilder.js.map
+//# sourceMappingURL=AbstractGameBuilder.class.js.map

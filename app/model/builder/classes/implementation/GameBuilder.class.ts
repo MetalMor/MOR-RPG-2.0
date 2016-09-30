@@ -1,5 +1,5 @@
 'use strict';
-import {AbstractGameBuilder} from "../abstract/AbstractGameBuilder";
+import {AbstractGameBuilder} from "../abstract/AbstractGameBuilder.class";
 /**
  * Created by becari on 14/09/2016.
  */

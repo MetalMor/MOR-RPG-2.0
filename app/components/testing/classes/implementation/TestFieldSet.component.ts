@@ -12,6 +12,9 @@ import {Constants} from "../../../../model/util/modules/Constants.module";
 import {AbstractTest} from "../abstract/AbstractTest.class";
 import {ITest} from "../../interfaces/ITest.interface";
 import {TestDataField} from "./TestDataField.component";
+import {BuilderFactory} from "../../../../model/builder/modules/BuilderFactory.module";
+import GenericFactory = BuilderFactory.GenericFactory;
+import {Builders} from "../../../../model/util/classes/Builders.class";
 /**
  * Prueba unitaria FieldSet
  * Created by becari on 18/07/2016.
@@ -34,15 +37,19 @@ export class TestFieldSet extends AbstractTest implements OnInit, ITest<Abstract
         super.test();
         var fieldSetBuilder: AbstractFieldSetBuilder = new FieldSetBuilder(),
             fieldBuilder: AbstractDataFieldBuilder = new RegularDataFieldBuilder(),
-            fields: AbstractDataField[] = new Array<RegularDataField>(),
-            field: AbstractDataField, numberPad: string, counter: number;
-        for(counter = 0; counter < 10; counter++) {
+            fields: AbstractDataField[] = new Array<RegularDataField>();
+        for(let numberPad: string,
+                field: AbstractDataField,
+                counter: number = 0;
+            counter < 10;
+            counter++) {
             numberPad = Util.numberPad(counter, 2);
-            /*fieldBuilder.setEnabled(true)
-                .setDesc("Campo número #" + counter + "de la tabla.")
-                .setName("Field#" + numberPad);
-            field = fieldBuilder.build()
-            */
+            field = Builders.create(RegularDataField,
+                {
+                    desc: "Campo número #" + counter + "de la tabla.",
+                    name: "Field#" + numberPad,
+                    enabled: true
+                });
             field = fieldBuilder.create({
                 desc: "Campo número #" + counter + "de la tabla.",
                 name: "Field#" + numberPad,
