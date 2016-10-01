@@ -45,6 +45,9 @@ var AbstractWrapperStatField = (function (_super) {
     AbstractWrapperStatField.prototype.add = function (field) {
         return this.inherits.add(field);
     };
+    AbstractWrapperStatField.prototype.addAll = function (fields) {
+        return this.inherits.addAll(fields);
+    };
     AbstractWrapperStatField.prototype.remove = function (field) {
         return this.inherits.remove(field);
     };

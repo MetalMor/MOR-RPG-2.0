@@ -31,11 +31,11 @@ var Timer = (function () {
      */
     Timer.prototype.stop = function (log) {
         if (this.on) {
-            this.on = false;
-            this.startTime = 0;
             this.endTime = Timer.currentTimeInMillis();
             if (log)
-                this.logger.log("Time elapsed: " + this.endTime);
+                this.logger.log("Time elapsed: " + (this.endTime - this.startTime) / 1000);
+            this.on = false;
+            this.startTime = 0;
             return this.endTime;
         }
         else if (log)

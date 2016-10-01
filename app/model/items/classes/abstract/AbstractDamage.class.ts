@@ -2,14 +2,16 @@
 import {DamageType} from "../../enumerations/DamageType.enumeration";
 import {IDamage} from "../../interfaces/IDamage.interface";
 import {Constants} from "../../../util/modules/Constants.module";
+import {AbstractGameEntity} from "../../../entities/classes/abstract/AbstractGameEntity.class";
 /**
  * Created by Mor on 24/08/2016.
  */
-export abstract class AbstractDamage implements IDamage {
+export abstract class AbstractDamage extends AbstractGameEntity implements IDamage {
     _value: number;
     _type: DamageType;
 
     constructor(obj?: AbstractDamage) {
+        super(obj);
         this.value = obj && obj.value || 1;
         this.type = obj && obj.type || DamageType.Bashing;
     }

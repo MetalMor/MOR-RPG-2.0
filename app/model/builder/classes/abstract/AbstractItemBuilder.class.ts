@@ -10,6 +10,7 @@ import {IndexedGameEntityImpl} from "../../../entities/classes/implementation/In
 import {IndexedGameEntityBuilder} from "../implementation/IndexedGameEntityBuilder.class";
 import {NumericDataFieldBuilder} from "../implementation/NumericDataFieldBuilder.class";
 import {NumericDataField} from "../../../fields/classes/implementation/NumericDataField.class";
+import {Builders} from "../../../util/classes/Builders.class";
 /**
  * Created by becari on 14/09/2016.
  */
@@ -38,10 +39,12 @@ export abstract class AbstractItemBuilder extends AbstractFieldSetBuilder implem
         return this;
     }
     protected createNumericDataField(_name: string, _value: number): NumericDataField {
-        return <NumericDataField> this.numericDataFieldBuilder.create({
-            name: _name,
-            value: _value
-        });
+        return Builders.create<NumericDataField>
+        (NumericDataFieldBuilder,
+            {
+                name: _name,
+                value: _value
+            });
     }
     build(): AbstractItem {
         var ret: AbstractItem = new ItemImpl(<AbstractItem> super.build());

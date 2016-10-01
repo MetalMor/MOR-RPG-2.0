@@ -8,6 +8,7 @@ var AbstractFieldSetBuilder_class_1 = require("./AbstractFieldSetBuilder.class")
 var ItemImpl_class_1 = require("../../../items/classes/implementation/ItemImpl.class");
 var IndexedGameEntityBuilder_class_1 = require("../implementation/IndexedGameEntityBuilder.class");
 var NumericDataFieldBuilder_class_1 = require("../implementation/NumericDataFieldBuilder.class");
+var Builders_class_1 = require("../../../util/classes/Builders.class");
 /**
  * Created by becari on 14/09/2016.
  */
@@ -32,7 +33,7 @@ var AbstractItemBuilder = (function (_super) {
         return this;
     };
     AbstractItemBuilder.prototype.createNumericDataField = function (_name, _value) {
-        return this.numericDataFieldBuilder.create({
+        return Builders_class_1.Builders.create(NumericDataFieldBuilder_class_1.NumericDataFieldBuilder, {
             name: _name,
             value: _value
         });

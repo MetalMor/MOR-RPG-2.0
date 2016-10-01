@@ -3,14 +3,16 @@ import {AbstractDamage} from "../../../items/classes/abstract/AbstractDamage.cla
 import {IBuilder} from "../../interfaces/IBuilder.interface";
 import {DamageType} from "../../../items/enumerations/DamageType.enumeration";
 import {DamageImpl} from "../../../items/classes/implementation/DamageImpl.class";
+import {AbstractGameEntityBuilder} from "./AbstractGameEntityBuilder.class";
 /**
  * Created by becari on 14/09/2016.
  */
-export abstract class AbstractDamageBuilder implements IBuilder<AbstractDamage> {
+export abstract class AbstractDamageBuilder extends AbstractGameEntityBuilder implements IBuilder<AbstractDamage> {
     _value: number;
     _type: DamageType;
 
     constructor(obj?: AbstractDamageBuilder) {
+        super(obj);
         this.value = obj && obj.value || 1;
         this.type = obj && obj.type || DamageType.Bashing;
     }

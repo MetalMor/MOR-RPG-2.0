@@ -7,5 +7,6 @@ export interface IFieldSet extends IField {
     get(_field: IField): IField;
     set(_field: IField): boolean;
     add(_field: IField): boolean;
+    addAll(_fields: IField[]): boolean;
     remove(_field: IField): boolean;
 }

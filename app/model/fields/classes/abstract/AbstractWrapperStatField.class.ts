@@ -39,6 +39,9 @@ export abstract class AbstractWrapperStatField extends AbstractStatField impleme
     add(field: IStat): boolean {
         return this.inherits.add(field);
     }
+    addAll(fields: IStat[]): boolean {
+        return this.inherits.addAll(fields);
+    }
     remove(field: IStat): boolean {
         return this.inherits.remove(field);
     }

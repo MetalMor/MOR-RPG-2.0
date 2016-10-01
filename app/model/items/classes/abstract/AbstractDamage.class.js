@@ -1,11 +1,19 @@
 'use strict';
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var DamageType_enumeration_1 = require("../../enumerations/DamageType.enumeration");
 var Constants_module_1 = require("../../../util/modules/Constants.module");
+var AbstractGameEntity_class_1 = require("../../../entities/classes/abstract/AbstractGameEntity.class");
 /**
  * Created by Mor on 24/08/2016.
  */
-var AbstractDamage = (function () {
+var AbstractDamage = (function (_super) {
+    __extends(AbstractDamage, _super);
     function AbstractDamage(obj) {
+        _super.call(this, obj);
         this.value = obj && obj.value || 1;
         this.type = obj && obj.type || DamageType_enumeration_1.DamageType.Bashing;
     }
@@ -47,6 +55,6 @@ var AbstractDamage = (function () {
         configurable: true
     });
     return AbstractDamage;
-}());
+}(AbstractGameEntity_class_1.AbstractGameEntity));
 exports.AbstractDamage = AbstractDamage;
 //# sourceMappingURL=AbstractDamage.class.js.map

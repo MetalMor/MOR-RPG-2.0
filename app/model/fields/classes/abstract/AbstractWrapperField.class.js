@@ -70,6 +70,9 @@ var AbstractWrapperField = (function (_super) {
     AbstractWrapperField.prototype.add = function (field) {
         return this.inherits.add(field);
     };
+    AbstractWrapperField.prototype.addAll = function (fields) {
+        return this.inherits.addAll(fields);
+    };
     AbstractWrapperField.prototype.remove = function (field) {
         return this.inherits.remove(field);
     };

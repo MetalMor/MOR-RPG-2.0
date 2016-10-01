@@ -37,18 +37,6 @@ var Util = (function () {
         return Math.floor(Math.random() * (_max - _min + 1) + _min);
     };
     /**
-     * A partir de un parámetro constructor de objeto, retorna el constructor de su clase Builder correspondiente.
-     * @param _type Clase de la cual necesitamos el builder.
-     * @returns {IConstructor<IBuilder<T>>}
-     */
-    Util.getBuilderType = function (_type) {
-        var typeName = _type.name, index;
-        if ((index = typeName.indexOf("Impl")) > 0)
-            typeName.substring(index, typeName.length);
-        typeName += "Builder";
-        return eval(typeName);
-    };
-    /**
      * Retorna el string especificado por parámetro con la primera letra vuelta mayúscula.
      * @param _string
      */

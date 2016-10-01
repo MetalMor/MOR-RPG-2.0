@@ -37,18 +37,6 @@ export class Util {
     }
 
     /**
-     * A partir de un parámetro constructor de objeto, retorna el constructor de su clase Builder correspondiente.
-     * @param _type Clase de la cual necesitamos el builder.
-     * @returns {IConstructor<IBuilder<T>>}
-     */
-    static getBuilderType<T extends AbstractGameEntity>(_type: IConstructor<T>): IConstructor<IBuilder<T>> {
-        var typeName: string = _type.name, index: number;
-        if((index = typeName.indexOf("Impl")) > 0) typeName.substring(index, typeName.length);
-        typeName += "Builder";
-        return <IConstructor<IBuilder<T>>> eval(typeName);
-    }
-
-    /**
      * Retorna el string especificado por parámetro con la primera letra vuelta mayúscula.
      * @param _string
      */

@@ -9,10 +9,6 @@ import {GameEntityImpl} from "../../../entities/classes/implementation/GameEntit
 export abstract class AbstractBuilder implements IBuilder<Object>{
     constructor(obj?: AbstractBuilder) { }
 
-    create(_props: Object): any {
-        return Builders.create(GameEntityImpl, _props);
-    }
-
     build(): Object {
         return new Object();
     }

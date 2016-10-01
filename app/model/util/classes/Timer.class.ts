@@ -40,10 +40,10 @@ export class Timer {
      */
     stop(log?: boolean): number {
         if(this.on) {
+            this.endTime = Timer.currentTimeInMillis();
+            if(log) this.logger.log("Time elapsed: " + (this.endTime - this.startTime)/1000);
             this.on = false;
             this.startTime = 0;
-            this.endTime = Timer.currentTimeInMillis();
-            if(log) this.logger.log("Time elapsed: " + this.endTime);
             return this.endTime;
         } else if(log) this.logger.log("Timer off");
         return -1;

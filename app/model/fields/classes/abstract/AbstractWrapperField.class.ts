@@ -64,6 +64,9 @@ export abstract class AbstractWrapperField extends AbstractField implements IWra
     add(field: IField): boolean {
         return this.inherits.add(field);
     }
+    addAll(fields: IField[]): boolean {
+        return this.inherits.addAll(fields);
+    }
     remove(field: IField): boolean {
         return this.inherits.remove(field);
     }

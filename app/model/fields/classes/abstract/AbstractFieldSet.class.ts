@@ -23,12 +23,16 @@ export abstract class AbstractFieldSet extends AbstractField implements IFieldSe
         this._fields = _fields;
     }
 
+    addAll(_fields: IField[]): boolean {
+        var self: AbstractFieldSet = this;
+        return _fields.every(self.add.bind(self));
+    }
     get(_field: IField): IField {
         return <IField> Arrays.get(this.fields, _field);
     }
     add(_field: IField): boolean {
         var cast: AbstractField = <AbstractField> _field;
-        cast.parent = this;
+        cast.onAppend(this);
         return Arrays.add(this.fields, cast);
     }
     remove(_field: IField): boolean {

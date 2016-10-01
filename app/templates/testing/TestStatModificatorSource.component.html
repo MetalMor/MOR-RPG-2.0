@@ -1,9 +1,0 @@
-<div *ngIf="testing" (load)="test()">
-    <p>Name: {{ testing.name }}</p>
-    <p>Modifies:</p>
-    <ul>
-        <li *ngFor="let mod of testing.grants">
-            <test-statmodificator [testing]="mod"></test-statmodificator>
-        </li>
-    </ul>
-</div>

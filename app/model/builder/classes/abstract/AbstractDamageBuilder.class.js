@@ -1,11 +1,19 @@
 'use strict';
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var DamageType_enumeration_1 = require("../../../items/enumerations/DamageType.enumeration");
 var DamageImpl_class_1 = require("../../../items/classes/implementation/DamageImpl.class");
+var AbstractGameEntityBuilder_class_1 = require("./AbstractGameEntityBuilder.class");
 /**
  * Created by becari on 14/09/2016.
  */
-var AbstractDamageBuilder = (function () {
+var AbstractDamageBuilder = (function (_super) {
+    __extends(AbstractDamageBuilder, _super);
     function AbstractDamageBuilder(obj) {
+        _super.call(this, obj);
         this.value = obj && obj.value || 1;
         this.type = obj && obj.type || DamageType_enumeration_1.DamageType.Bashing;
     }
@@ -44,6 +52,6 @@ var AbstractDamageBuilder = (function () {
         configurable: true
     });
     return AbstractDamageBuilder;
-}());
+}(AbstractGameEntityBuilder_class_1.AbstractGameEntityBuilder));
 exports.AbstractDamageBuilder = AbstractDamageBuilder;
 //# sourceMappingURL=AbstractDamageBuilder.class.js.map

@@ -26,12 +26,16 @@ var AbstractFieldSet = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    AbstractFieldSet.prototype.addAll = function (_fields) {
+        var self = this;
+        return _fields.every(self.add.bind(self));
+    };
     AbstractFieldSet.prototype.get = function (_field) {
         return Arrays_class_1.Arrays.get(this.fields, _field);
     };
     AbstractFieldSet.prototype.add = function (_field) {
         var cast = _field;
-        cast.parent = this;
+        cast.onAppend(this);
         return Arrays_class_1.Arrays.add(this.fields, cast);
     };
     AbstractFieldSet.prototype.remove = function (_field) {

@@ -1,0 +1,6 @@
+<label>Name: {{ name }}</label>
+<ul>
+    <li *ngFor="let field of fields">
+        <test-datafield [this]="field"></test-datafield>
+    </li>
+</ul>
